@@ -1,2 +1,2 @@
 # semantic_parsing_experiments
-working on implementing https://drive.google.com/file/d/1rDD3drbD1KOxNMZs-C-P_8ypoj9uLRcz/view initially
+working on implementing https://drive.google.com/file/d/1rDD3drbD1KOxNMZs-C-P_8ypoj9uLRcz/view initially, but eventually, there will hopefully be progress on more, which will be explained here later
