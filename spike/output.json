@@ -1,0 +1,243 @@
+{
+  "input": "Every researcher reviewed a paper",
+  "tokens": [
+    "every",
+    "researcher",
+    "reviewed",
+    "a",
+    "paper"
+  ],
+  "nodes": 9,
+  "edges": 10,
+  "construction_status": "complete",
+  "decision": "ambiguous",
+  "root": [
+    0,
+    5,
+    "S[fin]"
+  ],
+  "root_edges": 1,
+  "best_cost": 10,
+  "readings": [
+    {
+      "normalized": "(ExistsE (lam E (And (ForallE (lam E (Implies (Researcher #0) (ExistsV (lam V (And (Agent #0 #1) (And (Past #0) (And (Review #0) (Theme #0 #2))))))))) (Paper #0))))",
+      "pretty": "exists x0. (forall x1. (Researcher(x1) -> exists e2. (Agent(e2, x1) & Past(e2) & Review(e2) & Theme(e2, x0))) & Paper(x0))",
+      "raw": "(ExistsE (lam E (And (Paper #0) (ForallE (lam E (Implies (Researcher #0) (ExistsV (lam V (And (Review #0) (And (Agent #0 #1) (And (Theme #0 #2) (And (Past #0) Top))))))))))))",
+      "derivations": [
+        {
+          "cost": 10,
+          "witness": {
+            "rule": "BA",
+            "span": [
+              0,
+              5
+            ],
+            "category": "S[fin]",
+            "children": [
+              {
+                "rule": "FA",
+                "span": [
+                  0,
+                  2
+                ],
+                "category": "NP",
+                "children": [
+                  {
+                    "lex": "every.det",
+                    "at": 0
+                  },
+                  {
+                    "lex": "researcher.n",
+                    "at": 1
+                  }
+                ]
+              },
+              {
+                "rule": "FA",
+                "span": [
+                  2,
+                  5
+                ],
+                "category": "(S[fin]\\NP)",
+                "children": [
+                  {
+                    "lex": "review.tv.object-wide",
+                    "at": 2
+                  },
+                  {
+                    "rule": "FA",
+                    "span": [
+                      3,
+                      5
+                    ],
+                    "category": "NP",
+                    "children": [
+                      {
+                        "lex": "a.det",
+                        "at": 3
+                      },
+                      {
+                        "lex": "paper.n",
+                        "at": 4
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "cost": 10
+    },
+    {
+      "normalized": "(ForallE (lam E (Implies (Researcher #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Past #0) (And (Review #0) (Theme #0 #1)))))) (Paper #0)))))))",
+      "pretty": "forall x0. (Researcher(x0) -> exists x1. (exists e2. (Agent(e2, x0) & Past(e2) & Review(e2) & Theme(e2, x1)) & Paper(x1)))",
+      "raw": "(ForallE (lam E (Implies (Researcher #0) (ExistsE (lam E (And (Paper #0) (ExistsV (lam V (And (Review #0) (And (Agent #0 #2) (And (Theme #0 #1) (And (Past #0) Top))))))))))))",
+      "derivations": [
+        {
+          "cost": 10,
+          "witness": {
+            "rule": "BA",
+            "span": [
+              0,
+              5
+            ],
+            "category": "S[fin]",
+            "children": [
+              {
+                "rule": "FA",
+                "span": [
+                  0,
+                  2
+                ],
+                "category": "NP",
+                "children": [
+                  {
+                    "lex": "every.det",
+                    "at": 0
+                  },
+                  {
+                    "lex": "researcher.n",
+                    "at": 1
+                  }
+                ]
+              },
+              {
+                "rule": "FA",
+                "span": [
+                  2,
+                  5
+                ],
+                "category": "(S[fin]\\NP)",
+                "children": [
+                  {
+                    "lex": "review.tv.subject-wide",
+                    "at": 2
+                  },
+                  {
+                    "rule": "FA",
+                    "span": [
+                      3,
+                      5
+                    ],
+                    "category": "NP",
+                    "children": [
+                      {
+                        "lex": "a.det",
+                        "at": 3
+                      },
+                      {
+                        "lex": "paper.n",
+                        "at": 4
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "cost": 10
+    }
+  ],
+  "worlds": {
+    "separating": {
+      "exists x0. (forall x1. (Researcher(x1) -> exists e2. (Agent(e2, x1) & Past(e2) & Review(e2) & Theme(e2, x0))) & Paper(x0))": false,
+      "forall x0. (Researcher(x0) -> exists x1. (exists e2. (Agent(e2, x0) & Past(e2) & Review(e2) & Theme(e2, x1)) & Paper(x1)))": true
+    },
+    "shared_paper": {
+      "exists x0. (forall x1. (Researcher(x1) -> exists e2. (Agent(e2, x1) & Past(e2) & Review(e2) & Theme(e2, x0))) & Paper(x0))": true,
+      "forall x0. (Researcher(x0) -> exists x1. (exists e2. (Agent(e2, x0) & Past(e2) & Review(e2) & Theme(e2, x1)) & Paper(x1)))": true
+    }
+  },
+  "separating_world": {
+    "entities": [
+      "r1",
+      "r2",
+      "p1",
+      "p2"
+    ],
+    "events": [
+      "e1",
+      "e2"
+    ],
+    "facts": {
+      "Researcher": [
+        [
+          "r1"
+        ],
+        [
+          "r2"
+        ]
+      ],
+      "Paper": [
+        [
+          "p1"
+        ],
+        [
+          "p2"
+        ]
+      ],
+      "Review": [
+        [
+          "e1"
+        ],
+        [
+          "e2"
+        ]
+      ],
+      "Past": [
+        [
+          "e1"
+        ],
+        [
+          "e2"
+        ]
+      ],
+      "Agent": [
+        [
+          "e1",
+          "r1"
+        ],
+        [
+          "e2",
+          "r2"
+        ]
+      ],
+      "Theme": [
+        [
+          "e1",
+          "p1"
+        ],
+        [
+          "e2",
+          "p2"
+        ]
+      ]
+    }
+  },
+  "digest": "a1d3faa25dfe95505414ac181a1907b3006a28eceb0dcfe30e5fb17f1dc3d560",
+  "digest_with_reversed_lexicon": "a1d3faa25dfe95505414ac181a1907b3006a28eceb0dcfe30e5fb17f1dc3d560"
+}
