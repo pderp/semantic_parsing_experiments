@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-21 · seed-1.1 article agreement
+
+Applied the sponsor-approved existential article rule after the dry run found 876 affected sentences. The bundle exposes 57 tokens and 179 lexical entries. Both articles use the same existential recipe. Tested the required and rejected spelling for all 20 nouns in four NP positions. A cross-version replay also checked all 12 reconciled fixtures and 392 public variants, including ranked witnesses. Public capacity remains 150 primary families and 392 determiner variants. Review of the controlled-pilot interpretation and release scope went to ClaudeScope in MCP message 57. D owns regeneration and corpus release. [Protocol](../../spec/contract.md) · [Witness inventory rules](../../spec/witness-v1.md)
+
 ## 2026-11-21 · stage 1 promotion and first end-to-end reference parser
 
 Verified the reconciled fixtures, reviewed the sign-off record, and promoted the sponsor-approved contract, ontology and configuration to `seed-1.0` in `950e90e`. The fixture artifacts retain their original draft identity. The [witness contract revision](../../spec/witness-v1.md) answers all 15 open questions separately from the reading freeze.

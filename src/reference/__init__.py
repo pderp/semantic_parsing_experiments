@@ -63,6 +63,9 @@ class PackedForest:
             for start in range(len(tokens) - width + 1):
                 end = start + width
                 for entry_id in self.bundle.by_surface.get(tuple(tokens[start:end]), ()):
+                    allowed = self.bundle.next_nouns.get(entry_id)
+                    if allowed is not None and (end == len(tokens) or tokens[end] not in allowed):
+                        continue
                     entry = grammar.entries[entry_id]
                     self.insert(Node(start, end, entry.category), Edge(entry_id))
                 for split in range(start + 1, end):

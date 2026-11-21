@@ -1,6 +1,6 @@
 # Controlled English semantic parser · M01 public contract
 
-**Part 1, proposed for cross-review.** Version `seed-1.0` specifies which controlled sentences and meanings the seed licenses. D can enumerate families and B can derive expected outputs from this public specification once the review is accepted. Signed run thresholds and the independent fixture readings belong to later handoffs. The spike provides a replayable example. [Seed ontology](ontology.yaml) · [Spike questions](../spike/README.md) · [Transfer protocol](../docs/plans/07codex_plan.md)
+**Version `seed-1.1`, approved by the sponsor on 21 November 2026.** The first corpus dry run produced 876 of 6,000 sentences with *a* before a vowel-initial noun. This revision gives the existential determiner two surface forms. [Dry-run report](../reports/corpus_dryrun1.md) · [Seed ontology](ontology.yaml) · [Transfer protocol](../docs/plans/07codex_plan.md)
 
 ## Inputs, vocabulary and grammatical fragment
 
@@ -14,12 +14,14 @@ The following finite surface grammar fixes the admission envelope. Brackets indi
 Root      ::= NP VP[past] | NP "did" "not" VP[bare] | "not" "every" N VP[past]
 NP        ::= Name | Det N
 Name      ::= any name surface in the ontology
-Det       ::= "a" | "every"
+Det       ::= "a" | "an" | "every"
 N         ::= any noun surface in the ontology
 VP[m]     ::= Simple[m] | Control[m] NP "to" Simple[bare]
 Simple[m] ::= Intransitive[m] ["quickly"] | Transitive[m] NP ["quickly"]
 Control   ::= Promise | Persuade
 ```
+
+For an existential NP, use *an* exactly when the immediately following ontology noun starts with the letter a, e, i, o or u after token normalization. Use *a* before every other ontology noun. Apply this rule at every NP position. In exact mode a sentence with the wrong article before a known noun has no licensed derivation and returns `no_parse/abstain` with `no_root` after lexical validation succeeds. Both spellings contribute the same existential determiner identity to the secondary family key and the same semantic recipe. The surface inventory now has 57 tokens.
 
 `Intransitive[m]` selects leave, arrive, wait, or speak. `Transitive[m]` selects a licensed transitive frame (review, cite, discuss, evaluate). `Control[m]` means either control verb inflected for m. A sentence admits at most one control complement. A final *quickly* in a control sentence attaches to the embedded simple VP. The marker *to* selects a bare VP. The auxiliary selects a bare matrix verb and supplies past tense. The third root licenses sentence-initial *not every* with finite past morphology and a single outer negation. Each production consumes its entire span. Unlisted constructions are outside this seed, including nested control, repeated adverbs, plurals, unresolved pronouns, and present-tense finite roots.
 
@@ -29,7 +31,7 @@ For CCG, N and NP are atomic categories and VP[m] abbreviates S[m] backslash NP 
 
 Use the ontology’s base types. N denotes E → P, NP denotes Q = (E → P) → P, and a clause denotes H = (V → P) → P. A VP denotes Q → H. Close a clause with the event continuation `λe.Top`. `Unit(a) = λk.k(a)` lifts a name or a previously bound controller. In this section ∧, ⇒, ¬ and quantifier notation abbreviate the typed constructors below.
 
-- **Determiners.** `every(N)(k) = ∀x.(N(x) ⇒ k(x))` and `a(N)(k) = ∃x.(N(x) ∧ k(x))`. Each quantifier ranges over E. Its restrictor stays within the binder.
+- **Determiners.** `every(N)(k) = ∀x.(N(x) ⇒ k(x))` and `a(N)(k) = an(N)(k) = ∃x.(N(x) ∧ k(x))`. Each quantifier ranges over E. Its restrictor stays within the binder.
 - **Simple clauses.** For an intransitive verb, use its frame predicate, as in *leave*, and apply the subject NP to `λs.∃e.(Leave(e) ∧ Agent(e,s) ∧ k(e))`. For each transitive frame, use its ontology event predicate, Agent(e,s), Theme(e,o), and k(e) inside the event existential. The two licensed scopes are `Qs(λs.Qo(λo.body(s,o)))` and `Qo(λo.Qs(λs.body(s,o)))`, with the event existential inside both. License both orders for mixed universal/existential arguments and for arguments involving Unit. Unit can collapse both derivations to one meaning. For two universals or two existentials, license subject-wide only. This explicit seed choice avoids counting equivalent permutations of like quantifiers as scope ambiguity. Inspect the **semantic argument kinds at this transitive application**: Unit, universal, or existential. VP negation supplies Unit(s) even when the surface subject is universal. Embedded transitives receive Unit(controller) for either control frame. Sentence-initial *not every* passes a universal to its inner ordinary VP. Preserve these argument kinds in the local interface. Two recipes involving Unit remain distinct witnesses even when their normalized meanings coincide.
 - **Control.** Apply the matrix subject quantifier, then the recipient quantifier, then bind the matrix event. Assert its frame, Agent, Recipient, Content and event continuation. The Content argument is `Box(Close(embeddedVP(Unit(controller))))`. *Promise* chooses the matrix subject as controller and *persuade* the recipient. Pass the existing bound entity into the infinitive. Preserve its enclosing binder through Box. The matrix order is fixed even for mixed quantified arguments. An actual leaving or reviewing event never follows from the box alone.
 - **Tense and manner.** Past morphology supplies `λe.(Past(e) ∧ k(e))` as the head-event continuation. *Did* supplies the same wrapper on the matrix bare verb, exactly once. Bare infinitives contribute no past tense. *Quickly* supplies `λe.(Quick(e) ∧ k(e))` on the licensed VP. Multiple properties constrain the same event. Fresh bound variables alone imply no inequality.

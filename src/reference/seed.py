@@ -9,7 +9,7 @@ from types import MappingProxyType
 from src.frontend import Grammar, NP_KINDS, VP_CLASSES, check, forms
 from src.semantics import ROOT, canonical
 
-VERSION = "seed-witness-v1"
+VERSION = "seed-witness-v1.1"
 MAX_TOKENS = 12  # Longest seed root: quantified subject, auxiliary, control and modified embedded TV.
 ROOTS = frozenset(f"S[fin,{kind}]" for kind in (*VP_CLASSES, "negative", "not-every"))
 
@@ -43,17 +43,19 @@ class SeedBundle:
     grammar: Grammar
     recipes: object
     by_surface: object
+    next_nouns: object
     vocabulary: frozenset
     ontology_sha256: str
     sha256: str
 
     def inventory(self):
-        return inventory(self.grammar, self.recipes, self.ontology_sha256)
+        return inventory(self.grammar, self.recipes, self.ontology_sha256, self.next_nouns)
 
 
-def inventory(grammar, recipes, ontology_hash):
+def inventory(grammar, recipes, ontology_hash, next_nouns):
     return {
         "version": VERSION, "ontology_sha256": ontology_hash, "depth": grammar.depth, "max_tokens": MAX_TOKENS,
+        "next_nouns": dict(next_nouns),
         "roots": sorted(ROOTS), "rules": {key: [kind, "apply"] for key, (kind, _) in grammar.binary.items()},
         "entries": {key: {"tokens": entry.surface, "category": category_text(entry.category),
                           "recipe": recipes[key], "cost": entry.cost, "meaning": canonical(entry.meaning)}
@@ -83,8 +85,13 @@ def load_seed():
 
     for word in ontology["names"]:
         emit(f"name.{word}", word, np("unit"), "name", symbol=word)
+    article = ontology["existential_surface"]
+    followers = {f"det.{word}": [] for word, kind in ontology["determiners"].items() if kind == "existential"}
     for word, predicate in ontology["nouns"].items():
         emit(f"noun.{word}", word, "N", "noun", symbol=predicate)
+        form = article["before_vowel"] if word[0] in article["vowel_initial_letters"] else article["otherwise"]
+        followers[f"det.{form}"].append(word)
+    next_nouns = MappingProxyType({key: tuple(sorted(words)) for key, words in followers.items()})
     for word, kind in ontology["determiners"].items():
         quant, join = ("ForallE", "Implies") if kind == "universal" else ("ExistsE", "And")
         emit(f"det.{word}", word, ("/", np(kind), "N"), "det", quant=quant, join=join)
@@ -134,8 +141,8 @@ def load_seed():
     for key, entry in sorted(grammar.entries.items()):
         index[entry.surface].append(key)
     ontology_hash = hashlib.sha256(ontology_bytes).hexdigest()
-    serialized = json.dumps(inventory(grammar, recipes, ontology_hash), sort_keys=True, separators=(",", ":"))
+    serialized = json.dumps(inventory(grammar, recipes, ontology_hash, next_nouns), sort_keys=True, separators=(",", ":"))
     return SeedBundle(grammar, MappingProxyType(recipes),
-                      MappingProxyType({surface: tuple(keys) for surface, keys in index.items()}),
+                      MappingProxyType({surface: tuple(keys) for surface, keys in index.items()}), next_nouns,
                       frozenset(token for surface in index for token in surface), ontology_hash,
                       hashlib.sha256(serialized.encode("ascii")).hexdigest())

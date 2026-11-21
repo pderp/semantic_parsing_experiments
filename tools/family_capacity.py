@@ -28,7 +28,7 @@ def main():
     frames = onto["frames"].values()
     n_name = args.names or len(onto["names"])
     n_noun = len(onto["nouns"])
-    n_det = len(onto["determiners"])
+    n_det = len(set(onto["determiners"].values()))  # Exactly one spelling per kind and noun.
     n_iv = args.intransitives or sum(f["construction"] == "intransitive" for f in frames)
     n_tv = sum(f["construction"] == "transitive" for f in frames)
     n_ctl = {k: sum(f["construction"] == k for f in frames)
@@ -70,7 +70,7 @@ def main():
     want = args.per_family
     small = [f for f in families if f[1] < want]
     two = [f for f in families if f[2]]
-    print(f"lexicon: {n_name} names, {n_noun} nouns, {n_det} determiners, "
+    print(f"lexicon: {n_name} names, {n_noun} nouns, {n_det} determiner kinds, "
           f"{n_iv} intransitive, {n_tv} transitive, control {n_ctl}")
     print(f"primary families:                 {len(families)}")
     print(f"secondary (determiner) variants:  {sum(f[3] for f in families)}")

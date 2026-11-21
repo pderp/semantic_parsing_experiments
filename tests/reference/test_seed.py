@@ -30,6 +30,31 @@ def public_variants():
 
 
 class SeedTests(unittest.TestCase):
+    def test_existential_articles(self):
+        nouns = json.loads((ROOT / "spec/ontology.yaml").read_text())["nouns"]
+        vowel_nouns = {"abstract", "analyst", "article", "author", "editor", "investigator"}
+        bundle = load_seed()
+        self.assertEqual(set(bundle.inventory()["next_nouns"]["det.an"]), vowel_nouns)
+        self.assertEqual(set(bundle.next_nouns["det.a"]), set(nouns) - vowel_nouns)
+        for noun, predicate in nouns.items():
+            article, wrong = ("an", "a") if noun in vowel_nouns else ("a", "an")
+            for frame in ("{} left.", "Bob reviewed {}.", "Alice promised {} to leave.",
+                          "Bob did not persuade Alice to cite {}."):
+                with self.subTest(noun=noun, frame=frame):
+                    result = parse(frame.format(f"{article} {noun}"))
+                    self.assertEqual(result["decision"], "accepted")
+                    self.assertIn("ExistsE", result["readings"][0])
+                    self.assertIn("(" + predicate + " #0)", result["readings"][0])
+                    rejected = parse(frame.format(f"{wrong} {noun}"))
+                    self.assertEqual((rejected["construction_status"], rejected["decision"],
+                                      rejected["diagnostic"], rejected["witnesses"]),
+                                     ("no_parse", "abstain", "no_root", []))
+            self.assertEqual(parse(f"Every {noun} left.")["decision"], "accepted")
+        upper = parse(" AN\tEDITOR left. ")
+        key = upper["witnesses"][0]["key"]
+        self.assertEqual(key[6][0][6][0], (0, 0, 1, "det.an", "det"))
+        self.assertEqual(upper["readings"], parse("an editor left")["readings"])
+
     def test_reconciled_fixtures(self):
         prompts = json.loads((ROOT / "fixtures/prompts_v1.json").read_text())["prompts"]
         gold = {row["id"]: row for row in json.loads((ROOT / "fixtures/reconciled_v1.json").read_text())["fixtures"]}

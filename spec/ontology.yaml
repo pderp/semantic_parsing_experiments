@@ -1,5 +1,5 @@
 {
-  "version": "seed-1.0",
+  "version": "seed-1.1",
   "base_types": {
     "E": "entity",
     "V": "event",
@@ -42,7 +42,13 @@
   },
   "determiners": {
     "a": "existential",
+    "an": "existential",
     "every": "universal"
+  },
+  "existential_surface": {
+    "vowel_initial_letters": "aeiou",
+    "before_vowel": "an",
+    "otherwise": "a"
   },
   "operators": {
     "did": "past_aux",

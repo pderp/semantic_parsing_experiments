@@ -1,13 +1,13 @@
 {
-  "protocol": "seed-1.0",
+  "protocol": "seed-1.1",
   "status": "M01 stage 1 approved by the sponsor; stage 2 pending",
   "ontology": "spec/ontology.yaml",
   "sign_off": {
     "stage_1": ["contract", "ontology", "pilot_config", "public_census", "reconciled_fixtures", "sentinel_record", "sponsor_approval"],
     "stage_2": ["stage_1", "pilot_operator", "teacher_access_and_version", "approved_spending_ceiling", "100_input_pilot_evidence", "sponsor_bulk_authorization"],
     "reviewed_sha256": {
-      "spec/contract.md": "517c9ffe1e34a0a0ee2c040792ad27c088624b85e25594300c69baa48abe629a",
-      "spec/ontology.yaml": "dbeb5c546ff1be2d948202c6f499a32eb76981e9d2c8131a77ddb7364fc9689e",
+      "spec/contract.md": "932500847357fd11f4e2142f81cc65fb99e4c79e9395caff71f7d56960a47984",
+      "spec/ontology.yaml": "26ca290061728b6507a613cceca8e63f4a009d4ebf03333d6208cb116fc11be3",
       "reports/census_seed-0.2-draft.md": "9d016a1a3e3fcbd80bedceb39a07d476494ce9b95089542484a278e4a5629c1f",
       "fixtures/reconciled_v1.json": "79ca957a558aa1ef09d65aec1f48a47f358ac89f9bdf763c53b9ce5fccdab581",
       "fixtures/prompts_v1.json": "1d5ecb894e4a8db14b56603530451b3517430b2d7272f0b2dedebbb8ac3392da",
