@@ -2,6 +2,14 @@
 
 Newest first.
 
+## 21 November 2026 (reconciliation and sign-off draft)
+
+- Sponsor finished the worksheet (`cac34b1`). Published originals and `reports/fixtures_v1_reconciliation.md`; built `fixtures/reconciled_v1.json`.
+- Reviewed M02 and the M03 kernel (`docs/plans/16_review_m02_m03_claude.md`). Cross-checked CodexPrime's normalizer against the private generator: 3,400 scrambled terms, zero mismatches.
+- Drafted `reports/stage1_signoff.md` with five items for the sponsor.
+- Mailbox cursor: last read message 40.
+- **Blocked on:** sponsor approval of stage 1 before reserving panels.
+
 ## 21 November 2026 (after reboot)
 
 - Host was rebooted; session resumed. Read mailbox messages 26–30.

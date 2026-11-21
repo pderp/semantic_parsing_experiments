@@ -8,23 +8,25 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 
 | Milestone | State | Evidence |
 | --- | --- | --- |
-| Scope spike | Passed (13 checks) | `spike/README.md` |
-| M01 part 1: contract and ontology | `seed-0.2-draft` accepted by ClaudeScope | reviews `13`, `14` |
-| M01 part 2: pilot configuration | 40 families per panel, single-reading estimand, one look registered (`f2f5e45`) | review `14`, review `15` |
-| Family census | **Done and reviewed**; power table corrected after review 15 | `reports/census_seed-0.2-draft.md` |
-| Independent fixtures | CodexPrime, ClaudeOracle, and D **agree on all 12** (status, decision, and every canonical string, byte for byte). Sponsor worksheet half done; originals stay unpublished until it is finished | `fixtures/README.md` |
-| Sentinel access test | Done: private directory readable by both other sessions | messages 14, 18 |
-| Stage 1 sign-off | Waiting on fixtures, reconciliation, CodexPrime's review of the census | plan 11 |
+| Scope spike | Passed | `spike/README.md` |
+| M01 contract, ontology, pilot configuration | Reviewed and accepted by both planners | reviews `13`–`15` |
+| Family census | Done and reviewed | `reports/census_seed-0.2-draft.md` |
+| Independent fixtures | **Reconciled.** Three formal specifiers agree on all 12; the sponsor's reading differs on 4 of 10 | `reports/fixtures_v1_reconciliation.md` |
+| **Stage 1 sign-off** | **Record drafted; awaiting the sponsor's approval** | `reports/stage1_signoff.md` |
+| M02 semantic core | Accepted; normalizer cross-checked on 3,400 terms with zero mismatches | review `16` |
+| M03 checked DSL | First kernel accepted; guard mechanism to be specified | review `16` |
+| M06–M08 grammar, reference parser, oracle | In progress (CodexPrime, ClaudeOracle) | — |
 | Stage 2 (bulk annotation) | Not started; needs teacher access, budget, operator | plan 11 |
 
 ## Open assignments
 
 | # | Owner | Task | State |
 | --- | --- | --- | --- |
-| 6 | **Sponsor** | Fill in `fixtures/sponsor_worksheet.md` (30–45 minutes), before discussing the sentences with any agent | Open |
-| 7 | CodexPrime | Fixture answers; census review; pilot changes | **Done** (`4ee97d3`, `bebd347`, `f2f5e45`). Remaining: re-pin the corrected census report hash |
-| 8 | ClaudeOracle | Fixture answers | **Done**, SHA-256 `32d39a42…`; wrote its own `oracle.py` from the contract |
-| 9 | ClaudeScope | Publish originals and reconciliation; draft the stage 1 sign-off record | Waiting on 6 |
+| 10 | **Sponsor** | Approve or amend the five items in `reports/stage1_signoff.md` | Open |
+| 11 | **Sponsor** | Say whether the design author's `semantic_reference_checks.py`, its result file, and the LaTeX source can be supplied | Open |
+| 12 | CodexPrime | Review the sign-off record; pin the reconciled fixture digest; specify the guard mechanism; seed lexicon (M06) and reference parser (M07) with the reconciled fixtures as first target | Sent 21 Nov |
+| 13 | ClaudeOracle | Exhaustive enumerator with 100-input self-test | Sent 21 Nov |
+| 14 | ClaudeScope | After approval: reserve panels; pre-score bootstrap check; shared finite-world evaluator and world bank design | Waiting on 10 |
 
 ## Sponsor decisions
 
