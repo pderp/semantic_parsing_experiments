@@ -1,0 +1,168 @@
+[
+ {
+  "id": "F01",
+  "construction_status": "complete",
+  "decision": "accepted",
+  "readings": [
+   "(ExistsV (lam V (And (Agent #0 bob) (And (Cite #0) (And (Past #0) (Theme #0 ava))))))"
+  ],
+  "primary_family": [
+   "ordinary",
+   "transitive",
+   "name",
+   "name",
+   "none"
+  ]
+ },
+ {
+  "id": "F02",
+  "construction_status": "complete",
+  "decision": "ambiguous",
+  "readings": [
+   "(ExistsE (lam E (And (ForallE (lam E (Implies (Thesis #0) (ExistsV (lam V (And (Agent #0 #2) (And (Evaluate #0) (And (Past #0) (Theme #0 #1))))))))) (Student #0))))",
+   "(ForallE (lam E (Implies (Thesis #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Evaluate #0) (And (Past #0) (Theme #0 #2)))))) (Student #0)))))))"
+  ],
+  "primary_family": [
+   "ordinary",
+   "transitive",
+   "quantified",
+   "quantified",
+   "none"
+  ]
+ },
+ {
+  "id": "F03",
+  "construction_status": "complete",
+  "decision": "accepted",
+  "readings": [
+   "(ForallE (lam E (Implies (Editor #0) (ForallE (lam E (Implies (Report #0) (ExistsV (lam V (And (Agent #0 #2) (And (Discuss #0) (And (Past #0) (And (Quick #0) (Theme #0 #1)))))))))))))"
+  ],
+  "primary_family": [
+   "ordinary",
+   "transitive",
+   "quantified",
+   "quantified",
+   "matrix"
+  ]
+ },
+ {
+  "id": "F04",
+  "construction_status": "complete",
+  "decision": "accepted",
+  "readings": [
+   "(Not (ExistsV (lam V (And (Agent #0 dan) (And (Arrive #0) (Past #0))))))"
+  ],
+  "primary_family": [
+   "vp-negation",
+   "intransitive",
+   "name",
+   "none"
+  ]
+ },
+ {
+  "id": "F05",
+  "construction_status": "complete",
+  "decision": "accepted",
+  "readings": [
+   "(ExistsE (lam E (And (Not (ForallE (lam E (Implies (Dataset #0) (ExistsV (lam V (And (Agent #0 #2) (And (Cite #0) (And (Past #0) (Theme #0 #1)))))))))) (Scholar #0))))"
+  ],
+  "primary_family": [
+   "vp-negation",
+   "transitive",
+   "quantified",
+   "quantified",
+   "none"
+  ]
+ },
+ {
+  "id": "F06",
+  "construction_status": "complete",
+  "decision": "ambiguous",
+  "readings": [
+   "(Not (ExistsE (lam E (And (ForallE (lam E (Implies (Analyst #0) (ExistsV (lam V (And (Agent #0 #1) (And (Evaluate #0) (And (Past #0) (And (Quick #0) (Theme #0 #2)))))))))) (Proposal #0)))))",
+   "(Not (ForallE (lam E (Implies (Analyst #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Evaluate #0) (And (Past #0) (And (Quick #0) (Theme #0 #1))))))) (Proposal #0))))))))"
+  ],
+  "primary_family": [
+   "not-every",
+   "transitive",
+   "quantified",
+   "quantified",
+   "matrix"
+  ]
+ },
+ {
+  "id": "F07",
+  "construction_status": "complete",
+  "decision": "accepted",
+  "readings": [
+   "(Not (ForallE (lam E (Implies (Reviewer #0) (ForallE (lam E (Implies (Abstract #0) (ExistsV (lam V (And (Agent #0 #2) (And (Discuss #0) (And (Past #0) (Theme #0 #1)))))))))))))"
+  ],
+  "primary_family": [
+   "not-every",
+   "transitive",
+   "quantified",
+   "quantified",
+   "none"
+  ]
+ },
+ {
+  "id": "F08",
+  "construction_status": "complete",
+  "decision": "accepted",
+  "readings": [
+   "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 gia) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 gia) (And (Quick #0) (Speak #0))))))) (And (Past #0) (And (Promise #0) (Recipient #0 #1))))))) (Student #0))))"
+  ],
+  "primary_family": [
+   "ordinary",
+   "subject-control",
+   "name",
+   "quantified",
+   "emb:intransitive",
+   "embedded"
+  ]
+ },
+ {
+  "id": "F09",
+  "construction_status": "complete",
+  "decision": "accepted",
+  "readings": [
+   "(ForallE (lam E (Implies (Investigator #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 #2) (Leave #0)))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))) (Scientist #0)))))))"
+  ],
+  "primary_family": [
+   "ordinary",
+   "object-control",
+   "quantified",
+   "quantified",
+   "emb:intransitive",
+   "none"
+  ]
+ },
+ {
+  "id": "F10",
+  "construction_status": "complete",
+  "decision": "accepted",
+  "readings": [
+   "(Not (ExistsV (lam V (And (Agent #0 hugo) (And (Content #0 (Box (ForallE (lam E (Implies (Preprint #0) (ExistsV (lam V (And (Agent #0 eva) (And (Quick #0) (And (Review #0) (Theme #0 #1))))))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 eva))))))))"
+  ],
+  "primary_family": [
+   "vp-negation",
+   "object-control",
+   "name",
+   "name",
+   "emb:transitive/quantified",
+   "embedded"
+  ]
+ },
+ {
+  "id": "F11",
+  "construction_status": "no_parse",
+  "decision": "abstain",
+  "readings": []
+ },
+ {
+  "id": "F12",
+  "construction_status": "no_parse",
+  "decision": "abstain",
+  "readings": []
+ }
+]

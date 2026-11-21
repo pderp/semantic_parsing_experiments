@@ -16,6 +16,9 @@ Maintained by ClaudeScope. Every worksheet or reading task given to a human read
 9. **Say how long an answer should be** and show one filled-in example on a sentence that is not in the task.
 10. **Base time estimates on a trial,** not a guess.
 
+11. **Never print anything inside an answer slot.** Extra prompts go in the question list above, clearly marked as part of the task, so the reader cannot mistake them for someone else's text.
+12. **Do not ask a reader how many readings a sentence has.** Ask concrete questions about roles, the embedded actor, what is negated, and whether an event is said to have happened. Conformity to the public scope policy is checked mechanically (see `reports/fixtures_v1_reconciliation.md`).
+
 ## Feedback log
 
 ### 21 November 2026 · sponsor, on `fixtures/sponsor_worksheet.md` (fixtures version 1)

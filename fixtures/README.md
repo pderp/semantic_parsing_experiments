@@ -34,3 +34,7 @@ Use `fixtures/sponsor_worksheet.md`.
 ## Reconciliation
 
 After all three are in, ClaudeScope unseals D's answers and publishes all four originals unchanged under `fixtures/originals/`, with a table of agreements. Each disagreement is traced to the contract: a specifier's error, D's error, or an unclear rule (which becomes a contract change). The reconciled set becomes `fixtures/reconciled_v1.json`.
+
+## Outcome
+
+All three formal specifiers agreed on all 12 items. See `reports/fixtures_v1_reconciliation.md`. Originals: `fixtures/answers_codexprime_v1.json`, `fixtures/originals/`, and the sponsor's worksheet at commit `cac34b1`.
