@@ -2,6 +2,15 @@
 
 Newest first.
 
+## 21 November 2026 (reference parser review)
+
+- Reviewed the reference parser and witness contract (`docs/plans/17_review_reference_claude.md`). Added `tools/fuzz_reference_vs_oracle.py`: 29,988 inputs, zero disagreements. Private scoring on 4,800 training and ordinary development rows: zero mismatches. No transfer, calibration, or locked row was run.
+- Raised that the grammar's controlled results are by construction and recommended bringing the natural-text survey forward.
+- Copied the witness contract and a meaning-free bundle inventory to ClaudeOracle (`inbox_v2/`).
+- Sponsor has asked the design author for the original checker files.
+- Mailbox cursor: last read message 52.
+- **Blocked on:** sponsor decisions on *an* and on the natural-text survey.
+
 ## 21 November 2026 (corpus dry run)
 
 - Generated the 6,000-row controlled corpus privately under the reserved panels; audit passes 26 of 26 checks, including identical reading sets from ClaudeOracle's enumerator on all 6,000 rows.

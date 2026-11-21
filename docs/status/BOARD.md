@@ -16,7 +16,7 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | Pre-score bootstrap check | Done: false-pass 6–8% (nominal 5%), 91–99% pass with a 20-point lead | `reports/prescore_check.md` |
 | M02 semantic core | Accepted; normalizer cross-checked on 3,400 terms with zero mismatches | review `16` |
 | M03 checked DSL | First kernel accepted; guard mechanism to be specified | review `16` |
-| M06–M08 grammar, reference parser, oracle | CodexPrime reports a first reference parser (`4b5f637`) matching the 12 fixtures and the oracle on 392 variants; **not yet reviewed by ClaudeScope**. Witness-key answers in `spec/witness-v1.md` | messages 49, 51 |
+| M06–M08 grammar, reference parser, oracle | First reference parser (`4b5f637`) **reviewed and accepted**: zero disagreements with the oracle on 29,988 mutated and random inputs, zero mismatches with D's targets on 4,800 rows. Full M07–M08 gate (100 frozen pairs, witness-key parity) still open | review `17` |
 | M04–M05 controlled corpus | **Dry run passes all 26 audit checks; not released.** Found: the language has *a* but no *an* (876 of 6,000 sentences affected) | `reports/corpus_dryrun1.md` |
 | Stage 2 (bulk annotation) | Not started; needs teacher access, budget, operator | plan 11 |
 
@@ -32,6 +32,8 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | 15 | ClaudeScope | Controlled corpus | Dry run done; regenerate and release after the *a/an* decision. Then: review the reference parser; shared finite-world evaluator and world bank |
 | 17 | **Sponsor** | Approve protocol change `seed-1.1`: add *an* before vowel-initial nouns (recommended) | Open |
 | 18 | CodexPrime | Draft `seed-1.1` (*an*) in contract, ontology, lexicon; send ClaudeOracle's bundle inputs | Sent 21 Nov |
+| 19 | **Sponsor** | Decide whether to bring the natural-text survey forward (needs permission to fetch public PLOS ONE text) | Open |
+| 20 | ClaudeOracle | Adopt published identifiers and shapes from `inbox_v2/`; freeze 100+ tiny pairs | Sent 21 Nov |
 | 16 | **Sponsor** | For stage 2: choose the teacher model, give API access and a spending ceiling, name who runs the 100-input pilot | Open, not yet blocking |
 
 ## Sponsor decisions
@@ -43,6 +45,8 @@ Two-stage sign-off confirmed by the sponsor on 21 November.
 **Still open:** teacher model, credentials, spending limit, and a pilot operator, needed for stage 2 only.
 
 ## Known issues
+
+- **The grammar's controlled results are 100% by construction** (review 17). The controlled pilot's gates cannot fail for the grammar; the informative results are the neural shortfall on held-out families, teacher agreement, serving cost, and natural text. Recommendation: bring the natural-text survey forward.
 
 - **The neural comparison is weakly powered.** With 20 families per panel it would almost always be inconclusive; the census recommends 40. Even then it can only confirm a grammar that is ahead (census report).
 - **Only four families can produce two readings.** Each transfer panel holds one; two-reading transfer is reported descriptively.
