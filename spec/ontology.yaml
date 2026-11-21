@@ -1,0 +1,181 @@
+{
+  "version": "seed-0.1-draft",
+  "base_types": {
+    "E": "entity",
+    "V": "event",
+    "P": "proposition",
+    "I": "intensional content"
+  },
+  "names": {
+    "alice": "E",
+    "bob": "E"
+  },
+  "nouns": {
+    "researcher": "Researcher",
+    "reviewer": "Reviewer",
+    "author": "Author",
+    "editor": "Editor",
+    "scientist": "Scientist",
+    "scholar": "Scholar",
+    "student": "Student",
+    "professor": "Professor",
+    "analyst": "Analyst",
+    "investigator": "Investigator",
+    "paper": "Paper",
+    "manuscript": "Manuscript",
+    "report": "Report",
+    "proposal": "Proposal",
+    "article": "Article",
+    "thesis": "Thesis",
+    "draft": "Draft",
+    "preprint": "Preprint",
+    "abstract": "Abstract",
+    "dataset": "Dataset"
+  },
+  "determiners": {
+    "a": "existential",
+    "every": "universal"
+  },
+  "operators": {
+    "did": "past_aux",
+    "not": "negation",
+    "to": "infinitive"
+  },
+  "modifiers": {
+    "quickly": "Quick"
+  },
+  "predicates": {
+    "Agent": ["V", "E"],
+    "Content": ["V", "I"],
+    "Leave": ["V"],
+    "Paper": ["E"],
+    "Past": ["V"],
+    "Persuade": ["V"],
+    "Promise": ["V"],
+    "Quick": ["V"],
+    "Recipient": ["V", "E"],
+    "Researcher": ["E"],
+    "Review": ["V"],
+    "Theme": ["V", "E"],
+    "Reviewer": ["E"],
+    "Author": ["E"],
+    "Editor": ["E"],
+    "Scientist": ["E"],
+    "Scholar": ["E"],
+    "Student": ["E"],
+    "Professor": ["E"],
+    "Analyst": ["E"],
+    "Investigator": ["E"],
+    "Manuscript": ["E"],
+    "Report": ["E"],
+    "Proposal": ["E"],
+    "Article": ["E"],
+    "Thesis": ["E"],
+    "Draft": ["E"],
+    "Preprint": ["E"],
+    "Abstract": ["E"],
+    "Dataset": ["E"],
+    "Cite": ["V"],
+    "Discuss": ["V"],
+    "Evaluate": ["V"]
+  },
+  "frames": {
+    "leave.iv": {
+      "predicate": "Leave",
+      "bare": "leave",
+      "past": "left",
+      "arguments": ["subject"],
+      "roles": {
+        "subject": "Agent"
+      },
+      "scope": ["default"],
+      "construction": "intransitive"
+    },
+    "review.tv": {
+      "predicate": "Review",
+      "bare": "review",
+      "past": "reviewed",
+      "arguments": ["subject", "object"],
+      "roles": {
+        "subject": "Agent",
+        "object": "Theme"
+      },
+      "scope": ["subject-wide", "object-wide"],
+      "construction": "transitive"
+    },
+    "promise.sc": {
+      "predicate": "Promise",
+      "bare": "promise",
+      "past": "promised",
+      "arguments": ["subject", "recipient", "infinitive"],
+      "roles": {
+        "subject": "Agent",
+        "recipient": "Recipient",
+        "infinitive": "Content"
+      },
+      "controller": "subject",
+      "scope": ["subject-wide"],
+      "construction": "subject-control"
+    },
+    "persuade.oc": {
+      "predicate": "Persuade",
+      "bare": "persuade",
+      "past": "persuaded",
+      "arguments": ["subject", "recipient", "infinitive"],
+      "roles": {
+        "subject": "Agent",
+        "recipient": "Recipient",
+        "infinitive": "Content"
+      },
+      "controller": "recipient",
+      "scope": ["subject-wide"],
+      "construction": "object-control"
+    },
+    "cite.tv": {
+      "predicate": "Cite",
+      "bare": "cite",
+      "past": "cited",
+      "arguments": ["subject", "object"],
+      "roles": {
+        "subject": "Agent",
+        "object": "Theme"
+      },
+      "scope": ["subject-wide", "object-wide"],
+      "construction": "transitive"
+    },
+    "discuss.tv": {
+      "predicate": "Discuss",
+      "bare": "discuss",
+      "past": "discussed",
+      "arguments": ["subject", "object"],
+      "roles": {
+        "subject": "Agent",
+        "object": "Theme"
+      },
+      "scope": ["subject-wide", "object-wide"],
+      "construction": "transitive"
+    },
+    "evaluate.tv": {
+      "predicate": "Evaluate",
+      "bare": "evaluate",
+      "past": "evaluated",
+      "arguments": ["subject", "object"],
+      "roles": {
+        "subject": "Agent",
+        "object": "Theme"
+      },
+      "scope": ["subject-wide", "object-wide"],
+      "construction": "transitive"
+    }
+  },
+  "constructors": {
+    "Top": "P",
+    "And": "P -> P -> P",
+    "Implies": "P -> P -> P",
+    "Not": "P -> P",
+    "ForallE": "(E -> P) -> P",
+    "ExistsE": "(E -> P) -> P",
+    "ExistsV": "(V -> P) -> P",
+    "Box": "P -> I"
+  }
+}
