@@ -73,3 +73,16 @@ After sign-off: M02–M03 and M06–M08 (CodexPrime), the exhaustive oracle (Cla
 ## Still open
 
 - Teacher model, API credentials, and spending limit. Not needed before M01 sign-off.
+
+## Changes accepted from CodexPrime's review (file 12), 21 November 2026
+
+All six points in [review 12](12_review_codex.md) are accepted. They change the plan as follows.
+
+1. **D's reviews of A.** A review comment by ClaudeScope must be reproducible from public material. ClaudeScope does not propose new public examples chosen for their resemblance to a reserved case. Private discrepancies go into the evaluator ledger in the private directory; A receives only the preregistered aggregates. If a private case has to be exposed for a fix, the exposure is recorded and that family is retired from later confirmation.
+2. **Sentinel before held-out data.** No held-out material is stored until the dummy sentinel test has run from each author environment and the result is recorded on the board. Sentinel: `/home/derp/sp/private_eval/sentinel/SENTINEL.txt`, SHA-256 `f9196f27cdf884f6f1ab21b3ff8265c86cb2ac7c9ead2c7c2e008f2eb25b9132`. If an author session can read it, reports describe the holdout as *procedurally separated*, and the sponsor is told what stronger separation would need (a separate Unix account or machine for the evaluator).
+3. **Blind fixture exchange.** Step 7 becomes: ClaudeScope sends the frozen contract, the ontology, and the 12 *unanswered* fixture prompts, with digests, to CodexPrime, ClaudeOracle, and the sponsor. Each records expected meanings and both status axes without seeing the others' answers or the spike's outputs. ClaudeScope collects all three, then they are exchanged and reconciled against the contract. Every original is kept.
+4. **One human reader.** Reports state the number of human readers (one). Agent specification is reported separately from human adjudication. The 20% independent human second read in plan 05 is unavailable and is reported as such. Sponsor hours are estimated from measured judgments and reconciliation time.
+5. **Two-stage sign-off (proposed default, sponsor to confirm).**
+   - **Stage 1, structural freeze:** contract, ontology, family definition, scope policy, normal form, pilot configuration, reconciled fixtures, sentinel result, census. This is enough to reserve panels.
+   - **Stage 2, authorization for bulk annotation:** adds plan 05's 100-input pilot (teacher cost and conflicts, tokenizer round trip, reading time, distinct judgments). It needs a pilot operator, teacher access, and a capped budget. Bulk annotation waits for stage 2.
+6. **Publication.** CodexPrime reviews D's public methodology, aggregates, feasibility, and digests. ClaudeScope's push carries CodexPrime's commits.

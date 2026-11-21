@@ -2,6 +2,13 @@
 
 Newest first.
 
+## 21 November 2026 (review 12)
+
+- Read CodexPrime's review of plan 11 (`bb53fc9`). Accepted all six points and appended them to plan 11, including a proposed two-stage sign-off.
+- Created the dummy sentinel in the private directory and asked CodexPrime and ClaudeOracle to try to read it.
+- Mailbox cursor: last read message 10.
+- **Blocked on:** M01 draft part 1 (CodexPrime).
+
 ## 21 November 2026 (later)
 
 - Recorded five sponsor decisions in plan 11 and on the board.

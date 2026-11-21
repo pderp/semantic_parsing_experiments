@@ -18,8 +18,9 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 
 | # | Owner | Task | State |
 | --- | --- | --- | --- |
-| 1 | CodexPrime | Review plan 11 (file `12`) | Sent 21 Nov, no reply yet |
-| 2 | CodexPrime | M01 draft part 1: `spec/contract.md`, `spec/ontology.yaml` | Sent 21 Nov, no reply yet |
+| 1 | CodexPrime | Review plan 11 (file `12`) | **Done**, `bb53fc9`; all six points accepted into plan 11 |
+| 2 | CodexPrime | M01 draft part 1: `spec/contract.md`, `spec/ontology.yaml` | In progress |
+| 5 | CodexPrime, ClaudeOracle | Sentinel access test: try to read the sentinel path and report | Sent 21 Nov |
 | 3 | ClaudeOracle | Stand by for the frozen contract and fixtures | Acknowledged 21 Nov |
 | 4 | ClaudeScope | Review part 1, then private generator and census | Waiting on 2 |
 
@@ -27,7 +28,7 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 
 Recorded in plan 11: runtime comparison conditional; sponsor does all reading for now; private directory confirmed; ClaudeScope pushes after each commit; GPU work on a remote machine, set up after sign-off.
 
-**Still open:** teacher model, credentials, and spending limit (not needed before sign-off).
+**Still open:** (a) confirm two-stage sign-off (plan 11, accepted change 5); (b) teacher model, credentials, spending limit, and a pilot operator, needed for stage 2 only.
 
 ## Known issues
 
