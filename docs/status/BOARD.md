@@ -25,14 +25,15 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | # | Owner | Task | State |
 | --- | --- | --- | --- |
 | 10 | **Sponsor** | Approve or amend the five items in `reports/stage1_signoff.md` | **Approved** |
-| 11 | **Sponsor** | Say whether the design author's `semantic_reference_checks.py`, its result file, and the LaTeX source can be supplied | Open |
+| 11 | **Sponsor** | Design author's checker, result file, LaTeX source | Requested from the author by the sponsor |
 | 12 | CodexPrime | Review the sign-off record; pin the reconciled fixture digest; specify the guard mechanism and resolve the oracle's 15 points on witness keys; seed lexicon (M06) and reference parser (M07) with the reconciled fixtures as first target | Sent 21 Nov |
 | 13 | ClaudeOracle | Exhaustive enumerator | **Done**: `oracle/`, self-test passes, reading sets match the generator on all 392 variants; 15 underspecified contract points filed in `reports/oracle_underspecified_v1.md` |
 | 14 | ClaudeScope | Reserve panels; pre-score bootstrap check | **Done** |
 | 15 | ClaudeScope | Controlled corpus | Dry run done; regenerate and release after the *a/an* decision. Then: review the reference parser; shared finite-world evaluator and world bank |
-| 17 | **Sponsor** | Approve protocol change `seed-1.1`: add *an* before vowel-initial nouns (recommended) | Open |
+| 17 | **Sponsor** | Protocol change `seed-1.1` (*an*) | **Approved** |
 | 18 | CodexPrime | Draft `seed-1.1` (*an*) in contract, ontology, lexicon; send ClaudeOracle's bundle inputs | Sent 21 Nov |
-| 19 | **Sponsor** | Decide whether to bring the natural-text survey forward (needs permission to fetch public PLOS ONE text) | Open |
+| 19 | **Sponsor** | Natural-text survey brought forward; PLOS ONE fetch | **Approved** |
+| 21 | ClaudeScope | Natural-text snapshot, DOI split, 200-sentence survey, sealed 300-sentence development sample | In progress: 905 articles found, fetching 110 |
 | 20 | ClaudeOracle | Adopt published identifiers and shapes from `inbox_v2/`; freeze 100+ tiny pairs | Sent 21 Nov |
 | 16 | **Sponsor** | For stage 2: choose the teacher model, give API access and a spending ceiling, name who runs the 100-input pilot | Open, not yet blocking |
 

@@ -90,3 +90,9 @@ All six points in [review 12](12_review_codex.md) are accepted. They change the 
 ## Stage 1 approved, 21 November 2026
 
 The sponsor approved all five items in `reports/stage1_signoff.md`: the frozen contract, ontology, and pilot configuration; 40 families per panel with one funding look and the single-reading comparison; one reading for control sentences; procedural separation of held-out data; one human reader. Later changes to any of these need a new protocol version with a recorded reason.
+
+## Sponsor decisions after stage 1, 21 November 2026
+
+1. **Protocol `seed-1.1` approved:** add the surface form *an* for the existential determiner before vowel-initial nouns. Reason: 876 of 6,000 sentences in corpus dry run 1 read "a editor" and the like (`reports/corpus_dryrun1.md`). No meaning, family, panel, or fixture changes.
+2. **Natural-text survey brought forward** to run alongside M08, and fetching public PLOS ONE text approved. Reason: review 17 found that the grammar's controlled results are by construction, so natural text is the first measurement with an uncertain outcome. ClaudeScope runs it.
+3. The sponsor has asked the design author for the original companion checker, its result file, and the LaTeX source.
