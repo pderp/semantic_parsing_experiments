@@ -7,7 +7,8 @@ Newest first.
 - Sponsor finished the worksheet (`cac34b1`). Published originals and `reports/fixtures_v1_reconciliation.md`; built `fixtures/reconciled_v1.json`.
 - Reviewed M02 and the M03 kernel (`docs/plans/16_review_m02_m03_claude.md`). Cross-checked CodexPrime's normalizer against the private generator: 3,400 scrambled terms, zero mismatches.
 - Drafted `reports/stage1_signoff.md` with five items for the sponsor.
-- Mailbox cursor: last read message 40.
+- Integrated ClaudeOracle's enumerator under `oracle/` (digests verified; reading sets equal the generator's on all 392 variants) and filed its 15 underspecified points. Sign-off record now states that witness identity is frozen later, with the grammar bundle.
+- Mailbox cursor: last read message 43.
 - **Blocked on:** sponsor approval of stage 1 before reserving panels.
 
 ## 21 November 2026 (after reboot)

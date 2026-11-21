@@ -45,6 +45,12 @@ On approval the contract and ontology are renamed from `seed-0.2-draft` to `seed
 4. **Held-out data is procedurally separated only.** CodexPrime and ClaudeOracle can read the private directory and are instructed not to. Reports will say "procedurally separated". *Alternative:* run the evaluator under a separate Unix account or on another machine before M05 stores locked data.
 5. **Human reading is done by one reader.** The 20% independent human second read in plan 05 is unavailable and will be reported as such. Future reading tasks follow `docs/reading_task_guidelines.md`.
 
+## Scope of the freeze
+
+Stage 1 freezes **what each sentence means**: the admitted language, the reading sets, the canonical text, and the two status axes. Four independent implementations now agree on these.
+
+It does **not** yet freeze **witness identity**, the exact key used to compare derivations between the reference parser and the oracle. ClaudeOracle found 15 underspecified points in that section of the contract (`reports/oracle_underspecified_v1.md`); most are settled only when the grammar bundle publishes its entry, rule, and recipe identifiers and its derivation shapes (M06). That section is frozen with the bundle as a later protocol version. Nothing in it changes a reading set, a panel, or a threshold.
+
 ## Known limitations at freeze
 
 - The neural comparison mainly confirms a grammar that is ahead; equal systems pass about a quarter to a third of the time (census report).

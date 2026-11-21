@@ -1,0 +1,21 @@
+# ClaudeOracle: underspecified points in the contract
+
+Copied unchanged from ClaudeOracle's STATUS.md on 21 November 2026 (mailbox message 43). ClaudeOracle worked from `spec/contract.md` and `spec/ontology.yaml` at `seed-0.2-draft` only.
+
+### Deliverable: underspecified points in "Selection, tie order and result states"
+1. **Public IDs are not published.** Tie-order item 3 needs "stable, unique public entry/rule/recipe IDs from the same versioned grammar bundle". No bundle was in my inputs, so I invented IDs (`name:bob`, `verb:cite.tv:past`, `op:did_not`, `tv.object-wide`, `FA`, ...). My structural keys cannot be byte-compared with anyone else's until the bundle is published; only cost, object-wide count and the resulting order relations are comparable.
+2. **Derivation shape is not fixed.** The key depends on the tree, but the contract gives an n-ary surface grammar plus a prose CCG sketch. Open: binarisation of the control VP (I used ((verb NP) (to VP))), whether "did not" is one two-token lexical edge (I did that, span length 2), and whether "not every" is a macro edge or two edges (contract says a macro "may" implement it; I used one two-token edge of category ((S[fin]/(S[fin]\NP))/N)).
+3. **Category spelling.** "Fully parenthesized" does not say whether the outermost complex category is parenthesised (I wrote `((S[fin]\NP)/NP)`), nor whether VP[m] is spelled out as `(S[m]\NP)` in keys. Form names: the grammar says VP[past], the CCG paragraph says m in {fin, bare, to}; I used fin/bare/to. Unclear whether downstream features (simple/control status, determiner kind, unresolved scope choice) belong in instantiatedCategory; I left them out.
+4. **Where the scope choice lives.** Item 1 calls it a "lexical scope recipe" of the transitive frame; the recipes section says to inspect argument kinds "at this transitive application" (a rule). I put it in the verb's lexical recipeID. This changes the key and which edge carries the cost.
+5. **recipeID of a rule key.** No rule recipes are named; I used the constant `apply` for FA and BA.
+6. **Cost is inert in the seed.** Every witness of one sentence has the same number of transitive uses (0 or 1), so cost is always 0 or 10 and never separates two witnesses. All ordering is done by the object-wide count and the key. Also unstated: that an embedded transitive costs 10 too (I assumed any transitive use does).
+7. **Unlicensed recipe vs absent recipe.** For like quantifiers only subject-wide is licensed; not stated whether the object-wide edge exists and is filtered, or never exists. No effect on meanings, but it affects witness counts and "exhaustive" comparisons.
+8. **Witness count for Unit cases.** With a Unit argument there are two witnesses with one meaning. "complete/accepted with a witness" does not say whether one (the best) or all are reported. I report all, ranked.
+9. **Identifier comparison across types.** Rules say integers by integer order and identifiers by ASCII bytes; a lexical key (0,...) and a rule key (1,...) differ at field 0, so mixed-type comparison never arises in my shape, but that depends on point 2.
+10. **Overflow.** "Report overflow as a named error" gives no integer width or error name. Python integers do not overflow; I report none.
+11. **Truncation budget.** No unit or limit for the resource budget, and no diagnostic name. I count enumeration steps against an optional cap.
+12. **Out-of-design reading sets.** A complete set with 3+ meanings is "an observable contract discrepancy" but the table gives it no status pair. I return error/abstain with the whole set preserved; complete/ambiguous would be the other defensible choice. Cannot occur in this fragment (max 2).
+13. **Diagnostic names.** "Named diagnostic" and "named cause" are required but no names are listed, so diagnostics cannot be compared exactly. Mine: "lexical failure: empty input / unsupported token / unknown token", "no licensed derivation: zero roots", "malformed request: ...".
+14. **Lexical failure vs zero roots.** Both give no_parse/abstain; the contract does not say whether tokens are reported, or which of several bad tokens is named (I name the first, checking pattern before vocabulary).
+15. **Empty-after-period inputs.** "." tokenizes to nothing; I treat it as the empty-string lexical failure. " . " likewise.
+

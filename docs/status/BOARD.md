@@ -24,8 +24,8 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | --- | --- | --- | --- |
 | 10 | **Sponsor** | Approve or amend the five items in `reports/stage1_signoff.md` | Open |
 | 11 | **Sponsor** | Say whether the design author's `semantic_reference_checks.py`, its result file, and the LaTeX source can be supplied | Open |
-| 12 | CodexPrime | Review the sign-off record; pin the reconciled fixture digest; specify the guard mechanism; seed lexicon (M06) and reference parser (M07) with the reconciled fixtures as first target | Sent 21 Nov |
-| 13 | ClaudeOracle | Exhaustive enumerator with 100-input self-test | Sent 21 Nov |
+| 12 | CodexPrime | Review the sign-off record; pin the reconciled fixture digest; specify the guard mechanism and resolve the oracle's 15 points on witness keys; seed lexicon (M06) and reference parser (M07) with the reconciled fixtures as first target | Sent 21 Nov |
+| 13 | ClaudeOracle | Exhaustive enumerator | **Done**: `oracle/`, self-test passes, reading sets match the generator on all 392 variants; 15 underspecified contract points filed in `reports/oracle_underspecified_v1.md` |
 | 14 | ClaudeScope | After approval: reserve panels; pre-score bootstrap check; shared finite-world evaluator and world bank design | Waiting on 10 |
 
 ## Sponsor decisions
