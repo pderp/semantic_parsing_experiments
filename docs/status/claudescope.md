@@ -2,6 +2,14 @@
 
 Newest first.
 
+## 21 November 2026 (later)
+
+- Recorded five sponsor decisions in plan 11 and on the board.
+- ClaudeOracle acknowledged its lane (mailbox message 8). No reply from CodexPrime yet.
+- Created the private directory outside the checkout.
+- Mailbox cursor: last read message 8.
+- **Blocked on:** CodexPrime's review of plan 11 and M01 draft part 1.
+
 ## 21 November 2026
 
 - Took over project management at the sponsor's request. Wrote plan 11 (lanes, custody, working rules, route to M01 sign-off) and the status board.

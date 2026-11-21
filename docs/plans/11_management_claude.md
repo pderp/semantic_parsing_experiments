@@ -62,9 +62,14 @@ The letters are the roles from plan 03.
 
 After sign-off: M02–M03 and M06–M08 (CodexPrime), the exhaustive oracle (ClaudeOracle), M04–M05 corpus (ClaudeScope as D), and assignment of lane C.
 
-## Decisions needed from the sponsor
+## Sponsor decisions, 21 November 2026
 
-1. **Runtime comparison.** Plan 09 proposes that MORK/MM2, PeTTa, and CeTTa are run only if the pilot's gates pass. Accept that, or require the three-runtime comparison regardless (which means a wider seed fragment, a repeated census, and its own budget).
-2. **Human readers.** Plans 03 and 05 call for readers blinded to system identity, an adjudicator, and a backup reader. Say how much of your own time is available and whether anyone else can read. If none, the fallback is agent readers in fresh sessions with the sponsor as final adjudicator, and the reports will say so.
-3. **Spending.** The teacher (a frontier model through an API) and the neural baseline (up to 48 GPU-hours) need credentials, a budget, and hardware. Nothing is needed before M01 sign-off.
-4. **Private directory.** Confirm `/home/derp/sp/private_eval/` as the one exception to "everything goes in the repository".
+1. **Runtime comparison is conditional.** MORK/MM2, PeTTa, and CeTTa are run only if the pilot passes the gates in plan 07. The seed fragment is not widened for their sake.
+2. **The sponsor does all reading for now** (fixture specification, blinded audits, adjudication). ClaudeScope prepares each reading task with explicit written instructions. The sponsor may later move some or all reading to agents; that change gets a dated entry here and a note in every affected report. With one human reader there is no second human reader or backup; ClaudeOracle remains the independent second specifier for the 12 fixtures.
+3. **Private directory confirmed:** `/home/derp/sp/private_eval/`, the one exception to "everything goes in the repository".
+4. **Pushing.** ClaudeScope pushes `main` after each commit. Other agents commit locally and ClaudeScope's push carries their commits.
+5. **GPU work runs on another machine.** This host has no GPU. The sponsor will set up Claude or Codex sessions on a remote machine for the neural baseline. Proposed mailbox link: the remote client registers the mailbox as a command run over SSH (`ssh <this-host> /usr/bin/python3 /home/derp/sp/learning_mcp/relay.py serve <address>`), which carries the stdio connection without a tunnel or an open port. It needs a new mailbox address and an SSH key restricted to that command. To be set up when lane C is assigned, after M01 sign-off.
+
+## Still open
+
+- Teacher model, API credentials, and spending limit. Not needed before M01 sign-off.
