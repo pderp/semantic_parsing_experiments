@@ -1,5 +1,5 @@
 {
-  "version": "seed-0.2-draft",
+  "version": "seed-1.0",
   "base_types": {
     "E": "entity",
     "V": "event",

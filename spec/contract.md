@@ -1,6 +1,6 @@
 # Controlled English semantic parser · M01 public contract
 
-**Part 1, proposed for cross-review.** Version `seed-0.2-draft` specifies which controlled sentences and meanings the seed licenses. D can enumerate families and B can derive expected outputs from this public specification once the review is accepted. Signed run thresholds and the independent fixture readings belong to later handoffs. The spike provides a replayable example. [Seed ontology](ontology.yaml) · [Spike questions](../spike/README.md) · [Transfer protocol](../docs/plans/07codex_plan.md)
+**Part 1, proposed for cross-review.** Version `seed-1.0` specifies which controlled sentences and meanings the seed licenses. D can enumerate families and B can derive expected outputs from this public specification once the review is accepted. Signed run thresholds and the independent fixture readings belong to later handoffs. The spike provides a replayable example. [Seed ontology](ontology.yaml) · [Spike questions](../spike/README.md) · [Transfer protocol](../docs/plans/07codex_plan.md)
 
 ## Inputs, vocabulary and grammatical fragment
 
