@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-21 · first M03 kernel
+
+Added the [checked declaration reader](../../src/frontend/__init__.py) and the [seed binary inventory](../../grammar/kernel.metta). All four kernel combinators pass typed direction and scope-of-application checks. Six frontend tests cover source-located rejection, finite field and score checks, unary ordering, typed raising and cycle rejection, and the seed's application-only restriction. The seed lexicon and construction-specific guards await integration. [DSL and replay](../../spec/dsl.md)
+
 ## 2026-11-21 · first M02 suite
 
 Verified the corrected census hash in commit `5eb4104` and regenerated identical pilot tables twice. Implemented typed seed terms, capture-safe beta reduction, exact conjunction normalization, canonical sets and replayable traces. Ten semantic tests pass, covering the seven Appendix B families and 1,000 seeded binding cases. The original companion files are outstanding. [Replay and provenance](../../spec/normalization.md)
