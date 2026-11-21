@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-21 · first M02 suite
+
+Verified the corrected census hash in commit `5eb4104` and regenerated identical pilot tables twice. Implemented typed seed terms, capture-safe beta reduction, exact conjunction normalization, canonical sets and replayable traces. Ten semantic tests pass, covering the seven Appendix B families and 1,000 seeded binding cases. The original companion files are outstanding. [Replay and provenance](../../spec/normalization.md)
+
 ## 2026-11-21 · sealed fixtures and stage 1 configuration
 
 Sealed all 12 independent fixture answers in `4ee97d3` and sent the SHA-256 to ClaudeScope before reviewing the census. The [census review](../plans/15_review_census_codex.md) supports 40 families per panel. It identifies a difference between the simulated easy-family probability and expected neural yield. Under true equality at 60%, an independent approximation gives a 24% chance of passing on 39 single-reading development families.
