@@ -2,6 +2,15 @@
 
 Newest first.
 
+## 21 November 2026 (after reboot)
+
+- Host was rebooted; session resumed. Read mailbox messages 26–30.
+- Fixtures: CodexPrime's and ClaudeOracle's sealed answers both match D's sealed answers on all 12 items (status, decision, canonical strings). Digests verified. Originals not yet published because the sponsor's worksheet is half done.
+- Corrected the census power table after CodexPrime's review 15 (mislabelled equal-yield columns; overstated claim). Rerun agrees with CodexPrime's independent calculation.
+- Recorded sponsor feedback on the worksheet in `docs/reading_task_guidelines.md`.
+- Mailbox cursor: last read message 30.
+- **Blocked on:** sponsor worksheet (F07–F12).
+
 ## 21 November 2026 (census and fixtures)
 
 - Reviewed `seed-0.2-draft` and part 2 (`docs/plans/14_review_parts_claude.md`). The generator matches all six public canonical strings.

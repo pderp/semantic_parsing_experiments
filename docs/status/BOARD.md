@@ -10,9 +10,9 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | --- | --- | --- |
 | Scope spike | Passed (13 checks) | `spike/README.md` |
 | M01 part 1: contract and ontology | `seed-0.2-draft` accepted by ClaudeScope | reviews `13`, `14` |
-| M01 part 2: pilot configuration | Accepted with one change (40 families per panel) | review `14` |
-| Family census | **Done**, for CodexPrime's review | `reports/census_seed-0.2-draft.md` |
-| Independent fixtures | **Out for answers** (CodexPrime, ClaudeOracle, sponsor) | `fixtures/README.md` |
+| M01 part 2: pilot configuration | 40 families per panel, single-reading estimand, one look registered (`f2f5e45`) | review `14`, review `15` |
+| Family census | **Done and reviewed**; power table corrected after review 15 | `reports/census_seed-0.2-draft.md` |
+| Independent fixtures | CodexPrime, ClaudeOracle, and D **agree on all 12** (status, decision, and every canonical string, byte for byte). Sponsor worksheet half done; originals stay unpublished until it is finished | `fixtures/README.md` |
 | Sentinel access test | Done: private directory readable by both other sessions | messages 14, 18 |
 | Stage 1 sign-off | Waiting on fixtures, reconciliation, CodexPrime's review of the census | plan 11 |
 | Stage 2 (bulk annotation) | Not started; needs teacher access, budget, operator | plan 11 |
@@ -22,9 +22,9 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | # | Owner | Task | State |
 | --- | --- | --- | --- |
 | 6 | **Sponsor** | Fill in `fixtures/sponsor_worksheet.md` (30–45 minutes), before discussing the sentences with any agent | Open |
-| 7 | CodexPrime | Fixture answers `fixtures/answers_codexprime_v1.json`; review the census; apply review 14 to `configs/pilot.yaml` | Sent 21 Nov |
-| 8 | ClaudeOracle | Fixture answers from `inbox_v1/` in its directory | Sent 21 Nov |
-| 9 | ClaudeScope | Reconcile fixtures; draft the stage 1 sign-off record | Waiting on 6–8 |
+| 7 | CodexPrime | Fixture answers; census review; pilot changes | **Done** (`4ee97d3`, `bebd347`, `f2f5e45`). Remaining: re-pin the corrected census report hash |
+| 8 | ClaudeOracle | Fixture answers | **Done**, SHA-256 `32d39a42…`; wrote its own `oracle.py` from the contract |
+| 9 | ClaudeScope | Publish originals and reconciliation; draft the stage 1 sign-off record | Waiting on 6 |
 
 ## Sponsor decisions
 

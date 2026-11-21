@@ -6,7 +6,7 @@
 
 The fragment has enough families: 150 primary families, far above the 40 needed. Two findings change the plan:
 
-1. **Twenty families per panel is too few.** With 20 families the paired comparison with the neural model is expected to end "inconclusive" unless the grammar leads by about 20 points. I recommend **40 families per panel**.
+1. **Twenty families per panel is too few.** With 20 families the paired comparison with the neural model passes only about 70% of the time even when the grammar leads by 20 points. I recommend **40 families per panel**.
 2. **Each panel can hold only one two-reading family**, and no third panel is possible under the 80/20 mixture.
 
 ## Inputs
@@ -68,17 +68,19 @@ The gate passes when the one-sided 95% upper limit of (neural yield − symbolic
 
 I simulated the single-reading comparison. Assumptions: the grammar succeeds on a whole family with probability *p*<sub>sym</sub>; the neural model is "easy" or "hard" per family (row success 95% or 5%) with probability *p*<sub>neu</sub> of easy, independently of the grammar; equal family sizes; 4,000 trials; normal approximation to the whole-family bootstrap. These assumptions are mine and are not measurements.
 
-| Single-reading families | Equal at 60% | Equal at 80% | Grammar ahead 70 v 60 | Ahead 80 v 60 | Ahead 90 v 60 |
-| ---: | ---: | ---: | ---: | ---: | ---: |
-| 19 | 19% | 30% | 42% | 72% | 93% |
-| 29 | 25% | 38% | 57% | 86% | 99% |
-| 39 | 27% | 44% | 64% | 93% | 100% |
-| 49 | 32% | 50% | 72% | 96% | 100% |
-| 59 | 36% | 56% | 80% | 99% | 100% |
+| Single-reading families | Equal at 60% | Equal at 80% | Grammar ahead 70 v 60 | Ahead 80 v 60 | Ahead 90 v 60 | Neural ahead 70 v 60 |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 19 | 18% | 23% | 40% | 70% | 93% | 5% |
+| 29 | 23% | 28% | 54% | 84% | 99% | 6% |
+| 39 | 24% | 33% | 61% | 92% | 100% | 6% |
+| 49 | 28% | 37% | 69% | 96% | 100% | 5% |
+| 59 | 31% | 42% | 76% | 98% | 100% | 5% |
 
-Each cell is the chance of a pass. At 19 families the half-width of the interval is 20 to 25 points, twice the margin. If the two systems tend to fail on the same families (I tried a 50% tie between them), the pass rates rise by 10 to 20 points, and the ordering of the rows does not change.
+Each cell is the chance of a pass; the figures are true yields (grammar v neural). Monte Carlo error is about ±1.5 points. At 19 families the half-width of the interval is 20 to 25 points, twice the margin. The last column is the false-pass rate when the neural model leads by exactly the margin; it sits at the nominal 5%. If the two systems tend to fail on the same families, pass rates rise; that dependence is unmeasured.
 
-**Reading.** If the grammar and the neural model are truly equal, no feasible panel size gives a pass more often than not. The test can only confirm a grammar that is ahead. At 40 families per panel a 20-point lead passes about 93% of the time, against 72% at 20 families.
+**Correction, 21 November 2026.** The first version of this table mislabelled its columns. Its parameter was the share of "easy" neural families, which gives neural yields of 59% and 77%, not 60% and 80%, so the "equal" columns favoured the grammar by one to three points. CodexPrime found this in [review 15](../docs/plans/15_review_census_codex.md). The table above is rerun with truly equal yields and agrees with CodexPrime's independent calculation (24%, 33%, and 93% at 39 families). The first version also said that no feasible panel size passes more often than not for equal systems; that was stated too strongly and is replaced below.
+
+**Reading.** Equal systems pass in roughly a quarter to a third of cases at 39 families. The test mainly confirms a grammar that is ahead: at 40 families per panel a 20-point lead passes about 92% of the time, against 70% at 20 families.
 
 ## Recommendations
 
@@ -91,4 +93,4 @@ Each cell is the chance of a pass. At 19 families the half-width of the interval
 
 - No panel is reserved. Reservation happens at stage 1 sign-off, with a recorded seed.
 - Support against actual training rows, duplicate and group controls, and mixture cells per construction quota are checked when the corpus is generated (M04–M05).
-- The power figures use a normal approximation and assumed behaviour. The registered analysis is the whole-family bootstrap in `configs/pilot.yaml`.
+- The power figures use a normal approximation and assumed behaviour. The registered analysis is the whole-family bootstrap in `configs/pilot.yaml`. Before any scoring, D runs the check CodexPrime specified in review 15: synthetic paired rows at the registered integer sizes with the percentile rule, varying shared failures and partial symbolic success, with the seed recorded.
