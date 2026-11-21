@@ -12,6 +12,10 @@ Maintained by ClaudeScope. Every worksheet or reading task given to a human read
 6. **Test before sending.** Before a worksheet goes to a human, a fresh agent session with no project context answers it and lists everything it found unclear. Fix those points first.
 7. **Do not change a worksheet while a reader is working on it.** Record the problem, treat the affected answers with caution at reconciliation, and fix the next version.
 
+8. **Say which kind of "meaning" is being asked about.** Separate two things explicitly: *vagueness* (details the sentence leaves open, such as when, where, how many, or what exactly a verb involves) and *distinct readings* (the sentence can be taken in two ways such that some situation makes one true and the other false). Give the reader that test in the instructions, with a worked example, and say that word meanings are taken as given.
+9. **Say how long an answer should be** and show one filled-in example on a sentence that is not in the task.
+10. **Base time estimates on a trial,** not a guess.
+
 ## Feedback log
 
 ### 21 November 2026 · sponsor, on `fixtures/sponsor_worksheet.md` (fixtures version 1)
@@ -27,3 +31,15 @@ Raised while filling in the worksheet, about the section "The controlled languag
 **Effect on this round.** Question C ("is every word in the list, and does the sentence fit a pattern?") depends on that section. The sponsor's answers to C are treated as provisional at reconciliation, and a disagreement on C alone is not counted against any specifier. Questions A, B, and D do not depend on it.
 
 **Action.** Rules 1–6 above. The worksheet is not edited mid-task (rule 7).
+
+### 21 November 2026 · sponsor, half-way check (F01–F06 answered, F07–F12 blank)
+
+The sponsor asked whether their level of detail was useful or overthinking. Observed in the six answers, without reference to D's sealed answers:
+
+- Answers to A paraphrase the verbs and add unstated context (who the conversation was with, where someone was expected). The task needs only who did what to whom.
+- Answers to B treat vagueness ("some, most, or just one", unspecified time) as multiple meanings. The worksheet never distinguished vagueness from distinct readings, so this is the worksheet's fault.
+- Six sentences took 32 minutes, against an estimate of 30–45 minutes for all twelve.
+
+**Guidance given after F06** (recorded because it changes the conditions for F07–F12): keep A to one sentence and take word meanings as given; in B count only readings that can differ in truth in some situation because of how *every*, *a*, and *not* combine; in D say only whether the sentence states that the event happened. No sentence-specific feedback was given and no answer was called right or wrong. The sponsor was asked to leave F01–F06 as written and, if they wish, to add a separate line marked "B2" under each with a second answer after the guidance.
+
+**Effect on this round.** F01–F06 "B" answers are first-pass answers under unclear instructions; "B2" answers and F07–F12 are answers after guidance. Reconciliation reports the two groups separately.
