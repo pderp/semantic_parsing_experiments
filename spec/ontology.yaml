@@ -1,5 +1,5 @@
 {
-  "version": "seed-0.1-draft",
+  "version": "seed-0.2-draft",
   "base_types": {
     "E": "entity",
     "V": "event",
@@ -8,7 +8,15 @@
   },
   "names": {
     "alice": "E",
-    "bob": "E"
+    "bob": "E",
+    "ava": "E",
+    "ben": "E",
+    "cara": "E",
+    "dan": "E",
+    "eva": "E",
+    "finn": "E",
+    "gia": "E",
+    "hugo": "E"
   },
   "nouns": {
     "researcher": "Researcher",
@@ -77,7 +85,10 @@
     "Dataset": ["E"],
     "Cite": ["V"],
     "Discuss": ["V"],
-    "Evaluate": ["V"]
+    "Evaluate": ["V"],
+    "Arrive": ["V"],
+    "Wait": ["V"],
+    "Speak": ["V"]
   },
   "frames": {
     "leave.iv": {
@@ -166,6 +177,39 @@
       },
       "scope": ["subject-wide", "object-wide"],
       "construction": "transitive"
+    },
+    "arrive.iv": {
+      "predicate": "Arrive",
+      "bare": "arrive",
+      "past": "arrived",
+      "arguments": ["subject"],
+      "roles": {
+        "subject": "Agent"
+      },
+      "scope": ["default"],
+      "construction": "intransitive"
+    },
+    "wait.iv": {
+      "predicate": "Wait",
+      "bare": "wait",
+      "past": "waited",
+      "arguments": ["subject"],
+      "roles": {
+        "subject": "Agent"
+      },
+      "scope": ["default"],
+      "construction": "intransitive"
+    },
+    "speak.iv": {
+      "predicate": "Speak",
+      "bare": "speak",
+      "past": "spoke",
+      "arguments": ["subject"],
+      "roles": {
+        "subject": "Agent"
+      },
+      "scope": ["default"],
+      "construction": "intransitive"
     }
   },
   "constructors": {
@@ -177,5 +221,27 @@
     "ExistsE": "(E -> P) -> P",
     "ExistsV": "(V -> P) -> P",
     "Box": "P -> I"
+  },
+  "noun_class": {
+    "researcher": "person",
+    "reviewer": "person",
+    "author": "person",
+    "editor": "person",
+    "scientist": "person",
+    "scholar": "person",
+    "student": "person",
+    "professor": "person",
+    "analyst": "person",
+    "investigator": "person",
+    "paper": "artifact",
+    "manuscript": "artifact",
+    "report": "artifact",
+    "proposal": "artifact",
+    "article": "artifact",
+    "thesis": "artifact",
+    "draft": "artifact",
+    "preprint": "artifact",
+    "abstract": "artifact",
+    "dataset": "artifact"
   }
 }
