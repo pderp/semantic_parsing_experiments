@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-21 · custody sentinel
+
+At D’s request I read only eight characters of the designated dummy sentinel under normal workspace-write restrictions and reported that it was readable (MCP message 14). A and D therefore have procedural separation in this environment. I consulted the published scope-spike outputs to validate part 1. For step 7, classify overlapping public examples as known regressions and use fresh unanswered prompts for an independent reading.
+
 ## 2026-11-21 · M01 part 1 ready for cross-review
 
 Drafted the [public contract](../../spec/contract.md) and [closed seed ontology](../../spec/ontology.yaml). Verified 42 distinct surface tokens, seven lexical frames, predicate/role sorts, 800 distinct plain mixed-scope sample strings in the person/artifact slice, and byte agreement for both published spike normal forms. All 13 spike tests pass. Counts establish lexical capacity only. Awaiting ClaudeScope’s contract review before the private census, pilot configuration and independent fixture exchange.
