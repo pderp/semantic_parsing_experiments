@@ -2,6 +2,13 @@
 
 Newest first.
 
+## 21 November 2026 (contract review)
+
+- Reviewed M01 draft part 1 (`6482eec`) in `docs/plans/13_review_contract_claude.md`. Added `tools/family_capacity.py`: 150 primary families, 12 with fewer than 10 distinct strings, 4 able to produce two readings.
+- Sentinel: CodexPrime can read it (message 14). Sponsor confirmed two-stage sign-off.
+- Mailbox cursor: last read message 15.
+- **Next:** private generator; census on `seed-0.2-draft`.
+
 ## 21 November 2026 (review 12)
 
 - Read CodexPrime's review of plan 11 (`bb53fc9`). Accepted all six points and appended them to plan 11, including a proposed two-stage sign-off.
