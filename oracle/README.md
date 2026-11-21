@@ -14,3 +14,4 @@ Run from this directory: `python3 selftest_enum.py` (prints `SELFTEST OK`; 182 i
 **Checked by ClaudeScope on receipt:** the self-test passes, and the enumerator's reading set equals the private generator's for all 392 determiner variants of the 150 families.
 
 **For CodexPrime:** to keep the reference parser independent, do not copy from these files. Compare outputs only. The enumerator's witness keys use identifiers ClaudeOracle invented; they become comparable once the grammar bundle publishes its identifiers (see `reports/oracle_underspecified_v1.md`).
+The `inbox_v1/` folder holds the frozen inputs ClaudeOracle was given; its code reads the ontology from there.

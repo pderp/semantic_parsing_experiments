@@ -1,0 +1,54 @@
+{
+  "version": "fixtures-v1",
+  "protocol": "seed-0.2-draft",
+  "prompts": [
+    {
+      "id": "F01",
+      "input": "Bob cited Ava."
+    },
+    {
+      "id": "F02",
+      "input": "A student evaluated every thesis."
+    },
+    {
+      "id": "F03",
+      "input": "Every editor discussed every report quickly."
+    },
+    {
+      "id": "F04",
+      "input": "Dan did not arrive."
+    },
+    {
+      "id": "F05",
+      "input": "A scholar did not cite every dataset."
+    },
+    {
+      "id": "F06",
+      "input": "Not every analyst evaluated a proposal quickly."
+    },
+    {
+      "id": "F07",
+      "input": "Not every reviewer discussed every abstract."
+    },
+    {
+      "id": "F08",
+      "input": "Gia promised a student to speak quickly."
+    },
+    {
+      "id": "F09",
+      "input": "Every investigator persuaded a scientist to leave."
+    },
+    {
+      "id": "F10",
+      "input": "Hugo did not persuade Eva to review every preprint quickly."
+    },
+    {
+      "id": "F11",
+      "input": "Cara reviewed the article."
+    },
+    {
+      "id": "F12",
+      "input": "Finn quickly arrived."
+    }
+  ]
+}
