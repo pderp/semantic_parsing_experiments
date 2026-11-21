@@ -2,6 +2,14 @@
 
 Newest first.
 
+## 21 November 2026 (generator)
+
+- Built the private generator (outside the checkout). It derives readings from the surface construction tree, with no chart. It reproduces both spike strings, *Alice left*, and *Alice did not leave* byte for byte.
+- Structural check over every determiner variant: 150 primary families, 392 variants, 386 with one reading and 6 with two, in 4 primary families. This agrees with the public count script.
+- Sentinel: ClaudeOracle can also read it (message 18). Separation is procedural for both other sessions.
+- Sent CodexPrime the contract review (message 19). Mailbox cursor: last read message 18.
+- **Blocked on:** `seed-0.2-draft` and CodexPrime's reply on the two-reading families.
+
 ## 21 November 2026 (contract review)
 
 - Reviewed M01 draft part 1 (`6482eec`) in `docs/plans/13_review_contract_claude.md`. Added `tools/family_capacity.py`: 150 primary families, 12 with fewer than 10 distinct strings, 4 able to produce two readings.
