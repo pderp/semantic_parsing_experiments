@@ -187,9 +187,6 @@ def sign_off_table(record):
         actual = hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
         require(actual == expected, f"reviewed SHA-256 differs for {path}")
         rows.append([path, actual])
-    reconciled = ROOT / record["reconciled_fixtures"]
-    digest = hashlib.sha256(reconciled.read_bytes()).hexdigest() if reconciled.exists() else "pending reconciliation"
-    rows.append([record["reconciled_fixtures"], digest])
     return table("Stage 1 public evidence", ["Artifact", "SHA-256"], rows) + "\n\n" + record["custodian_evidence"]
 
 

@@ -1,6 +1,6 @@
 {
   "protocol": "seed-0.2-draft",
-  "status": "M01 stage 1 protocol awaiting fixture reconciliation and sponsor approval",
+  "status": "M01 stage 1 protocol with reconciled fixtures awaiting sponsor approval",
   "ontology": "spec/ontology.yaml",
   "sign_off": {
     "stage_1": ["contract", "ontology", "pilot_config", "public_census", "reconciled_fixtures", "sentinel_record", "sponsor_approval"],
@@ -9,10 +9,10 @@
       "spec/contract.md": "e15a49cf3861728f9e3f1412005272875d64ca9f48b6a295344549c4cbcdd5c1",
       "spec/ontology.yaml": "eaa0e2477a6005f751187f4c234ec6586fe03f27be8bce1f8d25d910f43896ab",
       "reports/census_seed-0.2-draft.md": "9d016a1a3e3fcbd80bedceb39a07d476494ce9b95089542484a278e4a5629c1f",
+      "fixtures/reconciled_v1.json": "79ca957a558aa1ef09d65aec1f48a47f358ac89f9bdf763c53b9ce5fccdab581",
       "fixtures/prompts_v1.json": "1d5ecb894e4a8db14b56603530451b3517430b2d7272f0b2dedebbb8ac3392da",
       "fixtures/answers_codexprime_v1.json": "47c221145772e7e8b03999dd3d1eedce4beb825b574186ea50523bddfb5aab16"
     },
-    "reconciled_fixtures": "fixtures/reconciled_v1.json",
     "custodian_evidence": "At stage 1 D attaches full SHA-256 values for the private generator, structures and census script, the original answer sets and the reconciled fixtures.",
     "custody": "procedural under shared Unix account",
     "current_authorization_for_bulk_annotation": false
