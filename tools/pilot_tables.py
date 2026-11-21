@@ -62,7 +62,7 @@ def render(config, ontology):
     splits = c["split_cells"]
     require(config["protocol"] == ontology["version"], "contract/ontology version mismatch")
     require(set(splits) == set(SPLITS), "expected four named splits")
-    rows, ordinary, total_by_split = [], [], {}
+    rows, ordinary, negation, total_by_split = [], [], [], {}
     for name in SPLITS:
         split = splits[name]
         require(set(split) == set(CELLS), f"{name}: missing or unexpected cell")
@@ -77,8 +77,15 @@ def render(config, ontology):
             require(tsingle > 0 and tamb > 0, f"{name}: incomplete transfer panel")
         total_by_split[name] = total
         rows.append([name, osingle, oamb, tsingle, tamb, total])
-        ordinary.append([name, *apportion(osingle, c["ordinary_single_pct"]),
-                         *apportion(oamb, c["ordinary_ambiguous_pct"])])
+        single_quota = dict(zip(c["ordinary_single_pct"], apportion(osingle, c["ordinary_single_pct"])))
+        ordinary.append([name, *single_quota.values(), *apportion(oamb, c["ordinary_ambiguous_pct"])])
+        negation_n = single_quota["negation"]
+        roots = c["ordinary_single_negation"]
+        min_not_every = ceil(negation_n * rate(roots["min_not_every_pct"]))
+        min_vp = count(roots["min_vp_negation_rows_per_split"])
+        require(min_not_every > 0 and min_vp > 0 and min_not_every + min_vp <= negation_n,
+                f"{name}: negation quota cannot support both root operators")
+        negation.append([name, negation_n, min_not_every, min_vp])
     require(sum(total_by_split.values()) == c["total"], "split totals differ from corpus total")
     teacher = config["teacher"]
     require(teacher["initial_annotations"] == c["total"], "initial annotation budget differs from population")
@@ -106,14 +113,34 @@ def render(config, ontology):
                        f"{yield_min}/{transfer_n}" if transfer_n else "not opened"])
 
     looks = t["funding_looks"]
-    require(type(looks) is int and looks in (1, 2), "funding looks must be one or two")
-    require(t["fresh_panel_reserved"] == (looks == 2), "second look needs its own reserved panel")
+    require(count(looks) == 1 and t["fresh_panel_reserved"] is False, "registered design has one funding look")
     min_families = count(t["min_distinct_families_per_panel"])
-    require(min_families > 0, "empty family floor")
-    require(t["two_reading_capable_families"] >= t["min_ambiguous_families_for_ordinary_training"] + looks + 1,
-            "insufficient distinct ambiguous families for training, funding and locked panels")
-    bounds = t["one_sided_confidence_pct_by_looks"]
-    require(looks * (1 - rate(bounds[str(looks)])) <= 1 - rate(bounds["1"]), "funding looks exceed alpha budget")
+    single_families = count(t["families_per_panel"]["single_only"])
+    ambiguous_families = count(t["families_per_panel"]["two_reading"])
+    per_panel = single_families + ambiguous_families
+    require(single_families > 0 and ambiguous_families == 1 and per_panel == min_families,
+            "registered allocation must match the family floor and include one two-reading family per panel")
+    panels = ("development", "locked")
+    total_families = count(t["public_census_primary_families"])
+    capable = count(t["two_reading_capable_families"])
+    require(len(panels) * single_families <= total_families - capable,
+            "insufficient disjoint single-only families")
+    require(len(panels) * ambiguous_families + count(t["min_ambiguous_families_for_ordinary_training"]) <= capable,
+            "insufficient disjoint two-reading families")
+    require(t["registered_relative_cell"] == "transfer_single", "relative comparison requires single-reading transfer")
+    require(rate(t["funding_one_sided_confidence_pct"]) == rate(t["locked_one_sided_confidence_pct"]) == rate(95),
+            "registered funding and locked analyses use one-sided 95% limits")
+    allocation = []
+    for name in panels:
+        relative_n = splits[name][t["registered_relative_cell"]]
+        ambiguous_n = splits[name]["transfer_ambiguous"]
+        require(relative_n >= single_families and ambiguous_n >= ambiguous_families,
+                f"{name}: too few rows to represent the registered families")
+        base, extra = divmod(relative_n, single_families)
+        sizes = f"{single_families - extra} × {base}"
+        if extra:
+            sizes += f", {extra} × {base + 1}"
+        allocation.append([name, relative_n, sizes, ambiguous_n, ambiguous_families])
 
     audit_rows = []
     for kind in ("ordinary", "transfer"):
@@ -136,19 +163,34 @@ def render(config, ontology):
     budgets = [
         ["teacher calls (initial + repeats, pilot included)", teacher["initial_annotations"] + teacher["repeat_calls"]],
         ["world bank (exhaustive + hand-checked + sampled)", f'{exhaustive} + {world["hand_checked"]} + {world["sampled_distinct"]} = {world["worlds"]}'],
-        ["minimum distinct families (funding panels + locked)", (looks + 1) * min_families],
-        ["funding looks / one-sided confidence", f'{looks} / {bounds[str(looks)]}%'],
+        ["distinct reserved families in the design (development + locked)", len(panels) * per_panel],
+        ["families available for training and ordinary evaluation", total_families - len(panels) * per_panel],
+        ["funding looks / one-sided confidence", f'{looks} / {t["funding_one_sided_confidence_pct"]}%'],
         ["natural development audit", a["natural_dev"]], ["locked controlled audit", a["locked"]],
         ["benchmark blocks per local configuration, minimum", config["runtime"]["timing_blocks_min"]]
     ]
     return "\n\n".join([
         table("Controlled split", ["Split", *CELLS, "Total"], rows),
         table("Ordinary construction quotas", ["Split", *("single " + k for k in c["ordinary_single_pct"]), *("ambiguous " + k for k in c["ordinary_ambiguous_pct"])], ordinary),
+        table("Ordinary single-reading negation", ["Split", "Negated rows", "Minimum initial not every", "Minimum VP negation"], negation),
+        table("Transfer family allocation", ["Panel", "Relative comparison rows", "Single-only families × rows each", "Two-reading rows", "Two-reading families"], allocation),
         table("Minimum correct or accepted counts", ["Phase", "Accepted/all", "Accepted/single-reading", "Correct set/transfer"], quotas),
         table("Controlled development audit", ["Sample", "Single", "Ambiguous", "Total"], audit_rows),
         table("Independent equal-probability accuracy examples", ["Audited accepted", "Maximum errors", "Observed accuracy"], examples),
         table("Design arithmetic", ["Quantity", "Proposed value"], budgets)
     ])
+
+
+def sign_off_table(record):
+    rows = []
+    for path, expected in record["reviewed_sha256"].items():
+        actual = hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+        require(actual == expected, f"reviewed SHA-256 differs for {path}")
+        rows.append([path, actual])
+    reconciled = ROOT / record["reconciled_fixtures"]
+    digest = hashlib.sha256(reconciled.read_bytes()).hexdigest() if reconciled.exists() else "pending reconciliation"
+    rows.append([record["reconciled_fixtures"], digest])
+    return table("Stage 1 public evidence", ["Artifact", "SHA-256"], rows) + "\n\n" + record["custodian_evidence"]
 
 
 def main():
@@ -160,11 +202,13 @@ def main():
         cfg = json.loads(raw)
         ontology = json.loads((ROOT / cfg["ontology"]).read_bytes())
         tables = render(cfg, ontology)
+        evidence = sign_off_table(cfg["sign_off"])
     except (OSError, KeyError, TypeError, ValueError, ArithmeticError) as exc:
         print(f"Pilot configuration invalid: {exc}", file=sys.stderr)
         return 1
     print(f'# Pilot tables · {cfg["protocol"]}\n\nConfiguration SHA-256: `{hashlib.sha256(raw).hexdigest()}`\n')
     print(tables)
+    print("\n" + evidence)
     return 0
 
 

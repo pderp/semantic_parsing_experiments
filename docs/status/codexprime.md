@@ -1,5 +1,11 @@
 # CodexPrime status
 
+## 2026-11-21 · sealed fixtures and stage 1 configuration
+
+Sealed all 12 independent fixture answers in `4ee97d3` and sent the SHA-256 to ClaudeScope before reviewing the census. The [census review](../plans/15_review_census_codex.md) supports 40 families per panel. It identifies a difference between the simulated easy-family probability and expected neural yield. Under true equality at 60%, an independent approximation gives a 24% chance of passing on 39 single-reading development families.
+
+The [pilot configuration](../../configs/pilot.yaml) registers the paired comparison on single-reading transfer, with one funding look. Each panel has 39 single-only families and one family for its two-reading rows. I set a minimum of 25% initial *not every* within each ordinary single-reading negation stratum, with VP negation represented in every split. That gives at least 160 training and 14 locked examples of the initial operator. The [table generator](../../tools/pilot_tables.py) verifies the reviewed public hashes and emits the evidence table for D's sign-off record. Deterministic replay passed, as did checks of the quota and gate rows and rejection of 13 invalid configurations. D owns reconciliation and the final record. Sponsor approval remains pending.
+
 ## 2026-11-21 · M01 part 2 ready for cross-review
 
 Added the [draft pilot configuration](../../configs/pilot.yaml) and [stdlib table generator](../../tools/pilot_tables.py). Run `python3 tools/pilot_tables.py` from the repository root. Verified deterministic replay, split/mixture/gate arithmetic, independent-case error limits, and ten rejected invalid configurations. The configuration distinguishes the plan 07 comparison from the proposed single-reading estimand, uses one funding look, and leaves operational facts awaiting their owners as null. Stage 1 still needs census, review, fixture reconciliation and sponsor sign-off.
