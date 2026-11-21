@@ -1,6 +1,6 @@
 # Stage 1 sign-off record · structural freeze
 
-**Prepared by:** ClaudeScope, 21 November 2026. **Status: awaiting the sponsor's approval.** CodexPrime to review this record.
+**Prepared by:** ClaudeScope, 21 November 2026. **Status: approved by the sponsor on 21 November 2026** (all five items, as written). Reviewed by CodexPrime (mailbox message 48).
 
 Stage 1 freezes the public contract and the pilot configuration and allows D to reserve the two transfer panels. It does **not** authorize bulk annotation; that is stage 2 (plan 11).
 
@@ -10,7 +10,7 @@ Stage 1 freezes the public contract and the pilot configuration and allows D to 
 | --- | --- |
 | `spec/contract.md` (`seed-0.2-draft`) | `e15a49cf3861728f9e3f1412005272875d64ca9f48b6a295344549c4cbcdd5c1` |
 | `spec/ontology.yaml` | `eaa0e2477a6005f751187f4c234ec6586fe03f27be8bce1f8d25d910f43896ab` |
-| `configs/pilot.yaml` | `24de0b2a9e2b59a86a1b654e2f2961e263e1b9644107bcb18f54451d0349d654` (to be re-pinned once with the reconciled fixture digest) |
+| `configs/pilot.yaml` | `634b2dd3c8721c2a44413239e2991a82505725a6d02301a73dcca7299958b25c` (at `5c3ceb0`, with the reconciled fixture digest pinned) |
 | `reports/census_seed-0.2-draft.md` | `9d016a1a3e3fcbd80bedceb39a07d476494ce9b95089542484a278e4a5629c1f` |
 | `fixtures/prompts_v1.json` | `1d5ecb894e4a8db14b56603530451b3517430b2d7272f0b2dedebbb8ac3392da` |
 | `fixtures/reconciled_v1.json` | `79ca957a558aa1ef09d65aec1f48a47f358ac89f9bdf763c53b9ce5fccdab581` |
@@ -47,7 +47,13 @@ On approval the contract and ontology are renamed from `seed-0.2-draft` to `seed
 
 ## Scope of the freeze
 
-Stage 1 freezes **what each sentence means**: the admitted language, the reading sets, the canonical text, and the two status axes. Four independent implementations now agree on these.
+Stage 1 freezes **what each sentence means**: the admitted language, the reading sets, the canonical text, and the two status axes. The evidence for these is of three separate kinds, and they should not be added together:
+
+- three formal specifications (CodexPrime, ClaudeOracle, D) agree on the 12 fixtures, including both status axes;
+- D's generator and ClaudeOracle's enumerator agree on the reading sets of all 392 determiner variants (admitted sentences only);
+- CodexPrime's normalizer reproduces D's canonical text on 3,400 scrambled terms.
+
+No complete reference parser exists yet, so this is not four parsers agreeing on every input.
 
 It does **not** yet freeze **witness identity**, the exact key used to compare derivations between the reference parser and the oracle. ClaudeOracle found 15 underspecified points in that section of the contract (`reports/oracle_underspecified_v1.md`); most are settled only when the grammar bundle publishes its entry, rule, and recipe identifiers and its derivation shapes (M06). That section is frozen with the bundle as a later protocol version. Nothing in it changes a reading set, a panel, or a threshold.
 
@@ -68,4 +74,14 @@ It does **not** yet freeze **witness identity**, the exact key used to compare d
 
 ## Approval
 
-Sponsor decision on items 1–5: _pending_
+Sponsor decision on items 1–5: **approved, all five, as written** (21 November 2026).
+
+## Actions taken on approval
+
+| Action | Result |
+| --- | --- |
+| Panels reserved | 40 development-transfer families, 40 locked-transfer families, 70 training families. One draw; all 44 components occur in a training family. Smallest reserved family has 40 distinct sentences. |
+| Panel manifest (private) | SHA-256 `75c6a7199387290e0d4a634d24258721bb91dd771440d13405c050fa98ad9bbe`; seed and algorithm are recorded inside it; file set read-only. |
+| `reserve.py` (private) | SHA-256 `c9efc6348cffb5111ff44c6e38c90dcc7e6011caaf50866f7380b6deed83a13c` |
+| Pre-score bootstrap check | `tools/prescore_check.py`; results in `reports/prescore_check.md` |
+| Promotion to `seed-1.0` | Requested from CodexPrime (version strings and pinned digests only). The panel manifest cites the `seed-0.2-draft` digests; the family keys are unaffected by the rename. |

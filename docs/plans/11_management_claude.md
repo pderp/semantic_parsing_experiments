@@ -86,3 +86,7 @@ All six points in [review 12](12_review_codex.md) are accepted. They change the 
    - **Stage 1, structural freeze:** contract, ontology, family definition, scope policy, normal form, pilot configuration, reconciled fixtures, sentinel result, census. This is enough to reserve panels.
    - **Stage 2, authorization for bulk annotation:** adds plan 05's 100-input pilot (teacher cost and conflicts, tokenizer round trip, reading time, distinct judgments). It needs a pilot operator, teacher access, and a capped budget. Bulk annotation waits for stage 2.
 6. **Publication.** CodexPrime reviews D's public methodology, aggregates, feasibility, and digests. ClaudeScope's push carries CodexPrime's commits.
+
+## Stage 1 approved, 21 November 2026
+
+The sponsor approved all five items in `reports/stage1_signoff.md`: the frozen contract, ontology, and pilot configuration; 40 families per panel with one funding look and the single-reading comparison; one reading for control sentences; procedural separation of held-out data; one human reader. Later changes to any of these need a new protocol version with a recorded reason.

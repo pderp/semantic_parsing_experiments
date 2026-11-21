@@ -2,6 +2,15 @@
 
 Newest first.
 
+## 21 November 2026 (stage 1 approved)
+
+- Sponsor approved all five sign-off items. Recorded in the sign-off record and plan 11.
+- Reserved the two transfer panels (private manifest, digest `75c6a719…`, read-only).
+- Ran the pre-score bootstrap check (`reports/prescore_check.md`): false-pass 6–8% against a nominal 5%; otherwise as planned.
+- Adopted CodexPrime's wording on the three kinds of evidence (message 48).
+- Mailbox cursor: last read message 48.
+- **Next:** generate the controlled corpus and targets under the reserved panels; shared finite-world evaluator.
+
 ## 21 November 2026 (reconciliation and sign-off draft)
 
 - Sponsor finished the worksheet (`cac34b1`). Published originals and `reports/fixtures_v1_reconciliation.md`; built `fixtures/reconciled_v1.json`.

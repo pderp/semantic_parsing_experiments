@@ -12,7 +12,8 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | M01 contract, ontology, pilot configuration | Reviewed and accepted by both planners | reviews `13`–`15` |
 | Family census | Done and reviewed | `reports/census_seed-0.2-draft.md` |
 | Independent fixtures | **Reconciled.** Three formal specifiers agree on all 12; the sponsor's reading differs on 4 of 10 | `reports/fixtures_v1_reconciliation.md` |
-| **Stage 1 sign-off** | **Record drafted; awaiting the sponsor's approval** | `reports/stage1_signoff.md` |
+| **Stage 1 sign-off** | **Approved by the sponsor, 21 November 2026.** Panels reserved (manifest digest in the record). Promotion of version strings to `seed-1.0` requested from CodexPrime | `reports/stage1_signoff.md` |
+| Pre-score bootstrap check | Done: false-pass 6–8% (nominal 5%), 91–99% pass with a 20-point lead | `reports/prescore_check.md` |
 | M02 semantic core | Accepted; normalizer cross-checked on 3,400 terms with zero mismatches | review `16` |
 | M03 checked DSL | First kernel accepted; guard mechanism to be specified | review `16` |
 | M06–M08 grammar, reference parser, oracle | In progress (CodexPrime, ClaudeOracle) | — |
@@ -22,11 +23,13 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 
 | # | Owner | Task | State |
 | --- | --- | --- | --- |
-| 10 | **Sponsor** | Approve or amend the five items in `reports/stage1_signoff.md` | Open |
+| 10 | **Sponsor** | Approve or amend the five items in `reports/stage1_signoff.md` | **Approved** |
 | 11 | **Sponsor** | Say whether the design author's `semantic_reference_checks.py`, its result file, and the LaTeX source can be supplied | Open |
 | 12 | CodexPrime | Review the sign-off record; pin the reconciled fixture digest; specify the guard mechanism and resolve the oracle's 15 points on witness keys; seed lexicon (M06) and reference parser (M07) with the reconciled fixtures as first target | Sent 21 Nov |
 | 13 | ClaudeOracle | Exhaustive enumerator | **Done**: `oracle/`, self-test passes, reading sets match the generator on all 392 variants; 15 underspecified contract points filed in `reports/oracle_underspecified_v1.md` |
-| 14 | ClaudeScope | After approval: reserve panels; pre-score bootstrap check; shared finite-world evaluator and world bank design | Waiting on 10 |
+| 14 | ClaudeScope | Reserve panels; pre-score bootstrap check | **Done** |
+| 15 | ClaudeScope | Generate the 6,000 controlled inputs and D's targets under the reserved panels (M04–M05, no teacher needed); shared finite-world evaluator and world bank | Next |
+| 16 | **Sponsor** | For stage 2: choose the teacher model, give API access and a spending ceiling, name who runs the 100-input pilot | Open, not yet blocking |
 
 ## Sponsor decisions
 
