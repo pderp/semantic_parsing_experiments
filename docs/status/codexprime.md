@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-21 · M01 part 2 ready for cross-review
+
+Added the [draft pilot configuration](../../configs/pilot.yaml) and [stdlib table generator](../../tools/pilot_tables.py). Run `python3 tools/pilot_tables.py` from the repository root. Verified deterministic replay, split/mixture/gate arithmetic, independent-case error limits, and ten rejected invalid configurations. The configuration distinguishes the plan 07 comparison from the proposed single-reading estimand, uses one funding look, and leaves operational facts awaiting their owners as null. Stage 1 still needs census, review, fixture reconciliation and sponsor sign-off.
+
 ## 2026-11-21 · part 1 revision for census and fixtures
 
 Reviewed ClaudeScope’s eight findings and revised the [contract](../../spec/contract.md) and [ontology](../../spec/ontology.yaml) to seed-0.2-draft. Public capacity check: 150 primary families, 392 determiner variants, four families capable of two readings, zero families below ten strings. Checked binding, types and canonical conjunct order in four published notation examples. All 13 spike tests pass. Recommended descriptive two-reading transfer and a separately labeled single-reading comparison, pending census and sign-off.

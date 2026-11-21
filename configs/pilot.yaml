@@ -1,0 +1,120 @@
+{
+  "protocol": "seed-0.2-draft",
+  "status": "M01 stage 1 proposal for cross-review",
+  "ontology": "spec/ontology.yaml",
+  "sign_off": {
+    "stage_1": ["contract", "ontology", "pilot_config", "public_census", "reconciled_fixtures", "sentinel_record", "sponsor_approval"],
+    "stage_2": ["stage_1", "pilot_operator", "teacher_access_and_version", "approved_spending_ceiling", "100_input_pilot_evidence", "sponsor_bulk_authorization"],
+    "custody": "procedural under shared Unix account",
+    "current_authorization_for_bulk_annotation": false
+  },
+  "corpus": {
+    "total": 6000,
+    "licensed_token_length_range": [2, 12],
+    "split_cells": {
+      "training":    {"ordinary_single": 3200, "ordinary_ambiguous": 800, "transfer_single": 0, "transfer_ambiguous": 0},
+      "development": {"ordinary_single": 640,  "ordinary_ambiguous": 160, "transfer_single": 160, "transfer_ambiguous": 40},
+      "calibration": {"ordinary_single": 400,  "ordinary_ambiguous": 100, "transfer_single": 0, "transfer_ambiguous": 0},
+      "locked":      {"ordinary_single": 280,  "ordinary_ambiguous": 70,  "transfer_single": 120, "transfer_ambiguous": 30}
+    },
+    "ambiguous_pct": 20,
+    "ordinary_single_pct": {"simple": 30, "manner": 20, "negation": 20, "subject_control": 15, "object_control": 15},
+    "ordinary_ambiguous_pct": {"plain": 50, "manner": 50},
+    "max_licensed_readings": 2,
+    "ordinary_single_assignment_proposed": "assign one public stratum in order: negated root, subject control, object control, manner, simple",
+    "unknown_eval_words_senses_frames": 0,
+    "cross_split_group_collisions": 0,
+    "private_split_seed": "D records seed, algorithm and generated manifest digest in custody before reservation",
+    "natural": {"source": "English PLOS ONE research articles, CC BY 4.0 author-written prose", "topics": ["peer review", "scholarly publishing", "research assessment"], "survey": 200, "development": 300, "split_unit": "DOI", "sampling_seed_proposal": 20261121, "snapshot_and_query": null}
+  },
+  "transfer": {
+    "family_key": "public primary structural key in contract; determiner-specific count descriptive",
+    "min_distinct_families_per_panel": 20,
+    "eligibility_for_proposed_single_only_interval": "report number and weights of families contributing single-reading rows; retain the proposed minimum of 20 contributing families and check width before approving the new estimand",
+    "two_reading_capable_families": 4,
+    "min_ambiguous_families_for_ordinary_training": 2,
+    "funding_looks": 1,
+    "optional_fresh_looks_max_in_plan_07": 1,
+    "fresh_panel_reserved": false,
+    "optional_fresh_panel_size": 200,
+    "one_sided_confidence_pct_by_looks": {"1": 95, "2": 97.5},
+    "locked_one_sided_confidence_pct": 95,
+    "absolute_set_yield_floor_pct": 50,
+    "relative_margin_pp_neural_minus_symbolic": 10,
+    "co_primary_yields": ["full controlled set-aware yield", "all transfer set-aware yield"],
+    "relative_estimand_in_plan_07": "all transfer inputs",
+    "relative_estimand_recommended": "single-reading transfer inputs only",
+    "recommendation_status": "pending joint census review and sponsor sign-off before scoring",
+    "ambiguity_analysis_recommended": "report both systems on every two-reading row with within-family counts; descriptive",
+    "paired_interval_proposal": {"unit": "primary family", "statistic": "difference of input-weighted set-aware yields on the registered estimand", "method": "paired whole-family percentile bootstrap", "replicates": 20000, "seed": 20261122, "quantile": "inverse empirical CDF, rank ceil(p*B), one-based"},
+    "interval_protocol": "stable family ordering; sample eligible family clusters with replacement in pairs across systems; carry all their rows; for all-input estimand combine replicate stratum means with frozen 80/20 weights, using common family draws for a family spanning strata. For proposed single-reading estimand use only single-reading rows. Undefined or unsupported limits are inconclusive. Report input-weighted counts, uncertainty, family counts and largest weights.",
+    "relative_decision": "upper < +margin passes, lower >= +margin fails, otherwise inconclusive; lower and upper yield bounds for unresolved labels must be propagated conservatively for both systems",
+    "inconclusive_action": "publish primary results; no adapter funding",
+    "definite_failure_action": "stop adapter investment for this candidate"
+  },
+  "audit": {
+    "human_readers": 1,
+    "independent_second_human_read_pct": 0,
+    "independent_fixture_specifiers": ["CodexPrime", "ClaudeOracle", "sponsor"],
+    "fixture_count": 12,
+    "controlled_dev_ordinary": 160,
+    "controlled_dev_transfer": 40,
+    "controlled_dev_ambiguous_pct": 20,
+    "natural_dev": 100,
+    "locked": 500,
+    "sizing": "one judgment per distinct input/context/decision/normalized set/rubric; add conflict resolution and measured minutes, reduce inputs jointly across systems only before scoring",
+    "approved_reader_hours": null
+  },
+  "teacher": {
+    "initial_annotations": 6000, "pilot_within_training": 100, "pilot_ambiguous": 20, "repeat_calls": 200,
+    "cache_replay_cases": 100, "cache_replay_new_calls": 0, "tokenizer_roundtrip_unknown_tokens": 0,
+    "model_snapshot": null, "prompt_digest": null, "operator": null, "approved_currency_and_ceiling": null
+  },
+  "world_bank": {
+    "worlds": 256, "entity_slots": 4, "event_slots": 3, "exhaustive_bits": 6,
+    "hand_checked": 16, "sampled_distinct": 176, "seed": 20261119,
+    "exhaustive_design": "two events by three designated bits: Review, corresponding Agent and corresponding Theme",
+    "name_interpretation": "fixed across all worlds; alice and bob occupy the two researcher slots; record interpretations of the additional names and co-denotations before scoring",
+    "content": "matrix truth and boxed payload truth vectors at the same outer assignment"
+  },
+  "semantic_gates": {
+    "companion_checks_reported": 39, "supplement_families": 7, "well_typed_stress_cases": 1000, "stress_seed_proposal": 20261123,
+    "dsl_binary_combinators": 4, "seed_binary_combinators": 2,
+    "seed_examples_per_family": {"positive": 1, "contrast": 1, "transfer": 1},
+    "tiny_pairs_min": 100, "unexplained_mismatches_max": 0, "native_parity_dev_inputs": 200
+  },
+  "growth": {
+    "max_weekly_rounds": 4, "plateau_consecutive_rounds": 2, "plateau_gain_below_pp": 2,
+    "selection": "highest audited correct singleton yield among contrast-passing checkpoints; lower p95 breaks ties",
+    "medium_comparison_template_range": [100, 200], "medium_comparison_lexical_range": [5000, 10000]
+  },
+  "gates": {
+    "overall_singleton_coverage_pct": 60, "single_reading_singleton_coverage_pct": 75,
+    "dev_min_audited_accepted": 100, "dev_min_audited_observed_accuracy_pct": 95,
+    "locked_min_accepted_accuracy_lower_pct": 95, "locked_one_sided_confidence_pct": 95,
+    "accepted_accuracy_method_independent_equal_probability": "one-sided exact Clopper-Pearson",
+    "accepted_accuracy_method_clustered_or_unequal_proposal": "sampling-weighted ratio of correct accepted to all accepted; resample independent source/scenario groups within the sampling design, carry all rows and inverse inclusion weights; percentile lower limit",
+    "cluster_interval_guard": "review design support and boundary coverage in D's pre-score simulation; if insufficient families, undefined denominators or a degenerate interval prevent a defensible bound, declare inconclusive",
+    "independent_case_examples_n": [300, 400, 500],
+    "finish": "require CPU gate; stop adapters also on neural dominance in quality, coverage, latency and lifetime cost at preregistered load"
+  },
+  "native_serving": {"cpu_cores": 1, "batch_size": 1, "p95_ms_max": 100, "peak_process_group_mib_max": 1024, "deadline_ms": 1000, "hardware_manifest": null},
+  "baselines": {
+    "neural": {"candidate": "FLAN-T5-base", "training_sizes": [500, 2000, "all_valid_training"], "final_training_seeds_proposed": [17, 23, 41], "gpu_hours_max": 48, "checkpoint_and_tokenizer_digests": null},
+    "existing_symbolic": {"candidate": "ACE/ERG", "mapping_days_max": 3, "development_fixtures": 50},
+    "native": "Rust same-grammar CPU parser", "teacher": "versioned frontier teacher"
+  },
+  "runtime": {
+    "conditional": true, "profiles": ["MORK/MM2", "PeTTa non-MORK", "CeTTa native"],
+    "clean_ir_builds": 2, "qualification_days_per_profile": 10, "optimization_days_per_qualified_profile": 3,
+    "mandatory_exact_mismatches_max": 0, "min_success_and_failure_examples_each": 1,
+    "support_tracks": ["identical host split and logical lowering", "qualified runtime-specific optimizations"], "required_qualification_completion_pct": 100,
+    "timing_blocks_min": 5, "timing_seed_proposal": 20261124, "latency_percentiles": [50, 95, 99],
+    "cost_volumes_and_refresh_scenarios": null, "release_replay": "one complete and one failure or abstention per claimed profile, one report, one annotation batch and one benchmark block resumed; zero duplicate committed records"
+  },
+  "planning_effort_only": {
+    "spike_days": 2, "generator_additional_days": [5, 10], "contract_semantics_data_weeks": 2,
+    "seed_reference_oracle_weeks": 3, "growth_weeks_max": 4, "native_neural_weeks": [2, 3],
+    "evaluation_release_weeks": [1, 2], "common_ir_weeks": [1, 2]
+  }
+}
