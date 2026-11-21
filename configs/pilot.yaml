@@ -8,7 +8,7 @@
     "reviewed_sha256": {
       "spec/contract.md": "e15a49cf3861728f9e3f1412005272875d64ca9f48b6a295344549c4cbcdd5c1",
       "spec/ontology.yaml": "eaa0e2477a6005f751187f4c234ec6586fe03f27be8bce1f8d25d910f43896ab",
-      "reports/census_seed-0.2-draft.md": "d4e70c1452c33cea14802018ad157a571c52c8e162e215db9cdf26d63dbaf85a",
+      "reports/census_seed-0.2-draft.md": "9d016a1a3e3fcbd80bedceb39a07d476494ce9b95089542484a278e4a5629c1f",
       "fixtures/prompts_v1.json": "1d5ecb894e4a8db14b56603530451b3517430b2d7272f0b2dedebbb8ac3392da",
       "fixtures/answers_codexprime_v1.json": "47c221145772e7e8b03999dd3d1eedce4beb825b574186ea50523bddfb5aab16"
     },
