@@ -43,3 +43,26 @@ The sponsor asked whether their level of detail was useful or overthinking. Obse
 **Guidance given after F06** (recorded because it changes the conditions for F07–F12): keep A to one sentence and take word meanings as given; in B count only readings that can differ in truth in some situation because of how *every*, *a*, and *not* combine; in D say only whether the sentence states that the event happened. No sentence-specific feedback was given and no answer was called right or wrong. The sponsor was asked to leave F01–F06 as written and, if they wish, to add a separate line marked "B2" under each with a second answer after the guidance.
 
 **Effect on this round.** F01–F06 "B" answers are first-pass answers under unclear instructions; "B2" answers and F07–F12 are answers after guidance. Reconciliation reports the two groups separately.
+
+
+
+appended by charlie (sponsor) below:
+
+Where the effort is going astray
+
+- Question A: you are defining the verbs ("analyzed and/or reviewed, and then gave an opinion…") and adding context the sentence doesn't state. The parser takes word meanings as given: "cited" just means cited. One short sentence saying who did what to whom is enough.
+- Question B: you are counting vagueness as multiple meanings, such as how many datasets there were or when something happened. I need something narrower: can the sentence be taken in two ways, because of how "every", "a" and "not" combine, such that some situation makes one way true and the other false?
+- Question D: I only need to know whether the sentence says the event actually happened.
+
+The test for question B
+
+Take the worksheet's example, Every researcher reviewed a paper. Imagine two researchers who each reviewed a different paper. "Each reviewed some paper or other" is true there; "there is one paper they all reviewed" is false. That difference makes them two readings. If you can't construct a situation that separates your two paraphrases, it is one reading with details left open.
+
+How to proceed
+
+1. Leave F01–F06 as written. They are a valid first pass under unclear instructions, and I'll report them as such.
+2. If you want to, add a line "B2:" under each of F01–F06 with your answer after applying the test. Don't overwrite the originals; the before-and-after is useful data.
+3. For F07–F12, answer A in one sentence, apply the test for B, and keep D to "did it happen: yes, no, or not stated". Two or three minutes per sentence is about right.
+
+Your timing is useful in itself: six sentences took 32 minutes against my estimate of 30–45 for all twelve, so my estimate was wrong.
+
