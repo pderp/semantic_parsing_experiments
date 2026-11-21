@@ -1,8 +1,8 @@
-# Exact semantics for seed-0.2-draft
+# Exact semantics for seed-1.0
 
 The reference implementation reads the sort of every symbol from the [public ontology](ontology.yaml). A term is an immutable tagged tuple. Use `const(name)`, `var(index)`, `lam(sort, body)` and `app(function, *arguments)`. In an open template, pass `typeof` and `normalize` the same tuple of free-variable sorts, nearest enclosing binder first. A call without a context checks that the term is closed. See the [contract](contract.md) for the semantic recipes and exact byte order.
 
-`close(clause)` checks the root type and applies the always-true event continuation. `normalize(term)` retains the original term, its normal form, the protocol version and an ordered rewrite trace. To replay a step, follow its tuple offsets from the current root and replace the recorded before-term with its after-term. `reading_set(terms)` validates closed propositions and emits the canonical sorted, deduplicated JSON array as ASCII bytes. Constructors such as `Box` remain inert data.
+`close(clause)` checks the root type and applies the always-true event continuation. `normalize(term)` retains the original term, its normal form, the protocol version and an ordered rewrite trace. To replay a step, follow its tuple offsets from the current root and replace the recorded before-term with its after-term. `reading_set(terms)` validates closed propositions and emits the canonical sorted, deduplicated JSON array as ASCII bytes. Final reading serialization checks saturation and requires an explicit base-sort lambda at every logical quantifier. Functional partial applications remain available in intermediate templates. Constructors such as `Box` remain inert data.
 
 ## Regression provenance
 

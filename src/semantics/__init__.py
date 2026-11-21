@@ -1,4 +1,4 @@
-"""Exact, simply typed terms for seed-0.2. Bound references count every lambda."""
+"""Exact, simply typed terms for seed-1.0. Bound references count every lambda."""
 from dataclasses import dataclass
 from functools import lru_cache
 import json
@@ -7,6 +7,7 @@ import re
 from types import MappingProxyType
 
 ROOT = Path(__file__).resolve().parents[2]
+NORMALIZER_VERSION = "seed-1.0"
 E, V, P, I = "E", "V", "P", "I"
 
 
@@ -193,7 +194,7 @@ class Normalization:
     raw: tuple
     normal: tuple
     trace: tuple
-    version: str = "seed-0.2-draft"
+    version: str = NORMALIZER_VERSION
 
 
 def normalize(term, context=()):
@@ -252,11 +253,41 @@ def close(clause):
     return normalize(app(clause, lam(V, const("Top"))))
 
 
+def reading_text(normal):
+    """Check the base-sort, saturated surface form of a normalized proposition."""
+    if typeof(normal) != P:
+        raise SemanticError("a reading must be a closed proposition")
+
+    def check_form(node):
+        head, args = spine(node)
+        if head[0] == "var" and not args:
+            return
+        if head[0] != "const":
+            raise SemanticError("unexpected logical head in a closed reading")
+        name = head[1]
+        ty = signature()[name]
+        for arg in args:
+            if not isinstance(ty, tuple):
+                raise SemanticError(f"oversaturated symbol {name}")
+            domain, ty = ty[1:]
+            if isinstance(domain, tuple):
+                if arg[0] != "lam" or arg[1] not in (E, V):
+                    raise SemanticError(f"{name} requires an explicit logical binder")
+                check_form(arg[2])
+            else:
+                check_form(arg)
+        if isinstance(ty, tuple):
+            raise SemanticError(f"unsaturated symbol {name}")
+
+    check_form(normal)
+    return canonical(normal)
+
+
 def reading_set(terms):
     """Canonical compact JSON bytes for a collection of closed propositions."""
     readings = set()
     for term in terms:
         if typeof(term) != P:
             raise SemanticError("a reading must be a closed proposition")
-        readings.add(canonical(normalize(term).normal))
+        readings.add(reading_text(normalize(term).normal))
     return json.dumps(sorted(readings), ensure_ascii=True, separators=(",", ":")).encode("ascii")

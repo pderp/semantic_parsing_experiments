@@ -4,9 +4,15 @@ from graphlib import CycleError, TopologicalSorter
 import re
 from types import MappingProxyType
 
-from src.semantics import E, H, I, P, Q, R, V, app, arrow, const, lam, typeof, var
+from src.semantics import E, H, I, K, P, Q, R, V, app, arrow, const, lam, typeof, var
 
 ATOMS = {"N": R, "NP": Q, "S[fin]": H, "S[bare]": H, "S[to]": H}
+NP_KINDS = ("unit", "universal", "existential")
+VP_CLASSES = ("simple,plain", "simple,quick", "control")
+ATOMS.update({f"NP[{kind}]": Q for kind in NP_KINDS})
+ATOMS.update({f"S[{form},{kind}]": H for form in ("fin", "bare") for kind in VP_CLASSES})
+ATOMS.update({"S[fin,negative]": H, "S[fin,not-every]": H})
+SORT_ALIASES = {"R": R, "Q": Q, "K": K, "H": H, "VP": arrow(Q, H)}
 TOKEN = re.compile(r";[^\n]*|[()]|[^\s();]+")
 IDENTIFIER = re.compile(r"[A-Za-z][A-Za-z0-9_.-]*")
 
@@ -46,6 +52,8 @@ def forms(source, filename):
 
 
 def sort(expr):
+    if expr in SORT_ALIASES:
+        return SORT_ALIASES[expr]
     if expr in (E, V, P, I):
         return expr
     match expr:
@@ -54,16 +62,20 @@ def sort(expr):
     raise ValueError(f"unknown semantic sort {expr!r}")
 
 
-def template(expr):
+def template(expr, names=()):
     if isinstance(expr, str):
+        if expr in names:
+            return var(names.index(expr))
         if re.fullmatch(r"#(0|[1-9][0-9]*)", expr):
             return var(int(expr[1:]))
         return const(expr)
     match expr:
+        case ("fn", str(name), ty, body) if IDENTIFIER.fullmatch(name):
+            return lam(sort(ty), template(body, (name,) + names))
         case ("lam", ty, body):
-            return lam(sort(ty), template(body))
+            return lam(sort(ty), template(body, (None,) + names))
         case (head, arg, *rest):
-            return app(template(head), template(arg), *(template(a) for a in rest))
+            return app(template(head, names), template(arg, names), *(template(a, names) for a in rest))
     raise ValueError(f"invalid semantic template {expr!r}")
 
 
@@ -139,6 +151,30 @@ class Item:
     meaning: tuple
 
 
+def category_depth(cat):
+    return 0 if isinstance(cat, str) else 1 + max(category_depth(cat[1]), category_depth(cat[2]))
+
+
+def binary_category(kind, left, right, depth, counters=None):
+    """Pure local rule used by the typed kernel and the seed packed chart."""
+    direction = "/" if kind in ("FA", "FC") else "\\"
+    fn, arg = (left, right) if direction == "/" else (right, left)
+    if not isinstance(fn, tuple) or fn[0] != direction:
+        return None
+    result, expected = fn[1:]
+    if kind in ("FC", "BC"):
+        if not isinstance(arg, tuple) or arg[:2] != (direction, expected):
+            return None
+        result = (direction, result, arg[2])
+        if category_depth(result) > depth:
+            if counters is not None:
+                counters["depth_rejections"] = counters.get("depth_rejections", 0) + 1
+            return None
+    elif expected != arg:
+        return None
+    return result
+
+
 @dataclass(frozen=True)
 class Grammar:
     depth: int
@@ -148,32 +184,22 @@ class Grammar:
     unary: object
     unary_order: tuple
 
-    def combine(self, rule_id, left, right):
+    def combine(self, rule_id, left, right, counters=None):
         """Return a checked result for contiguous children, or None if inapplicable."""
         kind, location = self.binary[rule_id]
         if not 0 <= left.start < left.end == right.start < right.end:
             return None
         fun, argument = (left, right) if kind in ("FA", "FC") else (right, left)
-        direction = "/" if kind in ("FA", "FC") else "\\"
-        fc = fun.category
-        if not isinstance(fc, tuple) or len(fc) != 3 or fc[0] != direction:
-            return None
-        result, expected = fc[1:]
-        ac = argument.category
-        compose = kind in ("FC", "BC")
-        if compose:
-            if not isinstance(ac, tuple) or len(ac) != 3 or ac[:2] != (direction, expected):
-                return None
-        elif ac != expected:
+        result = binary_category(kind, left.category, right.category, self.depth, counters)
+        if result is None:
             return None
         try:
             for child in (left, right):
                 if typeof(child.meaning) != category_type(child.category, self.depth):
                     raise ValueError("child meaning disagrees with category")
-            if compose:
-                result = (direction, result, ac[2])
+            if kind in ("FC", "BC"):
                 # Both input meanings were checked closed, so the fresh binder is hygienic.
-                meaning = lam(category_type(ac[2], self.depth),
+                meaning = lam(category_type(argument.category[2], self.depth),
                               app(fun.meaning, app(argument.meaning, var(0))))
             else:
                 meaning = app(fun.meaning, argument.meaning)

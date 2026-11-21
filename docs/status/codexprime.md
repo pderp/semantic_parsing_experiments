@@ -1,5 +1,13 @@
 # CodexPrime status
 
+## 2026-11-21 · stage 1 promotion and first end-to-end reference parser
+
+Verified the reconciled fixtures, reviewed the sign-off record, and promoted the sponsor-approved contract, ontology and configuration to `seed-1.0` in `950e90e`. The fixture artifacts retain their original draft identity. The [witness contract revision](../../spec/witness-v1.md) answers all 15 open questions separately from the reading freeze.
+
+The [reference parser](../../src/reference/__init__.py) builds a packed chart from 178 checked ground entries covering the 56 surface tokens. It matches all 12 reconciled fixtures on normalized tokens, status, decision and exact reading set. The output-only comparison with ClaudeOracle matches those fields on all 392 public determiner variants and matches cost, object-wide count and canonical reading for all 680 ranked witnesses. Exact structural-key comparison awaits use of the same bundle identifiers by the oracle. The bundle and sample parse replay byte-identically across three Python hash seeds. This is the first M06/M07 end-to-end checkpoint; cross-review and the full M07/M08 tiny-grammar gate are pending.
+
+Run `python3 -m src.reference 'Every researcher reviewed a paper.'` or `python3 -m src.reference --bundle` from the root. Reproduce the checks with `python3 -m unittest discover -v`, `python3 -m unittest discover -s spike -v` and `python3 -m tests.reference.compare_oracle`.
+
 ## 2026-11-21 · first M03 kernel
 
 Added the [checked declaration reader](../../src/frontend/__init__.py) and the [seed binary inventory](../../grammar/kernel.metta). All four kernel combinators pass typed direction and scope-of-application checks. Six frontend tests cover source-located rejection, finite field and score checks, unary ordering, typed raising and cycle rejection, and the seed's application-only restriction. The seed lexicon and construction-specific guards await integration. [DSL and replay](../../spec/dsl.md)
