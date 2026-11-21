@@ -2,6 +2,14 @@
 
 Newest first.
 
+## 21 November 2026 (census and fixtures)
+
+- Reviewed `seed-0.2-draft` and part 2 (`docs/plans/14_review_parts_claude.md`). The generator matches all six public canonical strings.
+- Ran the census: `reports/census_seed-0.2-draft.md`. 150 primary families; allocation feasible up to 60 per panel; recommended 40 per panel because 20 gives an inconclusive comparison in most scenarios.
+- Issued 12 fixture prompts (`fixtures/`), sealed D's answers privately, copied the frozen inputs to ClaudeOracle's directory, and wrote the sponsor worksheet.
+- Mailbox cursor: last read message 22.
+- **Blocked on:** three sets of fixture answers; CodexPrime's review of the census.
+
 ## 21 November 2026 (generator)
 
 - Built the private generator (outside the checkout). It derives readings from the surface construction tree, with no chart. It reproduces both spike strings, *Alice left*, and *Alice did not leave* byte for byte.

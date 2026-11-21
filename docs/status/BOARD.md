@@ -8,21 +8,23 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 
 | Milestone | State | Evidence |
 | --- | --- | --- |
-| Scope spike | Passed (13 checks) | `spike/README.md`, commit `5749166` |
-| Plans 00–09 | Converged; plan 09 signed off | `docs/plans/10_review_claude.md` |
-| M01 contract freeze | **In progress** — draft part 1 assigned to CodexPrime | plan 11, steps 1–9 |
-| Family census | Waiting on M01 draft part 1 | — |
-| M02 onward | Not started | — |
+| Scope spike | Passed (13 checks) | `spike/README.md` |
+| M01 part 1: contract and ontology | `seed-0.2-draft` accepted by ClaudeScope | reviews `13`, `14` |
+| M01 part 2: pilot configuration | Accepted with one change (40 families per panel) | review `14` |
+| Family census | **Done**, for CodexPrime's review | `reports/census_seed-0.2-draft.md` |
+| Independent fixtures | **Out for answers** (CodexPrime, ClaudeOracle, sponsor) | `fixtures/README.md` |
+| Sentinel access test | Done: private directory readable by both other sessions | messages 14, 18 |
+| Stage 1 sign-off | Waiting on fixtures, reconciliation, CodexPrime's review of the census | plan 11 |
+| Stage 2 (bulk annotation) | Not started; needs teacher access, budget, operator | plan 11 |
 
 ## Open assignments
 
 | # | Owner | Task | State |
 | --- | --- | --- | --- |
-| 1 | CodexPrime | Review plan 11 (file `12`) | **Done**, `bb53fc9`; all six points accepted into plan 11 |
-| 2 | CodexPrime | M01 draft part 1: `spec/contract.md`, `spec/ontology.yaml` | Draft `6482eec` reviewed in file `13`; revision to `seed-0.2-draft` requested |
-| 5 | CodexPrime, ClaudeOracle | Sentinel access test | **Done.** Readable by both CodexPrime (message 14) and ClaudeOracle (message 18, run once with the sponsor's approval). Held-out data is procedurally separated only |
-| 3 | ClaudeOracle | Stand by for the frozen contract and fixtures | Acknowledged 21 Nov |
-| 4 | ClaudeScope | Private generator and census | Generator built and matches the public worked examples; structural check gives 150 primary families, 392 determiner variants, 4 two-reading families (agrees with `tools/family_capacity.py`). Census and allocation wait for `seed-0.2-draft` |
+| 6 | **Sponsor** | Fill in `fixtures/sponsor_worksheet.md` (30–45 minutes), before discussing the sentences with any agent | Open |
+| 7 | CodexPrime | Fixture answers `fixtures/answers_codexprime_v1.json`; review the census; apply review 14 to `configs/pilot.yaml` | Sent 21 Nov |
+| 8 | ClaudeOracle | Fixture answers from `inbox_v1/` in its directory | Sent 21 Nov |
+| 9 | ClaudeScope | Reconcile fixtures; draft the stage 1 sign-off record | Waiting on 6–8 |
 
 ## Sponsor decisions
 
@@ -34,7 +36,8 @@ Two-stage sign-off confirmed by the sponsor on 21 November.
 
 ## Known issues
 
-- **Only four families can produce two readings** under the draft contract (review 13, item 2). Each transfer panel's two-reading stratum would be one family. Decision after the census.
+- **The neural comparison is weakly powered.** With 20 families per panel it would almost always be inconclusive; the census recommends 40. Even then it can only confirm a grammar that is ahead (census report).
+- **Only four families can produce two readings.** Each transfer panel holds one; two-reading transfer is reported descriptively.
 - **CodexPrime and ClaudeOracle can both read the private directory.** Separation between grammar author and evaluator is by procedure, not by access control. Stronger separation needs a separate Unix account or machine for the evaluator.
 
 - `gh` cannot write to this repository or see `peep-sys/learning_mcp`; pushes go over SSH.
