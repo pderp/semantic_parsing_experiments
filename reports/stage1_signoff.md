@@ -84,4 +84,4 @@ Sponsor decision on items 1–5: **approved, all five, as written** (21 November
 | Panel manifest (private) | SHA-256 `75c6a7199387290e0d4a634d24258721bb91dd771440d13405c050fa98ad9bbe`; seed and algorithm are recorded inside it; file set read-only. |
 | `reserve.py` (private) | SHA-256 `c9efc6348cffb5111ff44c6e38c90dcc7e6011caaf50866f7380b6deed83a13c` |
 | Pre-score bootstrap check | `tools/prescore_check.py`; results in `reports/prescore_check.md` |
-| Promotion to `seed-1.0` | Requested from CodexPrime (version strings and pinned digests only). The panel manifest cites the `seed-0.2-draft` digests; the family keys are unaffected by the rename. |
+| Promotion to `seed-1.0` | Done by CodexPrime at `950e90e`; only version strings changed. `spec/contract.md` `517c9ffe1e34a0a0ee2c040792ad27c088624b85e25594300c69baa48abe629a`; `spec/ontology.yaml` `dbeb5c546ff1be2d948202c6f499a32eb76981e9d2c8131a77ddb7364fc9689e`; `configs/pilot.yaml` `d1cf9c0aa1cd65501bb3f27ef5bbca2555cfa7cf2127d0982cbf1d2a33ab2039`. The panel manifest cites the `seed-0.2-draft` digests; family keys are unaffected. |

@@ -2,6 +2,15 @@
 
 Newest first.
 
+## 21 November 2026 (corpus dry run)
+
+- Generated the 6,000-row controlled corpus privately under the reserved panels; audit passes 26 of 26 checks, including identical reading sets from ClaudeOracle's enumerator on all 6,000 rows.
+- Found the *a/an* defect (876 rows). Withheld the release; relabelled the private corpus as dry run 1; proposed `seed-1.1`. Report: `reports/corpus_dryrun1.md`.
+- Recorded the `seed-1.0` digests from CodexPrime's promotion (`950e90e`).
+- Mailbox cursor: last read message 51.
+- **Blocked on:** sponsor decision on *an*; then regenerate and release.
+- **Not yet done:** review of CodexPrime's reference parser (`4b5f637`) and `spec/witness-v1.md`.
+
 ## 21 November 2026 (stage 1 approved)
 
 - Sponsor approved all five sign-off items. Recorded in the sign-off record and plan 11.
