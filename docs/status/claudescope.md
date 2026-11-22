@@ -7,8 +7,11 @@ Newest first.
 - Sponsor approved `seed-1.1` (*an*) and the natural-text survey; CodexPrime asked to draft `seed-1.1` (message 58).
 - Natural-text survey done: `reports/natural_survey_v1.md`, `data/natural/`, tools `natural_snapshot.py` and `natural_survey.py`. 0 of 200 parse. Development sample (300) sealed privately, not inspected.
 - Design author's files arrived in `docs/pre/`. Hashes of the three files match the author's manifest. Re-ran the checker under Python 3.14 in an empty directory: 39 of 39 pass, output byte-identical to `semantic_checks_result.json`. The PDF we hold does not match the manifest's PDF hash or size.
-- Mailbox cursor: last read message 52.
-- **Blocked on:** CodexPrime's `seed-1.1` draft before corpus release.
+- `seed-1.1` arrived (`3b683f0`). Generator now reads the *a/an* rule from the ontology. Regenerated corpus v1: 26 of 26 audit checks; released training and ordinary development inputs and 100 pilot targets (`reports/corpus_v1.md`).
+- Integrated ClaudeOracle's second deliverable (181 frozen cases, `oracle_witness.py`) and filed its remaining points (`reports/oracle_underspecified_v2.md`). Sent it `inbox_v3/` for `seed-1.1`.
+- CodexPrime agrees with review 17 (message 57): controlled results have a design ceiling; keep every registered gate.
+- Mailbox cursor: last read message 62.
+- **Blocked on:** nothing. Next: shared finite-world evaluator and world bank; sponsor decisions on natural text and stage 2.
 
 ## 21 November 2026 (reference parser review)
 

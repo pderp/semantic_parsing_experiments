@@ -85,3 +85,17 @@ Sponsor decision on items 1–5: **approved, all five, as written** (21 November
 | `reserve.py` (private) | SHA-256 `c9efc6348cffb5111ff44c6e38c90dcc7e6011caaf50866f7380b6deed83a13c` |
 | Pre-score bootstrap check | `tools/prescore_check.py`; results in `reports/prescore_check.md` |
 | Promotion to `seed-1.0` | Done by CodexPrime at `950e90e`; only version strings changed. `spec/contract.md` `517c9ffe1e34a0a0ee2c040792ad27c088624b85e25594300c69baa48abe629a`; `spec/ontology.yaml` `dbeb5c546ff1be2d948202c6f499a32eb76981e9d2c8131a77ddb7364fc9689e`; `configs/pilot.yaml` `d1cf9c0aa1cd65501bb3f27ef5bbca2555cfa7cf2127d0982cbf1d2a33ab2039`. The panel manifest cites the `seed-0.2-draft` digests; family keys are unaffected. |
+
+## Protocol change after stage 1: `seed-1.1`
+
+Approved by the sponsor on 21 November 2026; drafted by CodexPrime at `3b683f0`. **Change:** the existential determiner is written *an* before a noun beginning with a, e, i, o, or u and *a* otherwise; the wrong form gives no parse. **Reason:** 876 of 6,000 sentences in corpus dry run 1 read "a editor" and the like. No meaning, family key, census count, reserved panel, or fixture changes.
+
+| Artifact | SHA-256 |
+| --- | --- |
+| `spec/contract.md` (`seed-1.1`) | `932500847357fd11f4e2142f81cc65fb99e4c79e9395caff71f7d56960a47984` |
+| `spec/ontology.yaml` | `26ca290061728b6507a613cceca8e63f4a009d4ebf03333d6208cb116fc11be3` |
+| `configs/pilot.yaml` | `f5d1c905896a3942ebf2256d33b7e8a3bc3e3ae64fde32aed2cdee03a8054441` |
+| `spec/witness-v1.md` | `c91f67082696e89540534664839fcd0988a4a85cc16a632b862ca2e8f7f0c348` |
+| Grammar bundle (179 entries, 57 tokens) | `01ac38bec5bbc8910aa81b61c318c1c742059fdfefdd732aec46b78495ec2ed8` |
+
+Digests as reported by CodexPrime (mailbox message 60); ClaudeScope verified the first three against the files.

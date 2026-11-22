@@ -1,0 +1,800 @@
+{"id": "C0004", "input": "A student persuaded every scholar to wait."}
+{"id": "C0016", "input": "Every researcher promised an author to discuss every scientist quickly."}
+{"id": "C0018", "input": "Every reviewer did not discuss a dataset quickly."}
+{"id": "C0029", "input": "Gia promised Eva to evaluate a paper quickly."}
+{"id": "C0030", "input": "Not every preprint persuaded every student to cite every abstract quickly."}
+{"id": "C0041", "input": "Bob promised Hugo to discuss a thesis quickly."}
+{"id": "C0042", "input": "A student promised an investigator to review every manuscript quickly."}
+{"id": "C0065", "input": "A scholar promised every report to speak."}
+{"id": "C0068", "input": "Finn promised Alice to evaluate a dataset quickly."}
+{"id": "C0075", "input": "Every proposal arrived."}
+{"id": "C0086", "input": "Every scientist persuaded Gia to evaluate every manuscript."}
+{"id": "C0092", "input": "Every reviewer left quickly."}
+{"id": "C0095", "input": "Every scholar evaluated every proposal quickly."}
+{"id": "C0103", "input": "Ben promised an editor to evaluate Hugo."}
+{"id": "C0106", "input": "Every abstract discussed every proposal."}
+{"id": "C0114", "input": "Every analyst discussed every report."}
+{"id": "C0119", "input": "An investigator reviewed Eva."}
+{"id": "C0126", "input": "An author persuaded every author to discuss Bob quickly."}
+{"id": "C0136", "input": "Every analyst cited an abstract quickly."}
+{"id": "C0139", "input": "Dan did not persuade a researcher to cite Alice quickly."}
+{"id": "C0143", "input": "Every manuscript spoke."}
+{"id": "C0150", "input": "A researcher did not promise Hugo to cite a manuscript quickly."}
+{"id": "C0159", "input": "A reviewer persuaded every scholar to review a preprint quickly."}
+{"id": "C0171", "input": "Every editor discussed every paper."}
+{"id": "C0172", "input": "Every scientist cited an abstract quickly."}
+{"id": "C0173", "input": "An author persuaded every scholar to cite Cara quickly."}
+{"id": "C0189", "input": "Every scientist spoke quickly."}
+{"id": "C0193", "input": "An investigator reviewed every thesis."}
+{"id": "C0217", "input": "Every editor cited every paper quickly."}
+{"id": "C0218", "input": "A professor discussed Ava."}
+{"id": "C0221", "input": "A scholar discussed Gia."}
+{"id": "C0226", "input": "Every dataset cited every paper quickly."}
+{"id": "C0235", "input": "A scientist reviewed Ben."}
+{"id": "C0237", "input": "Every draft spoke."}
+{"id": "C0251", "input": "Every thesis evaluated a preprint quickly."}
+{"id": "C0273", "input": "Every student persuaded every scholar to review Dan quickly."}
+{"id": "C0275", "input": "A student promised a professor to arrive."}
+{"id": "C0277", "input": "A scholar reviewed every dataset."}
+{"id": "C0299", "input": "Every abstract evaluated every researcher quickly."}
+{"id": "C0330", "input": "Every scientist cited every preprint quickly."}
+{"id": "C0333", "input": "A paper did not persuade every paper to discuss Hugo quickly."}
+{"id": "C0362", "input": "An analyst reviewed every report."}
+{"id": "C0366", "input": "A professor discussed every paper."}
+{"id": "C0382", "input": "Every analyst reviewed every preprint."}
+{"id": "C0388", "input": "Gia did not persuade every scientist to leave quickly."}
+{"id": "C0391", "input": "A researcher discussed every reviewer."}
+{"id": "C0396", "input": "Every analyst persuaded Ben to discuss every researcher quickly."}
+{"id": "C0397", "input": "Every student spoke quickly."}
+{"id": "C0407", "input": "A professor persuaded an analyst to cite every abstract quickly."}
+{"id": "C0412", "input": "A student reviewed every manuscript."}
+{"id": "C0414", "input": "Every reviewer cited every thesis quickly."}
+{"id": "C0420", "input": "Every draft evaluated a manuscript quickly."}
+{"id": "C0427", "input": "Ben did not persuade a student to arrive."}
+{"id": "C0435", "input": "Every report spoke."}
+{"id": "C0451", "input": "Not every scholar persuaded Ava to review every report quickly."}
+{"id": "C0459", "input": "Every reviewer did not evaluate an abstract quickly."}
+{"id": "C0460", "input": "A researcher reviewed Ava."}
+{"id": "C0461", "input": "Every preprint cited a manuscript quickly."}
+{"id": "C0463", "input": "Every student did not promise an analyst to discuss a proposal."}
+{"id": "C0471", "input": "Every investigator spoke quickly."}
+{"id": "C0485", "input": "Every abstract left quickly."}
+{"id": "C0490", "input": "Every researcher spoke quickly."}
+{"id": "C0493", "input": "Every preprint left quickly."}
+{"id": "C0494", "input": "Every professor cited a student quickly."}
+{"id": "C0503", "input": "Every investigator did not cite every proposal quickly."}
+{"id": "C0504", "input": "Every student persuaded an investigator to review Bob quickly."}
+{"id": "C0511", "input": "Every professor discussed every dataset."}
+{"id": "C0521", "input": "Bob persuaded every report to review every draft quickly."}
+{"id": "C0527", "input": "Every reviewer arrived."}
+{"id": "C0530", "input": "Not every student persuaded an author to review every student quickly."}
+{"id": "C0534", "input": "A scholar reviewed Bob."}
+{"id": "C0547", "input": "Eva spoke."}
+{"id": "C0551", "input": "An investigator promised every reviewer to cite a manuscript."}
+{"id": "C0561", "input": "Every scholar persuaded every investigator to review every abstract quickly."}
+{"id": "C0573", "input": "Every analyst evaluated every abstract quickly."}
+{"id": "C0583", "input": "Every scientist evaluated a paper quickly."}
+{"id": "C0593", "input": "Every author evaluated a scholar quickly."}
+{"id": "C0622", "input": "Every reviewer promised every analyst to review a thesis quickly."}
+{"id": "C0639", "input": "Eva persuaded a proposal to speak quickly."}
+{"id": "C0641", "input": "A professor discussed every report."}
+{"id": "C0645", "input": "An editor persuaded Hugo to evaluate every manuscript."}
+{"id": "C0650", "input": "A professor persuaded an author to wait quickly."}
+{"id": "C0654", "input": "A report promised every scholar to wait."}
+{"id": "C0678", "input": "Every investigator evaluated a dataset quickly."}
+{"id": "C0685", "input": "A thesis persuaded Gia to evaluate every dataset."}
+{"id": "C0688", "input": "A scientist promised Ben to cite every paper."}
+{"id": "C0692", "input": "A professor discussed every article."}
+{"id": "C0696", "input": "Every professor cited every paper quickly."}
+{"id": "C0700", "input": "A scholar reviewed every proposal."}
+{"id": "C0728", "input": "Every student did not evaluate a professor quickly."}
+{"id": "C0736", "input": "Every professor reviewed every manuscript."}
+{"id": "C0739", "input": "A preprint promised Ben to cite a report quickly."}
+{"id": "C0741", "input": "A student reviewed every report."}
+{"id": "C0749", "input": "An investigator reviewed every report."}
+{"id": "C0759", "input": "Every investigator reviewed every draft."}
+{"id": "C0773", "input": "Every analyst cited a dataset quickly."}
+{"id": "C0781", "input": "Every reviewer reviewed every paper."}
+{"id": "C0795", "input": "A researcher reviewed Alice."}
+{"id": "C0800", "input": "Not every report persuaded every reviewer to evaluate every article quickly."}
+{"id": "C0803", "input": "Every student cited an article quickly."}
+{"id": "C0812", "input": "Every analyst cited a manuscript quickly."}
+{"id": "C0839", "input": "A scientist discussed every preprint."}
+{"id": "C0853", "input": "Not every investigator persuaded an author to speak quickly."}
+{"id": "C0871", "input": "Every scientist cited a dataset quickly."}
+{"id": "C0874", "input": "A professor persuaded every analyst to evaluate every preprint quickly."}
+{"id": "C0876", "input": "Not every author promised every analyst to cite an article quickly."}
+{"id": "C0900", "input": "Every reviewer evaluated every article quickly."}
+{"id": "C0904", "input": "Every scientist persuaded Finn to discuss Gia quickly."}
+{"id": "C0910", "input": "A scholar persuaded every paper to wait."}
+{"id": "C0938", "input": "Every investigator did not promise Cara to discuss every draft quickly."}
+{"id": "C0943", "input": "Every author spoke quickly."}
+{"id": "C0967", "input": "Not every investigator persuaded Dan to review every draft quickly."}
+{"id": "C0977", "input": "A researcher persuaded every reviewer to wait quickly."}
+{"id": "C0987", "input": "A professor persuaded every scholar to cite Dan quickly."}
+{"id": "C0998", "input": "Alice did not evaluate every proposal."}
+{"id": "C1011", "input": "Every investigator discussed every abstract."}
+{"id": "C1012", "input": "Eva persuaded a thesis to speak quickly."}
+{"id": "C1021", "input": "Every editor evaluated a thesis quickly."}
+{"id": "C1022", "input": "Alice promised Bob to cite a dataset quickly."}
+{"id": "C1056", "input": "An analyst persuaded Finn to cite a reviewer."}
+{"id": "C1057", "input": "An editor reviewed every investigator."}
+{"id": "C1065", "input": "Every student promised Ben to discuss every proposal."}
+{"id": "C1082", "input": "Every analyst did not persuade Gia to discuss every student."}
+{"id": "C1100", "input": "Every student did not promise every author to evaluate a preprint."}
+{"id": "C1103", "input": "An editor reviewed Alice."}
+{"id": "C1104", "input": "Hugo did not evaluate every proposal."}
+{"id": "C1122", "input": "Every proposal spoke."}
+{"id": "C1128", "input": "A scientist reviewed every proposal."}
+{"id": "C1142", "input": "A reviewer discussed Dan."}
+{"id": "C1150", "input": "A proposal promised an analyst to review every author quickly."}
+{"id": "C1168", "input": "Every preprint evaluated a manuscript quickly."}
+{"id": "C1175", "input": "A student discussed every analyst."}
+{"id": "C1187", "input": "Ava spoke."}
+{"id": "C1197", "input": "Every analyst promised every scientist to wait."}
+{"id": "C1206", "input": "Every professor persuaded Ava to cite Alice quickly."}
+{"id": "C1220", "input": "Every author reviewed every report."}
+{"id": "C1222", "input": "A scientist persuaded every reviewer to arrive."}
+{"id": "C1242", "input": "A researcher reviewed every draft."}
+{"id": "C1245", "input": "Every report spoke quickly."}
+{"id": "C1246", "input": "Every reviewer promised every analyst to review a manuscript quickly."}
+{"id": "C1266", "input": "Every preprint cited a preprint quickly."}
+{"id": "C1279", "input": "Every investigator promised Gia to cite every abstract."}
+{"id": "C1280", "input": "A professor discussed every thesis."}
+{"id": "C1282", "input": "A professor promised Gia to cite every report."}
+{"id": "C1287", "input": "An author did not promise every analyst to evaluate every dataset."}
+{"id": "C1288", "input": "Every scientist left quickly."}
+{"id": "C1300", "input": "Every dataset cited a report quickly."}
+{"id": "C1301", "input": "A student reviewed every preprint."}
+{"id": "C1306", "input": "Every reviewer cited a dataset quickly."}
+{"id": "C1309", "input": "Every investigator evaluated every investigator quickly."}
+{"id": "C1310", "input": "Every student spoke."}
+{"id": "C1313", "input": "Every author promised a thesis to wait."}
+{"id": "C1319", "input": "Every reviewer discussed every paper."}
+{"id": "C1329", "input": "Every scholar persuaded every scientist to review a paper quickly."}
+{"id": "C1340", "input": "A scholar discussed every report."}
+{"id": "C1354", "input": "Every scientist spoke."}
+{"id": "C1361", "input": "A researcher discussed Eva."}
+{"id": "C1374", "input": "An author discussed every article."}
+{"id": "C1377", "input": "A draft discussed every preprint."}
+{"id": "C1379", "input": "Every investigator did not persuade an investigator to cite a paper quickly."}
+{"id": "C1397", "input": "Every article evaluated every proposal quickly."}
+{"id": "C1404", "input": "Every scientist cited every proposal quickly."}
+{"id": "C1405", "input": "An investigator discussed Ava."}
+{"id": "C1409", "input": "Every researcher promised an author to speak."}
+{"id": "C1412", "input": "A reviewer did not arrive quickly."}
+{"id": "C1425", "input": "Finn did not persuade Dan to review a report."}
+{"id": "C1436", "input": "Every article spoke quickly."}
+{"id": "C1442", "input": "Every investigator evaluated a proposal quickly."}
+{"id": "C1456", "input": "A researcher discussed Alice."}
+{"id": "C1457", "input": "Every abstract cited every report quickly."}
+{"id": "C1476", "input": "A scholar reviewed every abstract."}
+{"id": "C1478", "input": "A preprint discussed Alice."}
+{"id": "C1481", "input": "Every professor cited a paper quickly."}
+{"id": "C1487", "input": "A report discussed every manuscript."}
+{"id": "C1488", "input": "Every scientist promised a scholar to wait."}
+{"id": "C1498", "input": "Every analyst evaluated every proposal quickly."}
+{"id": "C1509", "input": "Every professor cited every preprint quickly."}
+{"id": "C1514", "input": "Every manuscript arrived."}
+{"id": "C1521", "input": "Every professor cited a thesis quickly."}
+{"id": "C1535", "input": "Every author evaluated a preprint quickly."}
+{"id": "C1536", "input": "Every reviewer discussed every investigator."}
+{"id": "C1541", "input": "Every analyst cited a report quickly."}
+{"id": "C1556", "input": "Every analyst reviewed every report."}
+{"id": "C1559", "input": "Every analyst persuaded every editor to cite every report quickly."}
+{"id": "C1575", "input": "An author discussed every preprint."}
+{"id": "C1602", "input": "A student reviewed Ben."}
+{"id": "C1607", "input": "An editor discussed Ben."}
+{"id": "C1611", "input": "Every reviewer promised a professor to discuss every scientist quickly."}
+{"id": "C1613", "input": "Every paper spoke quickly."}
+{"id": "C1632", "input": "Bob spoke."}
+{"id": "C1637", "input": "A reviewer discussed Ben."}
+{"id": "C1646", "input": "Every analyst spoke."}
+{"id": "C1649", "input": "Every researcher spoke."}
+{"id": "C1650", "input": "A scientist promised a student to evaluate a report quickly."}
+{"id": "C1652", "input": "Every thesis left quickly."}
+{"id": "C1655", "input": "Every investigator discussed every preprint."}
+{"id": "C1661", "input": "Every professor spoke quickly."}
+{"id": "C1664", "input": "Every editor reviewed every abstract."}
+{"id": "C1666", "input": "Every analyst discussed every manuscript."}
+{"id": "C1671", "input": "Finn spoke."}
+{"id": "C1678", "input": "A professor discussed every preprint."}
+{"id": "C1683", "input": "Every manuscript cited every thesis quickly."}
+{"id": "C1685", "input": "Every reviewer reviewed every dataset."}
+{"id": "C1686", "input": "A reviewer reviewed every dataset."}
+{"id": "C1692", "input": "Every reviewer discussed every professor."}
+{"id": "C1699", "input": "Ben did not persuade a proposal to cite Cara quickly."}
+{"id": "C1700", "input": "Every dataset persuaded an author to cite a paper quickly."}
+{"id": "C1713", "input": "A professor reviewed every proposal."}
+{"id": "C1719", "input": "An analyst discussed every thesis."}
+{"id": "C1723", "input": "Every scholar evaluated every draft quickly."}
+{"id": "C1741", "input": "A researcher did not promise every researcher to evaluate a preprint."}
+{"id": "C1772", "input": "A scholar discussed Hugo."}
+{"id": "C1775", "input": "Not every abstract promised every investigator to discuss every paper quickly."}
+{"id": "C1784", "input": "Every author spoke."}
+{"id": "C1792", "input": "A reviewer discussed every scholar."}
+{"id": "C1793", "input": "Ben did not persuade an editor to speak quickly."}
+{"id": "C1802", "input": "Every professor evaluated every professor quickly."}
+{"id": "C1803", "input": "Every abstract spoke."}
+{"id": "C1807", "input": "Every professor did not persuade an author to review a professor quickly."}
+{"id": "C1815", "input": "Every report did not discuss Hugo."}
+{"id": "C1822", "input": "A thesis did not arrive quickly."}
+{"id": "C1824", "input": "Eva promised Eva to cite an article quickly."}
+{"id": "C1833", "input": "Every scholar spoke quickly."}
+{"id": "C1843", "input": "A dataset did not persuade every professor to cite Ava quickly."}
+{"id": "C1861", "input": "Every professor promised a student to speak."}
+{"id": "C1865", "input": "Every reviewer discussed every report."}
+{"id": "C1866", "input": "A reviewer reviewed Ava."}
+{"id": "C1867", "input": "Every scientist persuaded Dan to evaluate every paper."}
+{"id": "C1868", "input": "An author persuaded every professor to wait quickly."}
+{"id": "C1885", "input": "Not every professor persuaded every researcher to evaluate every article quickly."}
+{"id": "C1892", "input": "Every researcher arrived."}
+{"id": "C1901", "input": "An author reviewed Hugo."}
+{"id": "C1912", "input": "Every professor cited every thesis quickly."}
+{"id": "C1917", "input": "Every reviewer persuaded every author to review Dan quickly."}
+{"id": "C1921", "input": "Every editor evaluated a dataset quickly."}
+{"id": "C1937", "input": "Every student persuaded Finn to evaluate every dataset."}
+{"id": "C1953", "input": "Every analyst evaluated every preprint quickly."}
+{"id": "C1954", "input": "Every article promised Ben to cite every draft quickly."}
+{"id": "C1957", "input": "A paper reviewed Finn."}
+{"id": "C1959", "input": "Every scholar left quickly."}
+{"id": "C1961", "input": "A reviewer reviewed Cara."}
+{"id": "C1966", "input": "Every author arrived."}
+{"id": "C1971", "input": "Every abstract evaluated a draft quickly."}
+{"id": "C1974", "input": "Every reviewer discussed every preprint."}
+{"id": "C1975", "input": "An article discussed every proposal."}
+{"id": "C1977", "input": "Every scholar evaluated every professor quickly."}
+{"id": "C1981", "input": "Every thesis spoke."}
+{"id": "C1986", "input": "Every author evaluated a dataset quickly."}
+{"id": "C1996", "input": "An analyst reviewed Ava."}
+{"id": "C2001", "input": "A scientist reviewed Bob."}
+{"id": "C2009", "input": "A researcher reviewed Bob."}
+{"id": "C2013", "input": "A scientist discussed Gia."}
+{"id": "C2024", "input": "An author reviewed every article."}
+{"id": "C2035", "input": "Every reviewer spoke."}
+{"id": "C2037", "input": "A professor promised every researcher to review Hugo quickly."}
+{"id": "C2038", "input": "Every editor persuaded every author to review Finn quickly."}
+{"id": "C2042", "input": "Every scientist reviewed every preprint."}
+{"id": "C2052", "input": "Every abstract arrived."}
+{"id": "C2076", "input": "Every scholar promised every scientist to arrive."}
+{"id": "C2079", "input": "Every student evaluated every dataset quickly."}
+{"id": "C2089", "input": "Every editor reviewed every thesis."}
+{"id": "C2092", "input": "Every abstract promised every editor to evaluate every author."}
+{"id": "C2109", "input": "Not every analyst persuaded Dan to evaluate every thesis quickly."}
+{"id": "C2117", "input": "A paper reviewed Hugo."}
+{"id": "C2122", "input": "Every thesis arrived."}
+{"id": "C2124", "input": "An investigator discussed every article."}
+{"id": "C2125", "input": "Every student discussed every thesis."}
+{"id": "C2130", "input": "Not every student persuaded every analyst to evaluate every abstract."}
+{"id": "C2133", "input": "A thesis reviewed every article."}
+{"id": "C2148", "input": "An author discussed Cara."}
+{"id": "C2150", "input": "A scientist reviewed every preprint."}
+{"id": "C2152", "input": "Every author evaluated every report quickly."}
+{"id": "C2162", "input": "Every proposal left quickly."}
+{"id": "C2167", "input": "A scientist did not leave."}
+{"id": "C2169", "input": "Every analyst discussed every paper."}
+{"id": "C2171", "input": "An analyst discussed Bob."}
+{"id": "C2172", "input": "Every investigator evaluated every dataset quickly."}
+{"id": "C2191", "input": "Every scientist evaluated every paper quickly."}
+{"id": "C2201", "input": "Every investigator promised every professor to review a manuscript quickly."}
+{"id": "C2204", "input": "Every investigator cited every professor quickly."}
+{"id": "C2205", "input": "Every analyst persuaded Ava to discuss Ben quickly."}
+{"id": "C2250", "input": "A thesis persuaded every scientist to discuss Dan quickly."}
+{"id": "C2259", "input": "An investigator did not persuade every editor to cite a preprint quickly."}
+{"id": "C2268", "input": "Every scientist reviewed every draft."}
+{"id": "C2275", "input": "Every reviewer spoke quickly."}
+{"id": "C2278", "input": "An analyst persuaded every scholar to wait quickly."}
+{"id": "C2284", "input": "Every article left quickly."}
+{"id": "C2290", "input": "An author reviewed Finn."}
+{"id": "C2292", "input": "Every author cited every dataset quickly."}
+{"id": "C2294", "input": "An editor reviewed Eva."}
+{"id": "C2297", "input": "Every editor evaluated every report quickly."}
+{"id": "C2301", "input": "An analyst reviewed every thesis."}
+{"id": "C2305", "input": "Not every student persuaded a scientist to evaluate Ava quickly."}
+{"id": "C2313", "input": "Every scholar cited every thesis quickly."}
+{"id": "C2318", "input": "Not every analyst promised Eva to evaluate an abstract."}
+{"id": "C2322", "input": "An analyst reviewed every proposal."}
+{"id": "C2324", "input": "Every investigator evaluated every preprint quickly."}
+{"id": "C2342", "input": "A paper discussed Dan."}
+{"id": "C2351", "input": "Every dataset evaluated a dataset quickly."}
+{"id": "C2355", "input": "A professor persuaded Alice to discuss a paper."}
+{"id": "C2356", "input": "A researcher discussed every thesis."}
+{"id": "C2360", "input": "Every scholar cited a thesis quickly."}
+{"id": "C2366", "input": "A paper reviewed every reviewer."}
+{"id": "C2367", "input": "Not every author persuaded an investigator to speak quickly."}
+{"id": "C2376", "input": "Every paper arrived."}
+{"id": "C2393", "input": "An investigator reviewed Dan."}
+{"id": "C2394", "input": "An investigator persuaded a student to wait quickly."}
+{"id": "C2396", "input": "Every report did not persuade every article to evaluate a thesis quickly."}
+{"id": "C2403", "input": "A dataset discussed every researcher."}
+{"id": "C2405", "input": "An editor discussed Bob."}
+{"id": "C2411", "input": "Every editor reviewed every paper."}
+{"id": "C2429", "input": "Every scholar arrived."}
+{"id": "C2431", "input": "Every researcher promised Ben to cite every manuscript quickly."}
+{"id": "C2434", "input": "A researcher promised every researcher to review Finn quickly."}
+{"id": "C2436", "input": "Every reviewer reviewed every manuscript."}
+{"id": "C2439", "input": "A student discussed every author."}
+{"id": "C2440", "input": "Finn did not persuade every author to cite a reviewer quickly."}
+{"id": "C2458", "input": "Every student cited every report quickly."}
+{"id": "C2462", "input": "Every author evaluated every proposal quickly."}
+{"id": "C2467", "input": "A professor promised every scientist to discuss Finn quickly."}
+{"id": "C2471", "input": "Every scholar evaluated every paper quickly."}
+{"id": "C2478", "input": "Every researcher left quickly."}
+{"id": "C2488", "input": "Every student evaluated a dataset quickly."}
+{"id": "C2501", "input": "An author did not persuade Ava to review Ava."}
+{"id": "C2519", "input": "An article discussed every draft."}
+{"id": "C2522", "input": "Every professor evaluated every dataset quickly."}
+{"id": "C2532", "input": "Every analyst persuaded every researcher to arrive quickly."}
+{"id": "C2535", "input": "Every article spoke."}
+{"id": "C2536", "input": "A researcher did not promise Hugo to evaluate every professor quickly."}
+{"id": "C2537", "input": "Ava persuaded an investigator to speak quickly."}
+{"id": "C2541", "input": "Not every investigator persuaded a researcher to review every manuscript quickly."}
+{"id": "C2551", "input": "Every student evaluated every abstract quickly."}
+{"id": "C2559", "input": "A scientist reviewed Ava."}
+{"id": "C2564", "input": "Every investigator evaluated a paper quickly."}
+{"id": "C2565", "input": "Every investigator promised every scientist to arrive."}
+{"id": "C2572", "input": "Every investigator cited a report quickly."}
+{"id": "C2582", "input": "Every scientist cited a draft quickly."}
+{"id": "C2585", "input": "An investigator persuaded every researcher to arrive."}
+{"id": "C2586", "input": "An author discussed Gia."}
+{"id": "C2587", "input": "Every reviewer evaluated a thesis quickly."}
+{"id": "C2589", "input": "Every analyst reviewed every manuscript."}
+{"id": "C2600", "input": "A scientist discussed Alice."}
+{"id": "C2620", "input": "A scholar discussed every manuscript."}
+{"id": "C2623", "input": "An analyst promised every scientist to wait."}
+{"id": "C2630", "input": "Every draft cited a manuscript quickly."}
+{"id": "C2633", "input": "Every researcher cited a paper quickly."}
+{"id": "C2638", "input": "Every researcher evaluated a thesis quickly."}
+{"id": "C2641", "input": "Every researcher persuaded every student to review every proposal quickly."}
+{"id": "C2652", "input": "Every paper cited every proposal quickly."}
+{"id": "C2656", "input": "Every report cited every article quickly."}
+{"id": "C2657", "input": "Every editor reviewed every draft."}
+{"id": "C2658", "input": "Every scholar did not persuade every investigator to cite Ben quickly."}
+{"id": "C2673", "input": "A draft discussed Gia."}
+{"id": "C2691", "input": "Not every investigator persuaded every scholar to evaluate every dataset."}
+{"id": "C2698", "input": "A professor reviewed Hugo."}
+{"id": "C2710", "input": "Every investigator persuaded Eva to discuss every dataset quickly."}
+{"id": "C2714", "input": "Ben spoke."}
+{"id": "C2718", "input": "Every professor cited every manuscript quickly."}
+{"id": "C2724", "input": "An editor discussed every report."}
+{"id": "C2728", "input": "Every editor cited a thesis quickly."}
+{"id": "C2740", "input": "Every preprint did not persuade every student to arrive."}
+{"id": "C2760", "input": "Every draft spoke quickly."}
+{"id": "C2769", "input": "A preprint persuaded a reviewer to wait quickly."}
+{"id": "C2782", "input": "Cara did not persuade a scholar to evaluate every proposal quickly."}
+{"id": "C2790", "input": "Every researcher evaluated an abstract quickly."}
+{"id": "C2795", "input": "Every analyst promised an analyst to evaluate a reviewer quickly."}
+{"id": "C2800", "input": "Ben did not persuade every professor to speak quickly."}
+{"id": "C2807", "input": "Every investigator evaluated every editor quickly."}
+{"id": "C2817", "input": "Every thesis evaluated a draft quickly."}
+{"id": "C2819", "input": "Hugo persuaded every editor to speak quickly."}
+{"id": "C2827", "input": "Every author evaluated every paper quickly."}
+{"id": "C2832", "input": "Hugo spoke."}
+{"id": "C2841", "input": "A student promised every manuscript to review Bob quickly."}
+{"id": "C2848", "input": "Not every researcher waited quickly."}
+{"id": "C2852", "input": "A scientist did not persuade a researcher to review a paper quickly."}
+{"id": "C2853", "input": "Every student discussed every preprint."}
+{"id": "C2862", "input": "Every editor cited every report quickly."}
+{"id": "C2864", "input": "An editor reviewed every draft."}
+{"id": "C2869", "input": "A scholar reviewed every thesis."}
+{"id": "C2877", "input": "An editor persuaded every investigator to speak."}
+{"id": "C2883", "input": "Every abstract spoke quickly."}
+{"id": "C2890", "input": "Every professor evaluated a proposal quickly."}
+{"id": "C2892", "input": "Every scholar reviewed every thesis."}
+{"id": "C2895", "input": "Not every researcher persuaded every author to discuss every abstract quickly."}
+{"id": "C2909", "input": "A reviewer discussed every article."}
+{"id": "C2910", "input": "A reviewer discussed Eva."}
+{"id": "C2914", "input": "Every scholar discussed every manuscript."}
+{"id": "C2915", "input": "Every report persuaded every abstract to arrive quickly."}
+{"id": "C2929", "input": "Hugo did not persuade every reviewer to speak."}
+{"id": "C2934", "input": "Hugo promised Ben to discuss every dataset quickly."}
+{"id": "C2937", "input": "Every abstract discussed every thesis."}
+{"id": "C2950", "input": "Every analyst evaluated a preprint quickly."}
+{"id": "C2951", "input": "Every analyst evaluated every report quickly."}
+{"id": "C2955", "input": "Every professor discussed every proposal."}
+{"id": "C2967", "input": "Every student evaluated every scholar quickly."}
+{"id": "C2978", "input": "Every researcher persuaded Gia to review Dan quickly."}
+{"id": "C2985", "input": "A scholar persuaded every editor to speak."}
+{"id": "C2988", "input": "Every professor promised Ava to cite every draft quickly."}
+{"id": "C2991", "input": "Every researcher promised every dataset to wait."}
+{"id": "C2994", "input": "Eva persuaded every investigator to speak quickly."}
+{"id": "C2995", "input": "Every editor spoke."}
+{"id": "C2997", "input": "An analyst reviewed every abstract."}
+{"id": "C3004", "input": "A researcher discussed every manuscript."}
+{"id": "C3012", "input": "A professor promised every thesis to speak."}
+{"id": "C3021", "input": "A dataset promised Eva to cite a preprint quickly."}
+{"id": "C3024", "input": "An editor promised a student to evaluate a dataset quickly."}
+{"id": "C3026", "input": "A student reviewed every draft."}
+{"id": "C3035", "input": "Every editor persuaded every researcher to leave."}
+{"id": "C3044", "input": "Every student persuaded a professor to review Eva quickly."}
+{"id": "C3054", "input": "Every editor discussed every thesis."}
+{"id": "C3055", "input": "Every scholar did not persuade Cara to leave quickly."}
+{"id": "C3063", "input": "A manuscript did not persuade every reviewer to discuss Alice quickly."}
+{"id": "C3065", "input": "Hugo did not persuade every professor to speak quickly."}
+{"id": "C3073", "input": "Every author persuaded every analyst to review every dataset quickly."}
+{"id": "C3075", "input": "Every preprint arrived."}
+{"id": "C3101", "input": "Every investigator reviewed every paper."}
+{"id": "C3107", "input": "A professor discussed Dan."}
+{"id": "C3117", "input": "Every proposal spoke quickly."}
+{"id": "C3118", "input": "Every researcher promised every researcher to evaluate every paper quickly."}
+{"id": "C3120", "input": "Every author cited a preprint quickly."}
+{"id": "C3127", "input": "Every scientist evaluated a report quickly."}
+{"id": "C3131", "input": "A researcher persuaded an author to cite every draft quickly."}
+{"id": "C3137", "input": "Eva promised an author to speak quickly."}
+{"id": "C3140", "input": "A scholar discussed Ava."}
+{"id": "C3143", "input": "Hugo did not persuade every scientist to arrive quickly."}
+{"id": "C3144", "input": "A reviewer reviewed every report."}
+{"id": "C3148", "input": "Every editor spoke quickly."}
+{"id": "C3156", "input": "A student persuaded every author to review a paper quickly."}
+{"id": "C3166", "input": "Gia persuaded every professor to review every manuscript quickly."}
+{"id": "C3180", "input": "Every abstract cited every investigator quickly."}
+{"id": "C3204", "input": "A researcher did not promise an abstract to cite a manuscript."}
+{"id": "C3206", "input": "Alice did not persuade every author to evaluate a reviewer."}
+{"id": "C3214", "input": "A scholar reviewed every author."}
+{"id": "C3226", "input": "A reviewer reviewed every manuscript."}
+{"id": "C3229", "input": "Every report left quickly."}
+{"id": "C3244", "input": "Every editor promised every author to wait."}
+{"id": "C3251", "input": "Every researcher persuaded every proposal to discuss a paper quickly."}
+{"id": "C3253", "input": "Every reviewer did not promise a preprint to evaluate a preprint."}
+{"id": "C3267", "input": "Every preprint discussed every manuscript."}
+{"id": "C3268", "input": "Every reviewer cited a draft quickly."}
+{"id": "C3281", "input": "Every scientist discussed every dataset."}
+{"id": "C3282", "input": "Not every analyst promised Dan to arrive quickly."}
+{"id": "C3288", "input": "Every thesis spoke quickly."}
+{"id": "C3293", "input": "Every dataset persuaded every analyst to leave."}
+{"id": "C3296", "input": "A student reviewed Eva."}
+{"id": "C3306", "input": "An investigator reviewed every abstract."}
+{"id": "C3311", "input": "A dataset reviewed Hugo."}
+{"id": "C3317", "input": "Every abstract did not persuade every report to wait."}
+{"id": "C3323", "input": "Every professor spoke."}
+{"id": "C3332", "input": "Bob promised a scientist to evaluate Dan."}
+{"id": "C3333", "input": "Every paper spoke."}
+{"id": "C3350", "input": "Hugo did not persuade every investigator to arrive quickly."}
+{"id": "C3355", "input": "Every student cited every proposal quickly."}
+{"id": "C3360", "input": "A reviewer discussed Gia."}
+{"id": "C3362", "input": "Every preprint promised Bob to discuss every analyst."}
+{"id": "C3363", "input": "A scholar discussed Bob."}
+{"id": "C3378", "input": "Finn did not cite every paper."}
+{"id": "C3387", "input": "An analyst promised every thesis to cite Dan quickly."}
+{"id": "C3392", "input": "Every analyst discussed every abstract."}
+{"id": "C3394", "input": "Every researcher cited every editor quickly."}
+{"id": "C3395", "input": "Alice promised Ava to discuss every researcher quickly."}
+{"id": "C3420", "input": "Every draft arrived."}
+{"id": "C3421", "input": "A scientist discussed every paper."}
+{"id": "C3426", "input": "Every professor discussed every professor."}
+{"id": "C3434", "input": "Every scientist discussed every report."}
+{"id": "C3445", "input": "Every student discussed every proposal."}
+{"id": "C3448", "input": "Every researcher reviewed every proposal."}
+{"id": "C3451", "input": "Bob did not promise every investigator to discuss Cara."}
+{"id": "C3455", "input": "Every scholar evaluated every manuscript quickly."}
+{"id": "C3457", "input": "Not every dataset promised Dan to arrive quickly."}
+{"id": "C3464", "input": "Every report evaluated every dataset quickly."}
+{"id": "C3469", "input": "Every investigator arrived."}
+{"id": "C3471", "input": "Every thesis cited every paper quickly."}
+{"id": "C3473", "input": "Every manuscript spoke quickly."}
+{"id": "C3498", "input": "An abstract discussed Alice."}
+{"id": "C3501", "input": "Not every reviewer promised a scientist to arrive."}
+{"id": "C3507", "input": "A reviewer persuaded an investigator to review every abstract quickly."}
+{"id": "C3510", "input": "Every student reviewed every draft."}
+{"id": "C3549", "input": "Every investigator evaluated an abstract quickly."}
+{"id": "C3553", "input": "Every author cited an author quickly."}
+{"id": "C3557", "input": "An editor did not persuade an analyst to review a paper quickly."}
+{"id": "C3561", "input": "Every reviewer cited a proposal quickly."}
+{"id": "C3566", "input": "A scientist promised every student to review a preprint quickly."}
+{"id": "C3570", "input": "Every reviewer discussed every dataset."}
+{"id": "C3573", "input": "A scholar reviewed Ben."}
+{"id": "C3590", "input": "A scientist reviewed every dataset."}
+{"id": "C3601", "input": "Every scholar did not persuade an editor to review Cara quickly."}
+{"id": "C3606", "input": "Gia spoke."}
+{"id": "C3612", "input": "A student reviewed Ava."}
+{"id": "C3627", "input": "An investigator reviewed Alice."}
+{"id": "C3657", "input": "A scientist discussed every dataset."}
+{"id": "C3658", "input": "A scientist discussed Dan."}
+{"id": "C3662", "input": "A scholar promised Finn to review a thesis."}
+{"id": "C3663", "input": "Not every author persuaded a student to leave quickly."}
+{"id": "C3685", "input": "A reviewer persuaded Gia to cite a paper."}
+{"id": "C3687", "input": "Every student evaluated every report quickly."}
+{"id": "C3688", "input": "An editor reviewed every proposal."}
+{"id": "C3690", "input": "Every thesis evaluated every paper quickly."}
+{"id": "C3695", "input": "Every reviewer did not discuss a report quickly."}
+{"id": "C3712", "input": "Every professor did not persuade every author to wait."}
+{"id": "C3713", "input": "Every analyst did not persuade an author to cite a preprint quickly."}
+{"id": "C3715", "input": "Every author promised every report to evaluate every editor quickly."}
+{"id": "C3719", "input": "Every researcher cited every reviewer quickly."}
+{"id": "C3720", "input": "A scholar did not persuade every paper to review a dataset quickly."}
+{"id": "C3729", "input": "A reviewer discussed Alice."}
+{"id": "C3730", "input": "Every researcher promised Bob to discuss every dataset."}
+{"id": "C3749", "input": "Every professor arrived."}
+{"id": "C3751", "input": "A proposal promised Gia to review a professor."}
+{"id": "C3761", "input": "Every analyst did not promise an editor to discuss an abstract."}
+{"id": "C3769", "input": "An investigator promised every author to discuss Bob quickly."}
+{"id": "C3772", "input": "Not every scholar persuaded every analyst to speak quickly."}
+{"id": "C3787", "input": "An author discussed Bob."}
+{"id": "C3789", "input": "Every draft reviewed every preprint."}
+{"id": "C3794", "input": "A reviewer reviewed every thesis."}
+{"id": "C3796", "input": "Every editor reviewed every dataset."}
+{"id": "C3801", "input": "Every professor reviewed every dataset."}
+{"id": "C3818", "input": "A researcher discussed every abstract."}
+{"id": "C3825", "input": "Every analyst spoke quickly."}
+{"id": "C3827", "input": "An article discussed Hugo."}
+{"id": "C3833", "input": "A scientist discussed every abstract."}
+{"id": "C3834", "input": "Finn did not persuade an analyst to speak quickly."}
+{"id": "C3840", "input": "Every analyst evaluated every dataset quickly."}
+{"id": "C3846", "input": "Not every author persuaded every analyst to discuss an abstract quickly."}
+{"id": "C3889", "input": "An analyst did not leave."}
+{"id": "C3911", "input": "Cara spoke."}
+{"id": "C3912", "input": "Every draft evaluated an article quickly."}
+{"id": "C3922", "input": "Every professor did not discuss Bob."}
+{"id": "C3933", "input": "An analyst discussed Hugo."}
+{"id": "C3940", "input": "Every reviewer discussed every scientist."}
+{"id": "C3941", "input": "Not every scientist persuaded every investigator to discuss a dataset."}
+{"id": "C3944", "input": "Every dataset left quickly."}
+{"id": "C3947", "input": "Every investigator evaluated every scientist quickly."}
+{"id": "C3961", "input": "Ava did not promise every student to discuss Hugo."}
+{"id": "C3978", "input": "Every author left quickly."}
+{"id": "C3994", "input": "Every editor evaluated every paper quickly."}
+{"id": "C3995", "input": "A scientist did not promise Gia to cite a proposal quickly."}
+{"id": "C4002", "input": "Every scientist promised an author to discuss every manuscript quickly."}
+{"id": "C4004", "input": "Every scholar evaluated every preprint quickly."}
+{"id": "C4019", "input": "A manuscript reviewed Finn."}
+{"id": "C4038", "input": "A professor promised an author to review every thesis quickly."}
+{"id": "C4055", "input": "Alice promised Dan to discuss a report quickly."}
+{"id": "C4071", "input": "An analyst discussed every professor."}
+{"id": "C4073", "input": "Every investigator persuaded every researcher to cite every draft quickly."}
+{"id": "C4100", "input": "An investigator persuaded Cara to discuss an abstract."}
+{"id": "C4101", "input": "Every reviewer reviewed every proposal."}
+{"id": "C4102", "input": "Every student cited a proposal quickly."}
+{"id": "C4107", "input": "Eva did not persuade every reviewer to evaluate an article."}
+{"id": "C4108", "input": "Every author reviewed every draft."}
+{"id": "C4115", "input": "An investigator discussed every manuscript."}
+{"id": "C4124", "input": "Every analyst promised every investigator to evaluate every draft."}
+{"id": "C4135", "input": "Every reviewer did not persuade every scholar to evaluate Dan quickly."}
+{"id": "C4140", "input": "An author promised every abstract to speak."}
+{"id": "C4141", "input": "Every dataset spoke quickly."}
+{"id": "C4177", "input": "Ava promised Cara to evaluate a report quickly."}
+{"id": "C4186", "input": "A scientist promised Ava to review a report."}
+{"id": "C4191", "input": "Every author promised every analyst to evaluate every paper."}
+{"id": "C4194", "input": "Every author did not persuade Ava to discuss every abstract."}
+{"id": "C4204", "input": "Every investigator reviewed every report."}
+{"id": "C4207", "input": "An investigator reviewed Bob."}
+{"id": "C4229", "input": "Every professor left quickly."}
+{"id": "C4234", "input": "Every author promised Hugo to cite every report."}
+{"id": "C4246", "input": "An author discussed every paper."}
+{"id": "C4248", "input": "A professor reviewed Bob."}
+{"id": "C4249", "input": "Every investigator left quickly."}
+{"id": "C4257", "input": "Every analyst arrived."}
+{"id": "C4263", "input": "Every researcher cited every paper quickly."}
+{"id": "C4267", "input": "Every author did not promise Ben to cite an article quickly."}
+{"id": "C4268", "input": "Every author discussed every analyst."}
+{"id": "C4297", "input": "Finn promised a professor to evaluate Eva."}
+{"id": "C4299", "input": "Gia did not persuade every professor to leave quickly."}
+{"id": "C4319", "input": "An analyst reviewed Ben."}
+{"id": "C4322", "input": "Every draft left quickly."}
+{"id": "C4323", "input": "An investigator persuaded every investigator to arrive quickly."}
+{"id": "C4327", "input": "A scientist promised every investigator to cite a manuscript."}
+{"id": "C4333", "input": "Not every analyst persuaded every professor to cite Dan quickly."}
+{"id": "C4337", "input": "Every manuscript left quickly."}
+{"id": "C4339", "input": "A professor discussed every dataset."}
+{"id": "C4363", "input": "Every researcher discussed every professor."}
+{"id": "C4372", "input": "A professor discussed every author."}
+{"id": "C4386", "input": "Every professor cited every reviewer quickly."}
+{"id": "C4387", "input": "Finn did not persuade Alice to evaluate every paper."}
+{"id": "C4407", "input": "A reviewer promised every researcher to review a researcher quickly."}
+{"id": "C4409", "input": "Every reviewer reviewed every report."}
+{"id": "C4420", "input": "A draft reviewed every proposal."}
+{"id": "C4429", "input": "Every scientist arrived."}
+{"id": "C4438", "input": "Not every analyst persuaded every researcher to speak quickly."}
+{"id": "C4441", "input": "Not every researcher promised a professor to evaluate a paper quickly."}
+{"id": "C4455", "input": "Every researcher cited a draft quickly."}
+{"id": "C4457", "input": "Every researcher persuaded every reviewer to review an article quickly."}
+{"id": "C4458", "input": "An editor persuaded every researcher to evaluate every thesis quickly."}
+{"id": "C4460", "input": "A draft promised every abstract to evaluate every paper quickly."}
+{"id": "C4464", "input": "Every author promised every preprint to evaluate every draft quickly."}
+{"id": "C4480", "input": "A student reviewed every proposal."}
+{"id": "C4485", "input": "A student persuaded Ben to review Dan quickly."}
+{"id": "C4490", "input": "Every investigator promised an analyst to wait."}
+{"id": "C4498", "input": "Every reviewer did not promise every analyst to review every manuscript."}
+{"id": "C4531", "input": "Bob promised Eva to discuss every dataset quickly."}
+{"id": "C4532", "input": "Every scholar evaluated every article quickly."}
+{"id": "C4534", "input": "Ben promised a researcher to speak quickly."}
+{"id": "C4548", "input": "An investigator promised every reviewer to wait."}
+{"id": "C4549", "input": "Every article evaluated a manuscript quickly."}
+{"id": "C4556", "input": "A reviewer discussed every manuscript."}
+{"id": "C4571", "input": "Every professor did not cite every thesis quickly."}
+{"id": "C4580", "input": "Every preprint spoke."}
+{"id": "C4587", "input": "Every paper left quickly."}
+{"id": "C4589", "input": "An editor persuaded every student to wait."}
+{"id": "C4590", "input": "A professor promised an analyst to evaluate a dataset quickly."}
+{"id": "C4599", "input": "A scholar discussed every dataset."}
+{"id": "C4600", "input": "Cara persuaded every student to review every proposal quickly."}
+{"id": "C4602", "input": "Every scientist persuaded Cara to discuss Cara quickly."}
+{"id": "C4603", "input": "A dataset persuaded Cara to cite a student."}
+{"id": "C4604", "input": "Every student cited a thesis quickly."}
+{"id": "C4605", "input": "Not every scholar persuaded Dan to speak."}
+{"id": "C4621", "input": "A scholar promised every professor to evaluate every thesis quickly."}
+{"id": "C4630", "input": "Every professor persuaded Alice to review Eva quickly."}
+{"id": "C4631", "input": "An analyst persuaded every investigator to arrive."}
+{"id": "C4632", "input": "Every professor evaluated an abstract quickly."}
+{"id": "C4639", "input": "Every reviewer evaluated every report quickly."}
+{"id": "C4641", "input": "Every author cited a thesis quickly."}
+{"id": "C4645", "input": "Every article arrived."}
+{"id": "C4657", "input": "Every manuscript evaluated a report quickly."}
+{"id": "C4658", "input": "Every editor persuaded a student to review Dan quickly."}
+{"id": "C4668", "input": "A scholar persuaded every preprint to arrive quickly."}
+{"id": "C4684", "input": "Every author discussed every thesis."}
+{"id": "C4686", "input": "Every scholar persuaded every student to discuss a preprint quickly."}
+{"id": "C4691", "input": "A scientist reviewed Eva."}
+{"id": "C4692", "input": "A scholar persuaded Ava to review Finn quickly."}
+{"id": "C4705", "input": "Every analyst cited every analyst quickly."}
+{"id": "C4709", "input": "Not every professor persuaded Ben to cite every draft quickly."}
+{"id": "C4730", "input": "Every scholar spoke."}
+{"id": "C4732", "input": "Every student cited every paper quickly."}
+{"id": "C4736", "input": "Every student evaluated every draft quickly."}
+{"id": "C4743", "input": "Every analyst cited every report quickly."}
+{"id": "C4748", "input": "Every scientist cited every manuscript quickly."}
+{"id": "C4752", "input": "Not every reviewer persuaded Gia to speak."}
+{"id": "C4756", "input": "Every researcher evaluated a manuscript quickly."}
+{"id": "C4764", "input": "Every analyst reviewed every proposal."}
+{"id": "C4769", "input": "Every reviewer persuaded Ben to cite Ava quickly."}
+{"id": "C4771", "input": "Every student did not persuade an investigator to review a proposal quickly."}
+{"id": "C4772", "input": "Ava promised Cara to discuss an author quickly."}
+{"id": "C4778", "input": "An investigator did not persuade every student to review a preprint quickly."}
+{"id": "C4779", "input": "Every scholar discussed every article."}
+{"id": "C4796", "input": "Every scholar persuaded Cara to discuss every preprint quickly."}
+{"id": "C4802", "input": "An analyst reviewed Bob."}
+{"id": "C4804", "input": "Eva promised a student to speak quickly."}
+{"id": "C4810", "input": "Every author reviewed every manuscript."}
+{"id": "C4820", "input": "Every abstract reviewed every preprint."}
+{"id": "C4844", "input": "Every scholar reviewed every abstract."}
+{"id": "C4848", "input": "Every analyst reviewed every thesis."}
+{"id": "C4851", "input": "An analyst promised a scholar to arrive."}
+{"id": "C4854", "input": "Every student evaluated every paper quickly."}
+{"id": "C4856", "input": "Hugo persuaded every researcher to speak quickly."}
+{"id": "C4880", "input": "Every author cited every report quickly."}
+{"id": "C4886", "input": "Every student reviewed every report."}
+{"id": "C4888", "input": "An analyst did not promise Ava to review every scholar quickly."}
+{"id": "C4889", "input": "Every editor arrived."}
+{"id": "C4900", "input": "A scientist discussed every draft."}
+{"id": "C4902", "input": "Not every scientist persuaded every student to discuss every manuscript quickly."}
+{"id": "C4933", "input": "A researcher promised every author to evaluate every draft quickly."}
+{"id": "C4950", "input": "Every report arrived."}
+{"id": "C4957", "input": "Every professor cited every report quickly."}
+{"id": "C4973", "input": "An analyst persuaded Cara to review Finn quickly."}
+{"id": "C4977", "input": "Every researcher evaluated a report quickly."}
+{"id": "C4978", "input": "Every investigator promised an editor to speak."}
+{"id": "C4985", "input": "An author discussed Ava."}
+{"id": "C4990", "input": "Not every professor promised Dan to evaluate a manuscript."}
+{"id": "C4993", "input": "Every researcher persuaded Alice to cite a draft."}
+{"id": "C4995", "input": "Every professor evaluated every paper quickly."}
+{"id": "C4999", "input": "Every professor persuaded every student to cite every paper quickly."}
+{"id": "C5002", "input": "Every reviewer evaluated a draft quickly."}
+{"id": "C5010", "input": "An analyst persuaded every researcher to evaluate every scientist quickly."}
+{"id": "C5014", "input": "Every investigator evaluated every student quickly."}
+{"id": "C5015", "input": "Every scientist evaluated an article quickly."}
+{"id": "C5025", "input": "Alice spoke."}
+{"id": "C5026", "input": "Every article discussed every article."}
+{"id": "C5033", "input": "Every researcher discussed every dataset."}
+{"id": "C5037", "input": "An investigator reviewed Finn."}
+{"id": "C5043", "input": "An editor did not promise an investigator to cite a draft."}
+{"id": "C5046", "input": "Every analyst discussed every author."}
+{"id": "C5047", "input": "Every author cited a manuscript quickly."}
+{"id": "C5055", "input": "An analyst reviewed every article."}
+{"id": "C5063", "input": "Every preprint spoke quickly."}
+{"id": "C5073", "input": "Every investigator cited an article quickly."}
+{"id": "C5076", "input": "A proposal reviewed Eva."}
+{"id": "C5100", "input": "Every researcher evaluated an article quickly."}
+{"id": "C5102", "input": "Not every article persuaded every reviewer to review a scientist quickly."}
+{"id": "C5107", "input": "Every student promised Bob to cite every abstract."}
+{"id": "C5110", "input": "Gia did not persuade Finn to review a thesis."}
+{"id": "C5118", "input": "Every proposal did not persuade every investigator to arrive."}
+{"id": "C5123", "input": "Not every draft promised every paper to arrive."}
+{"id": "C5130", "input": "Every scientist persuaded an author to cite every preprint quickly."}
+{"id": "C5134", "input": "Every dataset spoke."}
+{"id": "C5151", "input": "An analyst persuaded a scientist to review every manuscript quickly."}
+{"id": "C5158", "input": "Every scholar cited a manuscript quickly."}
+{"id": "C5162", "input": "A scientist persuaded Ben to discuss an abstract."}
+{"id": "C5163", "input": "Every paper cited a report quickly."}
+{"id": "C5164", "input": "Every scholar persuaded every article to leave."}
+{"id": "C5167", "input": "Every abstract persuaded Cara to cite a thesis."}
+{"id": "C5175", "input": "A student reviewed Alice."}
+{"id": "C5176", "input": "Every article cited every abstract quickly."}
+{"id": "C5180", "input": "Every reviewer evaluated an article quickly."}
+{"id": "C5183", "input": "Every reviewer promised an author to evaluate an article quickly."}
+{"id": "C5205", "input": "Eva promised Ben to cite a thesis quickly."}
+{"id": "C5207", "input": "Every editor left quickly."}
+{"id": "C5215", "input": "Every scientist evaluated every article quickly."}
+{"id": "C5217", "input": "Every author evaluated a manuscript quickly."}
+{"id": "C5222", "input": "Every student persuaded every scholar to review a draft quickly."}
+{"id": "C5238", "input": "Every analyst cited a reviewer quickly."}
+{"id": "C5239", "input": "Every article evaluated an analyst quickly."}
+{"id": "C5251", "input": "Every researcher evaluated a preprint quickly."}
+{"id": "C5253", "input": "An investigator reviewed every paper."}
+{"id": "C5256", "input": "Every scientist evaluated a preprint quickly."}
+{"id": "C5270", "input": "An editor promised every author to cite a proposal."}
+{"id": "C5297", "input": "Cara did not persuade every professor to speak."}
+{"id": "C5298", "input": "Every professor cited a manuscript quickly."}
+{"id": "C5300", "input": "Every author cited an article quickly."}
+{"id": "C5326", "input": "Not every scholar persuaded every reviewer to cite every professor."}
+{"id": "C5331", "input": "Every scholar reviewed every professor."}
+{"id": "C5339", "input": "Ava did not persuade every article to cite Eva quickly."}
+{"id": "C5347", "input": "Every thesis cited every preprint quickly."}
+{"id": "C5356", "input": "Not every investigator promised every paper to arrive."}
+{"id": "C5385", "input": "Every scientist cited every draft quickly."}
+{"id": "C5393", "input": "Not every reviewer persuaded every researcher to review a manuscript quickly."}
+{"id": "C5395", "input": "Every investigator cited every preprint quickly."}
+{"id": "C5407", "input": "Every editor evaluated every abstract quickly."}
+{"id": "C5434", "input": "Not every thesis waited quickly."}
+{"id": "C5435", "input": "Every professor did not persuade every reviewer to evaluate Eva quickly."}
+{"id": "C5436", "input": "Every scholar cited a proposal quickly."}
+{"id": "C5438", "input": "Every analyst persuaded a report to cite a proposal quickly."}
+{"id": "C5449", "input": "A professor discussed Eva."}
+{"id": "C5462", "input": "Every dataset arrived."}
+{"id": "C5473", "input": "Every scientist persuaded every professor to discuss an article quickly."}
+{"id": "C5484", "input": "Every editor cited every proposal quickly."}
+{"id": "C5494", "input": "A student discussed Hugo."}
+{"id": "C5497", "input": "Every author evaluated every investigator quickly."}
+{"id": "C5498", "input": "A dataset promised every student to cite Gia quickly."}
+{"id": "C5502", "input": "An article reviewed every preprint."}
+{"id": "C5508", "input": "Every dataset reviewed every draft."}
+{"id": "C5513", "input": "A professor discussed every proposal."}
+{"id": "C5527", "input": "Every analyst persuaded an analyst to cite every dataset quickly."}
+{"id": "C5529", "input": "Not every reviewer promised every researcher to cite an investigator quickly."}
+{"id": "C5530", "input": "Every editor evaluated a report quickly."}
+{"id": "C5542", "input": "Every draft cited every investigator quickly."}
+{"id": "C5545", "input": "Every investigator discussed every dataset."}
+{"id": "C5552", "input": "Every analyst persuaded Finn to review every report."}
+{"id": "C5564", "input": "A professor reviewed every dataset."}
+{"id": "C5565", "input": "Not every editor persuaded every researcher to cite Hugo quickly."}
+{"id": "C5573", "input": "Every scientist cited a researcher quickly."}
+{"id": "C5578", "input": "An abstract reviewed every draft."}
+{"id": "C5592", "input": "Every scientist cited an article quickly."}
+{"id": "C5597", "input": "Every analyst reviewed every paper."}
+{"id": "C5605", "input": "A professor promised Dan to cite every report."}
+{"id": "C5623", "input": "An editor reviewed every abstract."}
+{"id": "C5626", "input": "Every reviewer evaluated a proposal quickly."}
+{"id": "C5628", "input": "A report persuaded a student to review every thesis quickly."}
+{"id": "C5642", "input": "A thesis promised Alice to cite a report quickly."}
+{"id": "C5647", "input": "Every scholar did not promise every student to review every manuscript."}
+{"id": "C5665", "input": "Not every professor persuaded a thesis to leave quickly."}
+{"id": "C5667", "input": "A paper discussed every paper."}
+{"id": "C5686", "input": "Every student cited every preprint quickly."}
+{"id": "C5687", "input": "Every researcher cited every draft quickly."}
+{"id": "C5692", "input": "Every scientist persuaded Eva to review every article."}
+{"id": "C5710", "input": "An investigator reviewed Hugo."}
+{"id": "C5720", "input": "Every scholar promised every analyst to arrive."}
+{"id": "C5730", "input": "Every student arrived."}
+{"id": "C5742", "input": "A scientist discussed Hugo."}
+{"id": "C5766", "input": "A professor promised every scholar to cite Bob quickly."}
+{"id": "C5771", "input": "An author did not promise Alice to review every proposal quickly."}
+{"id": "C5773", "input": "Every scientist cited a report quickly."}
+{"id": "C5778", "input": "Cara did not persuade every professor to cite a report quickly."}
+{"id": "C5781", "input": "A professor discussed Finn."}
+{"id": "C5786", "input": "Every student promised an author to evaluate a paper quickly."}
+{"id": "C5787", "input": "Every student cited every dataset quickly."}
+{"id": "C5799", "input": "Every investigator did not persuade a student to review Hugo quickly."}
+{"id": "C5804", "input": "Every editor cited every thesis quickly."}
+{"id": "C5810", "input": "Every researcher did not persuade every analyst to discuss every paper quickly."}
+{"id": "C5818", "input": "A scholar persuaded every investigator to discuss Finn quickly."}
+{"id": "C5828", "input": "Every dataset cited every report quickly."}
+{"id": "C5830", "input": "Every reviewer cited every abstract quickly."}
+{"id": "C5846", "input": "Every student left quickly."}
+{"id": "C5862", "input": "Every analyst left quickly."}
+{"id": "C5864", "input": "An investigator promised every investigator to discuss Bob quickly."}
+{"id": "C5871", "input": "Every investigator discussed every paper."}
+{"id": "C5876", "input": "Every author cited every thesis quickly."}
+{"id": "C5893", "input": "An investigator promised every researcher to review a draft quickly."}
+{"id": "C5926", "input": "A report persuaded every editor to cite Ava quickly."}
+{"id": "C5927", "input": "A draft discussed every report."}
+{"id": "C5929", "input": "Every investigator spoke."}
+{"id": "C5931", "input": "Dan spoke."}
+{"id": "C5935", "input": "A reviewer did not persuade an analyst to evaluate a paper quickly."}
+{"id": "C5946", "input": "An editor discussed Hugo."}
+{"id": "C5957", "input": "Every reviewer evaluated every thesis quickly."}
+{"id": "C5962", "input": "A scholar reviewed Finn."}
+{"id": "C5964", "input": "An analyst reviewed every manuscript."}
+{"id": "C5965", "input": "Every scientist did not persuade Ava to evaluate every paper."}
+{"id": "C5973", "input": "Every paper evaluated every preprint quickly."}
+{"id": "C5981", "input": "An author did not persuade every editor to cite Bob quickly."}
+{"id": "C5992", "input": "Every investigator cited an investigator quickly."}
+{"id": "C5993", "input": "An author promised a scientist to arrive."}
+{"id": "C5999", "input": "Every proposal evaluated an article quickly."}

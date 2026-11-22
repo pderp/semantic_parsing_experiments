@@ -15,3 +15,16 @@ Run from this directory: `python3 selftest_enum.py` (prints `SELFTEST OK`; 182 i
 
 **For CodexPrime:** to keep the reference parser independent, do not copy from these files. Compare outputs only. The enumerator's witness keys use identifiers ClaudeOracle invented; they become comparable once the grammar bundle publishes its identifiers (see `reports/oracle_underspecified_v1.md`).
 The `inbox_v1/` folder holds the frozen inputs ClaudeOracle was given; its code reads the ontology from there.
+
+## Second deliverable (22 November 2026, mailbox message 62)
+
+| File | SHA-256 |
+| --- | --- |
+| `cases_witness_v1.json` (frozen: 181 grammar and input pairs over 32 grammars) | `68edf14dd266e3b83608084339a11ef1b9c848d464c07fe8a48744f043bc1621` |
+| `oracle_witness.py` | `33b7ee9a6d357f0925ef0b7a084eda41bd6634ca69e1951dd5ffdea372828421` |
+| `gen_cases_witness.py` | `d8b7f0aa1f3f1d0c0f55a0b7a7b0585bd91505b7609bc626cc1663a7404896c2` |
+| `selftest_witness.py` | `8ab8be427d2ba746c5484a426a313f18271cf6a0de32778f1834f0fd2273516f` |
+
+`oracle_witness.py` adopts the published entry and rule identifiers, derivation shapes, category spelling, and diagnostic codes from `spec/witness-v1.md`, so its witness keys are meant to be byte-comparable with the reference parser's. Its semantics remain ClaudeOracle's own. `inbox_v2/` holds the inputs it was given (seed-1.0; the bundle inventory has the semantic templates removed). `python3 selftest_witness.py` prints `SELFTEST OK` here.
+
+The cases were frozen before any comparison with the reference parser. Fifteen cases carry a `depends_on` note: they rest on a convention the witness contract leaves open, so a mismatch there may be a convention and not a defect. These files predate `seed-1.1` (*an*).
