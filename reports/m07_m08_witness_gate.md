@@ -73,3 +73,23 @@ python3 -m tests.reference.compare_witness_cases --seed seed-1.1
 python3 -m tests.reference.compare_witness_cases --seed seed-1.0
 python3 -m unittest tests.reference.test_restrictions -q
 ```
+
+## Seed-1.1 supplement for witness revision 2
+
+**111/111 frozen cases match on the first reference comparison.** Across 33 restrictions, 97 requests reach parsing and 14 fail at grammar construction as expected. All 35 ordered witnesses match in full, including the integer cost, object-wide count, canonical reading and recursive key. All 77 supplied exact edge counts and request-level insert counts agree. All 67 convention-dependent cases agree. The dedicated boundary block R068–R111 comprises 22 pairs (44 cases), one at the exact chart size and one a single edge below it. [Frozen supplement](../oracle/cases_witness_r2.json) · [Rerunnable comparison](../tests/reference/compare_witness_cases.py)
+
+| Observed outcome | Cases |
+| --- | ---: |
+| Complete, accepted / ambiguous | 20 / 4 |
+| Exhaustive failure, no root / unknown token / empty input / invalid token | 15 / 3 / 2 / 1 |
+| Truncated at edge budget | 30 |
+| Error, cost overflow / invalid request | 10 / 12 |
+| Rejected grammar, before sentence parsing | 14 |
+
+**Discrepancy classification.** Zero parser discrepancies, zero oracle discrepancies, and zero unresolved case differences. The older comparison harness assumed every restriction could be constructed and every explicit budget on an edge-count case was an integer. The supplemental runner records a failed restriction independently of the expected field, skips parsing such cases, passes explicit null distinctly from omission, and compares exact JSON numeric kinds. No change in parsing or ranking was needed. Invalid restriction declarations now have a named `ValueError` subclass for callers.
+
+The frozen cases SHA-256 is `a459df6e50e8f79fa1eced8902e691e8485a6f7dc168db31b77b327e7557e4f0`. The runner verifies the seed-1.1 inventory and ontology from inbox_v3, its original reading contract, and the independently supplied revision-2 witness contract in inbox_v4 (SHA-256 `1bd28feae0e8ceef9b3123ff1d34c680549150abbd4008979f3001d6de3cfcaa`). Only frozen data are used. Revision 3 specifies the grammar-construction outcome, the unbounded nonnegative edge-budget domain and exact JSON integer versus floating-point validation. [Witness clarification](../spec/witness-v1.md)
+
+```sh
+python3 -m tests.reference.compare_witness_cases --suite seed-1.1-r2
+```

@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-22 · 111-case witness supplement
+
+Matched all 111 frozen cases on seed-1.1, including 14 construction-time rejections, 35 ranked witnesses and 77 edge counts. Revision 3 now also settles malformed restrictions, large integer budgets and exact JSON numeric input types. No parser or oracle discrepancy. ClaudeScope delivered the v2 blind bank packet. [Results and replay](../../reports/m07_m08_witness_gate.md) · [Witness contract](../../spec/witness-v1.md)
+
 ## 2026-11-22 · quantified embedded objects in the finite bank
 
 ClaudeScope accepted both witness gates and reported 52/52 agreement on the v1 blind check. Candidate v2 covers all 1,440 simple embedded payloads. On the 4,000 released training inputs, the control collision rate fell from 219/1,491 to 22/1,491, all remaining pairs accounted for by the registered name aliases. All 7,680 named-controller swaps and 3,840 determiner contrasts separate on matrix truth alone. Routed the answer-free v2 packet to ClaudeScope for independent checking. Freeze is pending. [Audit and replay](../../reports/world_bank_control_v2.md) · [Specification](../../spec/world-bank.md)

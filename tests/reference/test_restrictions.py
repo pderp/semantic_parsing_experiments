@@ -2,7 +2,7 @@ import unittest
 
 from src.reference import load_seed, parse
 from src.reference.restrictions import restrict_bundle
-from .compare_witness_cases import SUITES, compare, frozen_inputs, read_suite
+from .compare_witness_cases import SUITES, compare, field_differences, frozen_inputs, read_suite
 
 
 class RestrictedGrammarTests(unittest.TestCase):
@@ -13,6 +13,12 @@ class RestrictedGrammarTests(unittest.TestCase):
                 with self.subTest(seed=seed, case=case["id"]):
                     _, differences = compare(case, bundles[case["grammar"]])
                     self.assertEqual(differences, {})
+
+    def test_comparison_keeps_json_numeric_types(self):
+        for expected, actual in [(10, 10.0), (1, True), (2**63, 2**63 + 1)]:
+            with self.subTest(expected=expected, actual=actual):
+                self.assertIn("value", field_differences({"value": [expected]}, {"value": [actual]}))
+        self.assertEqual(field_differences({"key": [0, 2**63 - 1]}, {"key": (0, 2**63 - 1)}), {})
 
     def test_seed_1_0_cases_under_seed_1_1(self):
         legacy = read_suite("seed-1.0")
