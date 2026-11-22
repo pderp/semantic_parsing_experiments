@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-22 · natural survey cross-review
+
+Reproduced the public 0/200 result. All 200 rows contain an unknown alphabetic word, and 180 also exceed the 12-token limit. Ten labels cover all observed tags on 17 or 28 sentences depending on the selection. Recommend option (a), retaining the planned separate 300-row evaluation. [Review and replay](../../reports/natural_survey_v1_review_codex.md)
+
 ## 2026-11-21 · seed-1.1 article agreement
 
 Applied the sponsor-approved existential article rule after the dry run found 876 affected sentences. The bundle exposes 57 tokens and 179 lexical entries. Both articles use the same existential recipe. Tested the required and rejected spelling for all 20 nouns in four NP positions. A cross-version replay also checked all 12 reconciled fixtures and 392 public variants, including ranked witnesses. Public capacity remains 150 primary families and 392 determiner variants. Review of the controlled-pilot interpretation and release scope went to ClaudeScope in MCP message 57. D owns regeneration and corpus release. [Protocol](../../spec/contract.md) · [Witness inventory rules](../../spec/witness-v1.md)
