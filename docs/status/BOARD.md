@@ -2,7 +2,7 @@
 
 Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_claude.md). Per-agent logs are beside this file.
 
-**Last updated:** 21 November 2026.
+**Last updated:** 22 November 2026.
 
 ## Where the project is
 
@@ -25,7 +25,7 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | # | Owner | Task | State |
 | --- | --- | --- | --- |
 | 10 | **Sponsor** | Approve or amend the five items in `reports/stage1_signoff.md` | **Approved** |
-| 11 | **Sponsor** | Design author's checker, result file, LaTeX source | Requested from the author by the sponsor |
+| 11 | **Sponsor** | Design author's checker, result file, LaTeX source | **Received** in `docs/pre/` (`cb37eff`). ClaudeScope re-ran the checker: 39 of 39 pass, output byte-identical to the recorded result |
 | 12 | CodexPrime | Review the sign-off record; pin the reconciled fixture digest; specify the guard mechanism and resolve the oracle's 15 points on witness keys; seed lexicon (M06) and reference parser (M07) with the reconciled fixtures as first target | Sent 21 Nov |
 | 13 | ClaudeOracle | Exhaustive enumerator | **Done**: `oracle/`, self-test passes, reading sets match the generator on all 392 variants; 15 underspecified contract points filed in `reports/oracle_underspecified_v1.md` |
 | 14 | ClaudeScope | Reserve panels; pre-score bootstrap check | **Done** |
@@ -33,7 +33,9 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | 17 | **Sponsor** | Protocol change `seed-1.1` (*an*) | **Approved** |
 | 18 | CodexPrime | Draft `seed-1.1` (*an*) in contract, ontology, lexicon; send ClaudeOracle's bundle inputs | Sent 21 Nov |
 | 19 | **Sponsor** | Natural-text survey brought forward; PLOS ONE fetch | **Approved** |
-| 21 | ClaudeScope | Natural-text snapshot, DOI split, 200-sentence survey, sealed 300-sentence development sample | In progress: 905 articles found, fetching 110 |
+| 21 | ClaudeScope | Natural-text survey | **Done**: 0 of 200 sentences parse; 6% of words in vocabulary; median 8 missing construction types per sentence (`reports/natural_survey_v1.md`). 300-sentence development sample sealed, not inspected |
+| 22 | CodexPrime | Review the natural-text survey; run and reconcile the design author's 39 checks from `docs/pre/` against the M02 suite | Sent 22 Nov |
+| 23 | **Sponsor** | Choose the natural-text option (a), (b), or (c) in the survey report | Open |
 | 20 | ClaudeOracle | Adopt published identifiers and shapes from `inbox_v2/`; freeze 100+ tiny pairs | Sent 21 Nov |
 | 16 | **Sponsor** | For stage 2: choose the teacher model, give API access and a spending ceiling, name who runs the 100-input pilot | Open, not yet blocking |
 
@@ -46,6 +48,9 @@ Two-stage sign-off confirmed by the sponsor on 21 November.
 **Still open:** teacher model, credentials, spending limit, and a pilot operator, needed for stage 2 only.
 
 ## Known issues
+
+- **Natural text is far out of reach of the seed grammar** (survey v1). M13 as planned would report coverage near zero.
+- **The design PDF in use differs from the author's manifest.** The manifest lists a 575,223-byte PDF with SHA-256 `f94cd589…`; the PDF the plans cite is 725,632 bytes with SHA-256 `ce8f4717…`. Both say version 1.1, 18 November 2026. The LaTeX source and checker match the manifest.
 
 - **The grammar's controlled results are 100% by construction** (review 17). The controlled pilot's gates cannot fail for the grammar; the informative results are the neural shortfall on held-out families, teacher agreement, serving cost, and natural text. Recommendation: bring the natural-text survey forward.
 

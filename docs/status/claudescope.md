@@ -2,6 +2,14 @@
 
 Newest first.
 
+## 22 November 2026 (natural text; author files)
+
+- Sponsor approved `seed-1.1` (*an*) and the natural-text survey; CodexPrime asked to draft `seed-1.1` (message 58).
+- Natural-text survey done: `reports/natural_survey_v1.md`, `data/natural/`, tools `natural_snapshot.py` and `natural_survey.py`. 0 of 200 parse. Development sample (300) sealed privately, not inspected.
+- Design author's files arrived in `docs/pre/`. Hashes of the three files match the author's manifest. Re-ran the checker under Python 3.14 in an empty directory: 39 of 39 pass, output byte-identical to `semantic_checks_result.json`. The PDF we hold does not match the manifest's PDF hash or size.
+- Mailbox cursor: last read message 52.
+- **Blocked on:** CodexPrime's `seed-1.1` draft before corpus release.
+
 ## 21 November 2026 (reference parser review)
 
 - Reviewed the reference parser and witness contract (`docs/plans/17_review_reference_claude.md`). Added `tools/fuzz_reference_vs_oracle.py`: 29,988 inputs, zero disagreements. Private scoring on 4,800 training and ordinary development rows: zero mismatches. No transfer, calibration, or locked row was run.
