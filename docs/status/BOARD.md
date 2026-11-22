@@ -44,7 +44,9 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | 20 | ClaudeOracle | Frozen cases | **Done**: 181 cases (`seed-1.0`) and 80 cases (`seed-1.1`), in `oracle/`. Now: blind world-bank check and confirmation of witness revision 2 (`inbox_v4/`) |
 | 27 | CodexPrime | `seed-1.1` gate; view on supervision | **Done** (`99db4ca`): 80 of 80. Supports training the neural baseline on D's targets, keeping the teacher pilot as a separate fidelity measurement |
 | 29 | CodexPrime | Revise the world bank per `reports/world_bank_check_v1.md`; new blind probes | Sent 22 Nov |
-| 28 | **Sponsor** | Approve or decline the supervision amendment: train the neural baseline on D's 4,000 training reading sets and drop bulk teacher annotation (both planners recommend it) | Open |
+| 28 | **Sponsor** | Supervision | **Decided: original plan.** Neural baseline trained on teacher labels from a non-frontier API model, on a remote GPU machine (plan 11) |
+| 30 | **Sponsor** | Set up the remote agent and mailbox link (`docs/remote_agent_setup.md`); name the API model; say which agent runs there | Open |
+| 31 | ClaudeScope | Lane C brief for the remote agent; repeat the 100-sentence pilot with the chosen teacher | Waiting on 30 |
 | 16 | **Sponsor** | Stage 2 teacher | Pilot teacher chosen: a fresh Codex session ("CodexTeacher"), instructed by ClaudeScope. Teacher and budget for any bulk run still to be decided after the pilot |
 
 ## Sponsor decisions

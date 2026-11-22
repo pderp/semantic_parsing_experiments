@@ -105,3 +105,17 @@ The sponsor approved all five items in `reports/stage1_signoff.md`: the frozen c
 - The sealed 300-sentence development sample is still measured once, at M13, as registered.
 - Decision 2 keeps its registered criteria. No natural-text threshold is added.
 - Reports present the controlled results (with the note that the grammar's are by construction), the neural shortfall, teacher agreement, serving cost, and natural coverage as separate findings.
+
+## Sponsor decision on supervision, 22 November 2026
+
+The sponsor was offered four options (ClaudeScope's and CodexPrime's recommendation was to train the neural baseline on D's targets) and chose **the original plan (B): the neural baseline is trained on teacher labels**, with these particulars:
+
+- The teacher is a **non-frontier model called through an API**, for cost reasons. It is not the Codex session used in the 200-sentence pilot.
+- The work runs on **another machine**, which has the GPU this host lacks. The sponsor sets up an agent there; it joins the mailbox as `trainer` (`docs/remote_agent_setup.md`).
+
+Consequences recorded now:
+
+1. **The pilot must be repeated for the actual teacher.** The 200 of 200 result belongs to a different, stronger model. Stage 2 authorization for the bulk run rests on a 100-sentence pilot with the chosen API model and prompt, including cost per call.
+2. **Teacher errors are now expected,** and the plan's handling applies: conflicts with D's targets are counted, validated labels are distinguished from raw ones, and the training policy (which labels the neural model sees) is fixed before the bulk run.
+3. **Lane C is assigned to the remote agent:** teacher prompt and cache, the bulk labelling, the tokenizer round-trip check, and the neural baseline.
+4. **Reserved inputs.** Whether the teacher labels the reserved panels, and from which machine, is decided before any reserved sentence leaves this host.

@@ -2,6 +2,13 @@
 
 Newest first.
 
+## 22 November 2026 (supervision decision; remote agent)
+
+- Sponsor chose the original plan: neural baseline trained on teacher labels, teacher is a non-frontier API model, work on a remote GPU machine. Recorded in plan 11 with consequences.
+- Wrote `docs/remote_agent_setup.md` (mailbox over SSH with a forced-command key). Added a `trainer` address to the relay (uncommitted in `learning_mcp`).
+- Delivered world bank v2 blind packet to ClaudeOracle (`inbox_v5`); integrated its 111 revision 2 cases (`7c15ed4`).
+- Mailbox cursor: last read message 105.
+
 ## 22 November 2026 (world-bank check; seed-1.1 gate)
 
 - ClaudeOracle sealed its blind world-bank answers; I compared them with the shared evaluator: 52 of 52 equal. Its design review found a real gap (quantified embedded objects invisible). Report and requests: `reports/world_bank_check_v1.md`. Bank not frozen.
