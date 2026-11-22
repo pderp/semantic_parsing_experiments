@@ -43,3 +43,12 @@ Frozen before any comparison with the reference parser. Of the 181 seed-1.0 case
 ## Fourth deliverable: world-bank check (22 November 2026, mailbox messages 96 and 100)
 
 `answers_worldbank_v1.json` (sealed before any expected value was seen), `world_eval.py`, `world_review.py`; inputs in `inbox_v4/`. Result and design review: `reports/world_bank_check_v1.md`.
+
+## Fifth deliverable: extra cases for witness contract revision 2 (22 November 2026, mailbox message 105)
+
+| File | SHA-256 |
+| --- | --- |
+| `cases_witness_r2.json` (frozen: 111 cases on overflow, budget types, degenerate and rejected restrictions, edge thresholds) | `a459df6e50e8f79fa1eced8902e691e8485a6f7dc168db31b77b327e7557e4f0` |
+| `gen_cases_r2.py` | `0879ff5e0505a9c61b3c064e5ae0ba52f725dc3bcc7ef276e0f7b24d1e1c01ed` |
+
+Frozen before any comparison. 67 cases carry `depends_on`. In a case, `"max_edges": null` means an explicit null budget; an absent key means none was passed. Costs near ±2^63 need exact integers, and one float cost (`10.0`) must stay a float.
