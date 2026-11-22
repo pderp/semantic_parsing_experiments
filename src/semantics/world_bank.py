@@ -7,8 +7,8 @@ from itertools import product
 from src.frontend import forms, template
 from src.semantics import E, V, ROOT, SemanticError, normalize, reading_text, spine
 
-BANK_FILE = ROOT / "fixtures/world_bank_v1.json"
-BANK_SHA256 = "a431af772c4c6486c1ca32569126c82a6ce17afe6e4e6e92f3747b1569085f10"
+BANK_FILE = ROOT / "fixtures/world_bank_v2.json"
+BANK_SHA256 = "2911d66da3d5888c34072d33b01a08587f20758948889db577c26a55ac13d0b6"
 DOMAINS = {E: range(4), V: range(3)}
 FULL = (1 << 256) - 1
 
@@ -23,8 +23,11 @@ def formula(text):
 
 class WorldBank:
     def __init__(self, bank, ontology):
-        if bank["format"] != "seed-world-bank-v1" or len(bank["worlds"]) != 256:
+        if bank["format"] not in ("seed-world-bank-v1", "seed-world-bank-v2") or len(bank["worlds"]) != 256:
             raise ValueError("unexpected finite-world bank format")
+        vectors = None
+        if bank["format"] == "seed-world-bank-v2":
+            vectors = tuple(int(v, 16) for v in bank["content_vectors"])
         self.names = bank["names"]
         self.ids = tuple(w["id"] for w in bank["worlds"])
         self.sorts = ontology["predicates"]
@@ -36,9 +39,18 @@ class WorldBank:
                     if mask & (1 << bit):
                         key = (name, bit)
                         self.truth[key] = self.truth.get(key, 0) | (1 << i)
-            for event, payloads in enumerate(world["content"]):
+            for event, stored in enumerate(world["content"]):
+                if vectors is None:
+                    payloads = (int(value, 16) for value in stored)
+                else:
+                    mask = int(stored, 16)
+                    if mask.bit_length() > len(vectors) or len(stored) != (len(vectors) + 3) // 4:
+                        raise ValueError("content mask does not fit the vector dictionary")
+                    # Decode once at load. Outer assignments still pass actual vectors to Content.
+                    bits = mask.to_bytes((len(vectors) + 7) // 8, "little")
+                    payloads = (v for j, v in enumerate(vectors) if bits[j // 8] & (1 << (j % 8)))
                 for payload in payloads:
-                    key = (event, int(payload, 16))
+                    key = (event, payload)
                     self.content[key] = self.content.get(key, 0) | (1 << i)
 
     def signature(self, reading):

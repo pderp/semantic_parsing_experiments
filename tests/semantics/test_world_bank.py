@@ -5,7 +5,7 @@ import unittest
 
 from src.semantics import SemanticError
 from src.semantics.world_bank import BANK_FILE, BANK_SHA256, FULL, load_bank
-from tools.build_world_bank import build, canonical
+from tools.build_world_bank import build, canonical, payload_catalog
 
 
 def conjunction(*parts):
@@ -34,6 +34,21 @@ def control(kind, agent, recipient, controller, quick=False):
     extra = ["(Quick e)"] if quick else []
     payload = event("Leave", controller, *extra, tense=False)
     return event(kind, agent, f"(Recipient e {recipient})", f"(Content e (Box {payload}))")
+
+
+def quantified_payload(verb, controller, det, noun, quick=False):
+    props = [f"(Theme e y)"]
+    if quick:
+        props.append("(Quick e)")
+    body = event(verb, controller, *props, tense=False)
+    if det == "every":
+        return f"(ForallE (fn y E (Implies ({noun} y) {body})))"
+    return f"(ExistsE (fn y E (And ({noun} y) {body})))"
+
+
+def review_control(frame, agent, recipient, controller, det):
+    embedded = quantified_payload("Review", controller, det, "Paper")
+    return event(frame, agent, f"(Recipient e {recipient})", f"(Content e (Box {embedded}))")
 
 
 class WorldBankTests(unittest.TestCase):
@@ -81,7 +96,7 @@ class WorldBankTests(unittest.TestCase):
             self.check_hand(n, ow, n == 3)
 
     def test_mixed_scope_strata(self):
-        probes = json.loads(BANK_FILE.with_name("world_bank_blind_probes_v1.json").read_bytes())
+        probes = json.loads(BANK_FILE.with_name("world_bank_blind_probes_v2.json").read_bytes())
         self.assertEqual(probes["bank_sha256"], BANK_SHA256)
         by_id = {w["id"]: w for w in json.loads(BANK_FILE.read_bytes())["worlds"]}
         for world, themes in [("S065", 132), ("S091", 204)]:
@@ -137,6 +152,43 @@ class WorldBankTests(unittest.TestCase):
                 for entity, name in enumerate(("alice", "bob", "ava", "ben")):
                     expected = self.bank.signature(event("Leave", name, tense=False))["matrix"]
                     self.assertEqual(table["vectors"][event_slot * 4 + entity], expected)
+
+    def test_all_licensed_payloads_are_distinct_nonconstant_and_stored(self):
+        bank = json.loads(BANK_FILE.read_bytes())
+        ontology = json.loads((BANK_FILE.parents[1] / "spec/ontology.yaml").read_bytes())
+        names = ("alice", "bob", "ava", "ben")
+        values = []
+        for verb, slot, theme, quick in payload_catalog(ontology):
+            if isinstance(theme, tuple):
+                det, noun = theme
+                probe = quantified_payload(verb, names[slot], det, noun, quick)
+            else:
+                props = [] if theme is None else [f"(Theme e {names[theme]})"]
+                if quick:
+                    props.append("(Quick e)")
+                probe = event(verb, names[slot], *props, tense=False)
+            values.append(self.bank.signature(probe)["matrix"])
+        self.assertEqual(values, bank["content_vectors"])
+        self.assertEqual(len(set(values)), 1440)
+        ints = {int(v, 16) for v in values}
+        self.assertFalse(ints & {0, FULL})
+        self.assertEqual({v for _, v in self.bank.content}, ints)
+
+    def test_quantified_object_controls(self):
+        for frame, worlds in [("Promise", ("S003", "S009", "S015", "S022")),
+                              ("Persuade", ("S000", "S008", "S010", "S014"))]:
+            choices = [(who, det) for who in ("alice", "bob") for det in ("a", "every")]
+            for i, (who, det) in enumerate(choices):
+                probe = review_control(frame, "alice", "bob", who, det)
+                bits = int(self.bank.signature(probe)["matrix"], 16)
+                got = [bool(bits & (1 << self.bank.ids.index(w))) for w in worlds]
+                self.assertEqual(got, [j == i for j in range(4)], (frame, who, det))
+        for n, frame, agent, recipient, wrong, det in [(14, "Promise", "x", "bob", "bob", "a"),
+                                                       (15, "Persuade", "alice", "x", "alice", "every")]:
+            self.check_hand(n, every("x", review_control(frame, agent, recipient, "x", det)), True)
+            self.check_hand(n, every("x", review_control(frame, agent, recipient, wrong, det)), False)
+            other = "every" if det == "a" else "a"
+            self.check_hand(n, every("x", review_control(frame, agent, recipient, "x", other)), False)
 
     def test_matching_matrices_can_have_different_boxed_payloads(self):
         sentences = [conjunction("(Not Top)", control("Promise", "alice", "bob", who))

@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-22 · quantified embedded objects in the finite bank
+
+ClaudeScope accepted both witness gates and reported 52/52 agreement on the v1 blind check. Candidate v2 covers all 1,440 simple embedded payloads. On the 4,000 released training inputs, the control collision rate fell from 219/1,491 to 22/1,491, all remaining pairs accounted for by the registered name aliases. All 7,680 named-controller swaps and 3,840 determiner contrasts separate on matrix truth alone. Routed the answer-free v2 packet to ClaudeScope for independent checking. Freeze is pending. [Audit and replay](../../reports/world_bank_control_v2.md) · [Specification](../../spec/world-bank.md)
+
 ## 2026-11-22 · seed-1.1 gate and supervision recommendation
 
 All 80 frozen article cases match on the first replay, including 47 ranked witnesses and 77 edge counts. The original 181 cases also pass under seed-1.0. With the same inputs under seed-1.1, W069 changes response and W073 changes only edge count. Documented R1–R4. Recommended an explicitly amended generator-supervised controlled baseline and retaining the measured teacher fidelity result, pending the sponsor’s decision. D has delivered the blind bank packet; the expected values await D’s request after the independent answer digest. [Gate and replay](../../reports/m07_m08_witness_gate.md) · [Teacher decision note](../../reports/stage2_pilot_teacher_review_codex.md)

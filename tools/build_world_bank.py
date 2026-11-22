@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "fixtures/world_bank_v1.json"
+OUTPUT = ROOT / "fixtures/world_bank_v2.json"
 NAMES = {"alice": 0, "cara": 0, "gia": 0, "bob": 1, "dan": 1, "hugo": 1,
          "ava": 2, "eva": 2, "ben": 3, "finn": 3}
 SEED = 20261119
@@ -67,7 +67,7 @@ def draw(attempt, label):
     return int.from_bytes(hashlib.sha256(raw).digest(), "little")
 
 
-def sampled(attempt, predicates, catalog):
+def sampled(attempt, predicates, payload_count):
     facts = {}
     for name, sorts in sorted(predicates.items()):
         if name == "Content":
@@ -77,10 +77,11 @@ def sampled(attempt, predicates, catalog):
         if mask:
             facts[name] = mask
     content = []
+    width = (payload_count + 7) // 8
     for event in range(3):
-        # Two independent draws with replacement from the pinned finite catalog.
-        ids = {draw(attempt, f"content/{event}/{i}") % len(catalog) for i in range(2)}
-        content.append([catalog[j] for j in sorted(ids)])
+        key = f"{SEED}/content-v2/{attempt}/{event}".encode("ascii")
+        bits = int.from_bytes(hashlib.shake_256(key).digest(width), "little")
+        content.append(bits & ((1 << payload_count) - 1))
     return facts, content
 
 
@@ -101,15 +102,66 @@ def scope_stratum(facts, index, verbs, nouns):
 
 def matches(facts, description):
     verb, agent, theme, quick = description
+    active = facts.get(verb, 0)
+    if quick:
+        active &= facts.get("Quick", 0)
+    themes = 0
     for event in range(3):
-        bit = 1 << event
-        if not (facts.get(verb, 0) & bit and facts.get("Agent", 0) & (1 << (4 * event + agent))):
-            continue
-        if theme is not None and not facts.get("Theme", 0) & (1 << (4 * event + theme)):
-            continue
-        if not quick or facts.get("Quick", 0) & bit:
-            return True
-    return False
+        if active & (1 << event) and facts.get("Agent", 0) & (1 << (4 * event + agent)):
+            if theme is None:
+                return True
+            themes |= (facts.get("Theme", 0) >> (4 * event)) & 15
+    if theme is None:
+        return False
+    if isinstance(theme, int):
+        return bool(themes & (1 << theme))
+    quantifier, noun = theme
+    restrictor = facts.get(noun, 0)
+    if quantifier == "every":
+        return (restrictor & themes) == restrictor
+    return bool(restrictor & themes)
+
+
+def payload_catalog(ontology):
+    catalog = []
+    quantified = [(q, noun) for q in ("a", "every") for noun in sorted(ontology["nouns"].values())]
+    for frame in sorted(ontology["frames"].values(), key=lambda f: f["predicate"]):
+        kind = frame["construction"]
+        if kind in ("intransitive", "transitive"):
+            themes = [None] if kind == "intransitive" else [*range(4), *quantified]
+            for agent in range(4):
+                for theme in themes:
+                    for quick in (False, True):
+                        catalog.append((frame["predicate"], agent, theme, quick))
+    return catalog
+
+
+def control_contrasts(designs, index):
+    # In each designated world only one matrix event has the required named
+    # roles. Condition four payload memberships at that event, leaving all
+    # other memberships and the original extensional draw intact.
+    probes = [index[("Review", slot, (quant, "Paper"), False)]
+              for slot in (0, 1) for quant in ("a", "every")]
+    clear = sum(1 << i for i in probes)
+    used = set()
+    for frame in ("Promise", "Persuade"):
+        n = 0
+        for w in range(80, len(designs)):
+            facts, masks = designs[w]
+            active = facts.get(frame, 0) & facts.get("Past", 0)
+            events = [v for v in range(3) if active & (1 << v)
+                      and facts.get("Agent", 0) & (1 << (4*v))
+                      and facts.get("Recipient", 0) & (2 << (4*v))]
+            if w in used or len(events) != 1:
+                continue
+            event, = events
+            masks[event] = (masks[event] & ~clear) | (1 << probes[n])
+            used.add(w)
+            n += 1
+            if n == len(probes):
+                break
+        if n != len(probes):
+            raise ValueError(f"missing quantified-object contrasts for {frame}")
 
 
 def build():
@@ -117,22 +169,24 @@ def build():
     ontology = json.loads(raw)
     if ontology["version"] != "seed-1.1" or set(ontology["names"]) != set(NAMES):
         raise ValueError("bank requires the seed-1.1 name interpretation")
-    catalog = []
-    for frame in sorted(ontology["frames"].values(), key=lambda f: f["predicate"]):
-        kind = frame["construction"]
-        if kind in ("intransitive", "transitive"):
-            for agent in range(4):
-                for theme in ([None] if kind == "intransitive" else range(4)):
-                    for quick in (False, True):
-                        catalog.append((frame["predicate"], agent, theme, quick))
-    designs = [exhaustive(n) for n in range(64)] + [contrast(n) for n in range(16)]
+    catalog = payload_catalog(ontology)
+    index = {d: i for i, d in enumerate(catalog)}
+    designs = []
+    for i in range(80):
+        facts, content = exhaustive(i) if i < 64 else contrast(i - 64)
+        if i in (78, 79):  # H14/H15: content shared with the bound matrix participant.
+            quant = "a" if i == 78 else "every"
+            for event in range(2):
+                content[event].append(("Review", event, (quant, "Paper"), False))
+        masks = [sum(1 << index[d] for d in ds) for ds in content]
+        designs.append((facts, masks))
     verbs = sorted(f["predicate"] for f in ontology["frames"].values() if f["construction"] == "transitive")
     strata = 0
     seen = {canonical(f) for f, _ in designs}
     # Contrast pairs can deliberately have the same extensional facts and different content.
     attempt = 0
     while len(designs) < 256:
-        facts, content = sampled(attempt, ontology["predicates"], catalog)
+        facts, content = sampled(attempt, ontology["predicates"], len(catalog))
         attempt += 1
         condition = strata < 2 and not facts.get("Past") and not facts.get("Quick")
         if condition:
@@ -144,16 +198,25 @@ def build():
             strata += int(condition)
     if strata != 2:
         raise ValueError("two scope strata required")
-    vectors = {d: format(sum(1 << w for w, (facts, _) in enumerate(designs) if matches(facts, d)), "064x")
-               for d in catalog}
+    control_contrasts(designs, index)
+    vectors = [sum(1 << w for w, (facts, _) in enumerate(designs) if matches(facts, d)) for d in catalog]
+    if len(vectors) != 1440 or len(set(vectors)) != len(vectors) or {0, (1 << 256) - 1}.intersection(vectors):
+        raise ValueError("expected 1,440 distinct, nonconstant payload vectors")
+    coverage = 0
+    width = (len(vectors) + 3) // 4
     worlds = []
-    for i, (facts, content) in enumerate(designs):
+    for i, (facts, masks) in enumerate(designs):
+        for mask in masks:
+            coverage |= mask
         name = f"E{i:02}" if i < 64 else (f"H{i-64:02}" if i < 80 else f"S{i-80:03}")
-        worlds.append({"id": name, "facts": facts, "content": [sorted({vectors[d] for d in ds}) for ds in content]})
+        worlds.append({"id": name, "facts": facts, "content": [format(mask, f"0{width}x") for mask in masks]})
+    if coverage != (1 << len(vectors)) - 1:
+        raise ValueError("a licensed payload is absent from every event's content")
     if len({canonical([w["facts"], w["content"]]) for w in worlds}) != 256:
         raise ValueError("duplicate world in bank")
-    return {"format": "seed-world-bank-v1", "ontology_sha256": hashlib.sha256(raw).hexdigest(),
-            "names": NAMES, "seed": SEED, "worlds": worlds}
+    return {"format": "seed-world-bank-v2", "ontology_sha256": hashlib.sha256(raw).hexdigest(),
+            "names": NAMES, "seed": SEED, "content_vectors": [format(v, "064x") for v in vectors],
+            "worlds": worlds}
 
 
 def main():
