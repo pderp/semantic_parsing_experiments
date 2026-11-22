@@ -2,14 +2,31 @@ import unittest
 
 from src.reference import load_seed, parse
 from src.reference.restrictions import restrict_bundle
-from .compare_witness_cases import compare, frozen_inputs
+from .compare_witness_cases import SUITES, compare, frozen_inputs, read_suite
 
 
 class RestrictedGrammarTests(unittest.TestCase):
     def test_frozen_cases(self):
-        cases, bundles = frozen_inputs()
-        for case in cases:
+        for seed in SUITES:
+            cases, bundles = frozen_inputs(seed)
+            for case in cases:
+                with self.subTest(seed=seed, case=case["id"]):
+                    _, differences = compare(case, bundles[case["grammar"]])
+                    self.assertEqual(differences, {})
+
+    def test_seed_1_0_cases_under_seed_1_1(self):
+        legacy = read_suite("seed-1.0")
+        _, current = frozen_inputs("seed-1.1")
+        bundles = {key: restrict_bundle(current["full"], spec) for key, spec in legacy["grammars"].items()}
+        for case in legacy["cases"]:
             with self.subTest(case=case["id"]):
+                if case["id"] == "W069":
+                    expected = dict(case["expected"], construction_status="no_parse", decision="abstain",
+                                    diagnostic={"code": "no_root"}, readings=[], ranked_readings=[],
+                                    witnesses=[], min_cost=None)
+                    case = dict(case, expected=expected, edge_count=3)
+                elif case["id"] == "W073":
+                    case = dict(case, edge_count=5)
                 _, differences = compare(case, bundles[case["grammar"]])
                 self.assertEqual(differences, {})
 

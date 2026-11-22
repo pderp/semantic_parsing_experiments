@@ -41,7 +41,7 @@ W156
 
 The replay compares normalized tokens, both status axes, diagnostic code and optional offending token/index, exact canonical reading arrays, minimum cost, ranked distinct readings, and every witness in order. For the 152 rows with frozen exact edge counts it also checks the uncapped chart and the number actually inserted under the request budget. Result counts are 67 accepted, 17 ambiguous, 62 no-root, 5 empty-input, 6 invalid-token, 5 unknown-token, 6 edge-budget, 8 invalid-request, 3 cost-overflow and 2 reading-count. No remaining discrepancy required an oracle change.
 
-The normative comparison uses the common published fields. The reference includes an additional raw closure and bundle metadata. The frozen oracle nests its diagnostic code, token and index, while the reference puts the code in a string field. Revision 2 specifies both encodings and their lossless crosswalk. It also settles points the frozen rows do not distinguish, including explicit null budgets and overflowing partial derivations outside a root. New targeted tests cover both bounds of signed overflow, an overflowing competitor alongside a safe witness, a rootless chart, validation/budget ordering, and clone guard inheritance. This is the seed-1.0 fixture gate. The independently frozen seed-1.1 cases can have their own versioned comparison when released. [Additional regressions](../tests/reference/test_restrictions.py)
+The normative comparison uses the common published fields. The reference includes an additional raw closure and bundle metadata. The frozen oracle nests its diagnostic code, token and index, while the reference puts the code in a string field. Revision 2 specifies both encodings and their lossless crosswalk. It also settles points the frozen rows do not distinguish, including explicit null budgets and overflowing partial derivations outside a root. New targeted tests cover both bounds of signed overflow, an overflowing competitor alongside a safe witness, a rootless chart, validation/budget ordering, and clone guard inheritance. These figures describe the seed-1.0 fixture gate. The seed-1.1 results appear below. [Additional regressions](../tests/reference/test_restrictions.py)
 
 Replay from the repository root.
 
@@ -49,4 +49,27 @@ Replay from the repository root.
 python3 -m tests.reference.compare_witness_cases
 python3 -m unittest discover -q
 python3 -m unittest discover -s spike -q
+```
+
+## Seed-1.1 article gate
+
+All **80/80** independently frozen cases match on the first reference run, including all **47 ordered witnesses** and every recursive structural key. The 66 full-bundle cases and 14 cases in three restricted grammars cover licensed articles, wrong articles, lexical failures, budget boundaries and clones. All 77 cases carrying a frozen edge count match both the uncapped edge count and the number actually inserted. All seven cases flagged for convention dependence match. There were 30 accepted and five ambiguous answers, 39 `no_root`, three `edge_budget`, two `unknown_token` and one `invalid_token`. The reference parser needed no production change. [Frozen seed-1.1 cases](../oracle/cases_witness_v11.json) · [R1–R4 decisions](../spec/witness-v1.md)
+
+The frozen suite SHA-256 is `fe01af31dd5b1d90bf48c47f1380b2401310c9a3586c215502a344e57bc66f28`. The runner verifies the historical ontology, contract, witness contract and meaning-free inventory against the suite's hashes. Compiling the archived ontology with the reference recipes reproduces all 179 published entry descriptions, both article lists and the full bundle digest `01ac38bec5bbc8910aa81b61c318c1c742059fdfefdd732aec46b78495ec2ed8`. The comparison reads frozen data only and compares the same fields as the seed-1.0 gate. [Input manifests](../oracle/inbox_v3/SHA256SUMS) · [Replay code](../tests/reference/compare_witness_cases.py)
+
+### Replaying the 181 seed-1.0 inputs under seed-1.1
+
+We applied the original 32 grammar restrictions to the verified seed-1.1 bundle and compared each result with its frozen seed-1.0 expectation. **180/181 retain every expected response field**. Including auxiliary edge counts, **179/181** match throughout. Both deltas occur in the original `feature-mismatch` grammar.
+
+| Case | Observable effect | Reason |
+| --- | --- | --- |
+| W069, *a editor left* | `complete/accepted` becomes `no_parse/abstain/no_root`. The single reading, ranked reading and witness disappear and minimum cost changes from 0 to null. Edges drop from 6 to 3. | The original `det.a` could form an existential NP with *editor*. Its seed-1.1 follower check now fails. |
+| W073, *a every editor left* | Both versions return `no_parse/abstain/no_root` with empty results. Edges drop from 6 to 5. | Seed-1.0 anchored a standalone `det.a` before *every*. Seed-1.1 skips that edge. |
+
+Both retain their normalized tokens. This migration comparison uses the original frozen answers. The two documented changes are explicit in a regression; the oracle fixture files remain immutable. [Migration regression](../tests/reference/test_restrictions.py)
+
+```sh
+python3 -m tests.reference.compare_witness_cases --seed seed-1.1
+python3 -m tests.reference.compare_witness_cases --seed seed-1.0
+python3 -m unittest tests.reference.test_restrictions -q
 ```

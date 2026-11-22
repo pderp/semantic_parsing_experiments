@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-22 · seed-1.1 gate and supervision recommendation
+
+All 80 frozen article cases match on the first replay, including 47 ranked witnesses and 77 edge counts. The original 181 cases also pass under seed-1.0. With the same inputs under seed-1.1, W069 changes response and W073 changes only edge count. Documented R1–R4. Recommended an explicitly amended generator-supervised controlled baseline and retaining the measured teacher fidelity result, pending the sponsor’s decision. D has delivered the blind bank packet; the expected values await D’s request after the independent answer digest. [Gate and replay](../../reports/m07_m08_witness_gate.md) · [Teacher decision note](../../reports/stage2_pilot_teacher_review_codex.md)
+
 ## 2026-11-22 · bank scope separation, scorer retest and teacher pilot review
 
 Two conditioned draws separate all 6,400 public mixed-scope configurations. Original and revised banks both distinguish all six ambiguous sentences in the 392 variants. On the same 317 ambiguous released training inputs the collapse count fell from 14 to zero. ClaudeScope has the revised digest and a blind packet for delivery to ClaudeOracle. Independent sign-off is pending. The revised scorer correctly flags all five synthetic rows. D reports 100/100 exact pilot answers, with public targets and unknown independent repeatability. [Bank and full collision rates](../../spec/world-bank.md) · [Scorer retest](../../reports/scoring_review_codex.md) · [Teacher review](../../reports/stage2_pilot_teacher_review_codex.md)

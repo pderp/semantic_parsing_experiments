@@ -1,4 +1,5 @@
-"""Replay the immutable seed-1.0 M07/M08 cases without importing the oracle."""
+"""Replay the frozen M07/M08 cases from either seed release without importing the oracle."""
+import argparse
 from collections import Counter
 import hashlib
 import json
@@ -9,7 +10,12 @@ from src.reference.restrictions import restrict_bundle
 from src.reference.seed import compile_seed
 
 ROOT = Path(__file__).resolve().parents[2]
-CASE_SHA256 = "68edf14dd266e3b83608084339a11ef1b9c848d464c07fe8a48744f043bc1621"
+SUITES = {
+    "seed-1.0": ("cases_witness_v1.json", "inbox_v2",
+                 "68edf14dd266e3b83608084339a11ef1b9c848d464c07fe8a48744f043bc1621"),
+    "seed-1.1": ("cases_witness_v11.json", "inbox_v3",
+                 "fe01af31dd5b1d90bf48c47f1380b2401310c9a3586c215502a344e57bc66f28"),
+}
 WITNESS_FIELDS = ("cost", "object_wide_uses", "key", "reading")
 
 
@@ -20,9 +26,14 @@ def read_checked(path, digest):
     return raw
 
 
-def frozen_inputs():
-    suite = json.loads(read_checked(ROOT / "oracle/cases_witness_v1.json", CASE_SHA256))
-    package = ROOT / "oracle/inbox_v2"
+def read_suite(seed):
+    filename, _, digest = SUITES[seed]
+    return json.loads(read_checked(ROOT / "oracle" / filename, digest))
+
+
+def frozen_inputs(seed="seed-1.0"):
+    suite = read_suite(seed)
+    package = ROOT / "oracle" / SUITES[seed][1]
     ontology = read_checked(package / "ontology.yaml", suite["ontology_sha256"])
     inventory = json.loads(read_checked(package / "bundle_inventory_no_meanings.json", suite["inventory_sha256"]))
     read_checked(package / "contract.md", suite["contract_sha256"])
@@ -62,7 +73,10 @@ def compare(case, bundle):
 
 
 def main():
-    cases, bundles = frozen_inputs()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--seed", choices=SUITES, default="seed-1.0")
+    args = parser.parse_args()
+    cases, bundles = frozen_inputs(args.seed)
     outcomes, mismatches = Counter(), {}
     witnesses = 0
     for case in cases:
