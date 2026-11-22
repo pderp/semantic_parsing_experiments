@@ -1,0 +1,188 @@
+{
+  "version": "world-bank-blind-probes-v1",
+  "bank_sha256": "a431af772c4c6486c1ca32569126c82a6ce17afe6e4e6e92f3747b1569085f10",
+  "interpretation": [
+    "Use fixtures/world_bank_v1.json (or the supplied copy by basename) and seed-1.1 predicate signatures. There are four fixed entity slots, three fixed event slots and 256 worlds in array order. Names have the slot values in the bank.",
+    "Absent facts are false. Unary bit j denotes slot j; binary role bit 4*v+e denotes event v and entity e. Conjunction, implication, negation and sorted quantifiers have their usual Boolean meanings. #0 is the nearest enclosing binder.",
+    "Box evaluates its argument at the same enclosing slot assignment across every world. The hexadecimal vector has world zero at its least significant bit. Content at event v is true iff that vector is in the world\u2019s content[v] list."
+  ],
+  "requested_return": "Before receiving expected answers, return bank and prompt SHA-256, and for each probe a Boolean per world ID in the supplied order. For Q19 and Q21 also report the boxed bare-leaving vector for each of the four controller slots under that controller assignment. Name incomplete or unclear checks.",
+  "probes": [
+    {
+      "id": "Q01",
+      "worlds": [
+        "H00",
+        "H01"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 alice) (And (Past #0) (And (Review #0) (Theme #0 bob))))))"
+    },
+    {
+      "id": "Q02",
+      "worlds": [
+        "H00",
+        "H01"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 bob) (And (Past #0) (And (Review #0) (Theme #0 alice))))))"
+    },
+    {
+      "id": "Q03",
+      "worlds": [
+        "H02",
+        "H03"
+      ],
+      "reading": "(ForallE (lam E (Implies (Researcher #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Past #0) (And (Review #0) (Theme #0 #1)))))) (Paper #0)))))))"
+    },
+    {
+      "id": "Q04",
+      "worlds": [
+        "H02",
+        "H03"
+      ],
+      "reading": "(ExistsE (lam E (And (ForallE (lam E (Implies (Researcher #0) (ExistsV (lam V (And (Agent #0 #1) (And (Past #0) (And (Review #0) (Theme #0 #2))))))))) (Paper #0))))"
+    },
+    {
+      "id": "Q05",
+      "worlds": [
+        "H04",
+        "H05",
+        "H06",
+        "H07",
+        "H08",
+        "H09"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 alice) (And (Leave #0) (Past #0)))))"
+    },
+    {
+      "id": "Q06",
+      "worlds": [
+        "H04",
+        "H05",
+        "H06"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 bob) (And (Leave #0) (Past #0)))))"
+    },
+    {
+      "id": "Q07",
+      "worlds": [
+        "H04",
+        "H05",
+        "H06",
+        "H09"
+      ],
+      "reading": "(Not (ExistsV (lam V (And (Agent #0 alice) (And (Leave #0) (Past #0))))))"
+    },
+    {
+      "id": "Q08",
+      "worlds": [
+        "H04"
+      ],
+      "reading": "(Not (ExistsV (lam V (And (Agent #0 bob) (And (Leave #0) (Past #0))))))"
+    },
+    {
+      "id": "Q09",
+      "worlds": [
+        "H05"
+      ],
+      "reading": "(ForallE (lam E (Implies (Researcher #0) (Not (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0)))))))))"
+    },
+    {
+      "id": "Q10",
+      "worlds": [
+        "H05"
+      ],
+      "reading": "(Not (ForallE (lam E (Implies (Researcher #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0)))))))))"
+    },
+    {
+      "id": "Q11",
+      "worlds": [
+        "H07",
+        "H08"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 alice) (And (Leave #0) (And (Past #0) (Quick #0))))))"
+    },
+    {
+      "id": "Q12",
+      "worlds": [
+        "H09"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 alice) (Leave #0))))"
+    },
+    {
+      "id": "Q13",
+      "worlds": [
+        "H10",
+        "H12"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 alice) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 alice) (Leave #0)))))) (And (Past #0) (And (Promise #0) (Recipient #0 bob)))))))"
+    },
+    {
+      "id": "Q14",
+      "worlds": [
+        "H10",
+        "H12"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 alice) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 bob) (Leave #0)))))) (And (Past #0) (And (Promise #0) (Recipient #0 bob)))))))"
+    },
+    {
+      "id": "Q15",
+      "worlds": [
+        "H10"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 alice) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 alice) (And (Leave #0) (Quick #0))))))) (And (Past #0) (And (Promise #0) (Recipient #0 bob)))))))"
+    },
+    {
+      "id": "Q16",
+      "worlds": [
+        "H11",
+        "H13"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 alice) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 bob) (Leave #0)))))) (And (Past #0) (And (Persuade #0) (Recipient #0 bob)))))))"
+    },
+    {
+      "id": "Q17",
+      "worlds": [
+        "H11",
+        "H13"
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 alice) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 alice) (Leave #0)))))) (And (Past #0) (And (Persuade #0) (Recipient #0 bob)))))))"
+    },
+    {
+      "id": "Q18",
+      "worlds": [
+        "H10",
+        "H11",
+        "H12",
+        "H13"
+      ],
+      "reading": "(ExistsV (lam V (Leave #0)))"
+    },
+    {
+      "id": "Q19",
+      "worlds": [
+        "H14"
+      ],
+      "reading": "(ForallE (lam E (Implies (Researcher #0) (ExistsV (lam V (And (Agent #0 #1) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 #2) (Leave #0)))))) (And (Past #0) (And (Promise #0) (Recipient #0 bob))))))))))"
+    },
+    {
+      "id": "Q20",
+      "worlds": [
+        "H14"
+      ],
+      "reading": "(ForallE (lam E (Implies (Researcher #0) (ExistsV (lam V (And (Agent #0 #1) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 bob) (Leave #0)))))) (And (Past #0) (And (Promise #0) (Recipient #0 bob))))))))))"
+    },
+    {
+      "id": "Q21",
+      "worlds": [
+        "H15"
+      ],
+      "reading": "(ForallE (lam E (Implies (Researcher #0) (ExistsV (lam V (And (Agent #0 alice) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 #2) (Leave #0)))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))))))"
+    },
+    {
+      "id": "Q22",
+      "worlds": [
+        "H15"
+      ],
+      "reading": "(ForallE (lam E (Implies (Researcher #0) (ExistsV (lam V (And (Agent #0 alice) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 alice) (Leave #0)))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))))))"
+    }
+  ]
+}

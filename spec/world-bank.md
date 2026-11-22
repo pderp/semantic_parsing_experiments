@@ -35,11 +35,37 @@ Content is fixed independently of submitted formulas. For each descriptor, compu
 
 ## Reproduce the bank
 
-Candidate bank SHA-256 is `88c1d18d63d46a52e9bb2167b7f7539481238b253a3296c9ce28c413a91cc025`. The byte encoding is compact, ASCII, key-sorted JSON with one trailing newline. The file contains the ontology digest, fixed names and explicit world facts and content vectors. The hand contrast specification and bank digest have been submitted for independent review. Scoring can reference the signed-off digest once that check returns. [Bank](../fixtures/world_bank_v1.json) · [Generator](../tools/build_world_bank.py) · [Hand probes](../tests/semantics/test_world_bank.py)
+Revised candidate bank SHA-256 is `a431af772c4c6486c1ca32569126c82a6ce17afe6e4e6e92f3747b1569085f10`. The byte encoding is compact, ASCII, key-sorted JSON with one trailing newline. The file contains the ontology digest, fixed names and explicit world facts and content vectors. ClaudeScope has the revised bank and a [blind question sheet](../fixtures/world_bank_blind_probes_v1.json) to deliver to ClaudeOracle's separate, checksummed inbox. The 22 questions request 44 H-world truth values and two four-slot payload tables. Independent review is pending. [Bank](../fixtures/world_bank_v1.json) · [Generator](../tools/build_world_bank.py) · [Hand probes](../tests/semantics/test_world_bank.py)
 
-Each extensional predicate is a bit mask. Unary bit j denotes slot j of its declared sort. Role bit 4v+e denotes event v and entity e. Missing predicates have empty extensions. For sampled world attempt n, starting at zero, take SHA-256 of the ASCII string `20261119/n/label`, where n is its decimal representation. Interpret the digest as an unsigned little-endian integer. For an extensional predicate, label is its case-sensitive name and the low 4, 3 or 12 bits give its mask. Reject a duplicate extensional fact set and advance the attempt. Also verify uniqueness of the 256 completed worlds including content.
+Each extensional predicate is a bit mask. Unary bit j denotes slot j of its declared sort. Role bit 4v+e denotes event v and entity e. Missing predicates have empty extensions. For sampled world attempt n, starting at zero, take SHA-256 of the ASCII string `20261119/n/label`, where n is its decimal representation. Interpret the digest as an unsigned little-endian integer. For an extensional predicate, label is its case-sensitive name and the low 4, 3 or 12 bits give its initial mask. Two draws receive the scope conditions below. Reject a duplicate extensional fact set and advance the attempt. Also verify uniqueness of the 256 completed worlds including content.
 
 Content descriptors are sorted by verb predicate in ASCII order, then by the agent slot, then the theme slot for transitive verbs, then the Quick flag (false before true). Only the four simple intransitive and four simple transitive frames enter this 160-item catalog. Descriptors require a matching event, agent, optional theme and optional Quick anywhere in the world. Bare payloads impose no Past condition. For sampled event v, draw two catalog indices using labels `content/v/0` and `content/v/1` and reduce modulo 160. Store the set of their distinct full-bank vectors. Exhaustive worlds store no content. Hand worlds use the explicit descriptors above. Candidate submissions play no role in world or payload selection.
+
+## Scope separation and remaining collisions
+
+Of the 176 sampled worlds, 174 retain their original extensional draw. Condition the **first two draws with neither Past nor Quick present** (S065 and S091). These otherwise offer no past event witness for a finite positive matrix. Select one unordered entity-slot pair from the six lexicographic pairs using the draw with attempt 0 and label `scope/slots`, modulo six. For both worlds the pair is {2,3}. Give every noun these two members. Give all four transitive predicates, Past and Quick to events 0 and 1 only. Assign each event one distinct agent from the pair. In S065 each event has its own agent as its sole theme. In S091 both events have both themes. Other predicates and the content descriptor draws follow the original recipe. Content vector values throughout the file are regenerated against the revised bank.
+
+For any ordered pair of noun restrictors, including two uses of the same noun, S065 makes “each x has some y” true and “some y works for every x” false. With an existential subject and universal object the two truth values switch. In S091 both orders are true. Quick and Past on both events give the same contrasts for modified finite verbs. Taking the outer negation preserves every distinction. The 174 unconditioned draws retain their independent variation in noun extensions and verb relations.
+
+| Public diagnostic | First candidate | Revised candidate |
+| --- | ---: | ---: |
+| Two readings within one of the 392 public variant sentences collapse to one signature | 0/6 ambiguous sentences (0%) | 0/6 (0%) |
+| Distinct exact sentence-level reading sets in shared-signature groups | 128/392 (32.65%), 64 pairs | 128/392 (32.65%), the same 64 pairs |
+| Distinct individual readings in shared-signature groups across all variants | 132/398 (33.17%), 66 groups | 132/398 (33.17%), 66 groups |
+| Indistinguishable scope pairs across the entire transitive noun grid | 323/6,400 (5.05%) | 0/6,400 (0%) |
+| Indistinguishable pairs among the first 1,500 released training inputs | 14/317 ambiguous sentences (4.42%) | 0/317 (0%) |
+
+The 392-variant suite uses one lexical realization per construction/determiner variant. It has 386 singleton and six ambiguous sentences. Across all sentences, both banks yield 328 behavioral reading sets for 392 exact sets and 332 behavioral signatures for 398 distinct exact readings. Cross-sentence collisions include differences the bank misses in boxed control. For example, “Alice did not persuade a reviewer to cite Bob” and “every researcher did not promise Bob to cite Bob” still share a signature. Such a collision cannot justify scoring those answers as interchangeable. The grid separately checks 20 subject nouns × 20 object nouns × four transitive predicates × two determiner orders × two manner settings, using the event relations from the serialized bank. The 1,500-row recheck used public input strings and reference parses only. These are diagnostics used during design; none is a held-out estimate.
+
+I also evaluated a separate pair of conditioned worlds for each verb at the end of the sampled block. It separated the full grid but increased the number of colliding sentence-set groups from 64 to 66. The chosen two shared worlds preserve more of the original sample. Counts and exact denominators can be replayed for either stored revision. [Measurement tool](../tools/world_bank_collisions.py) · [Public variant definitions](../tests/reference/test_seed.py)
+
+```sh
+python3 tools/world_bank_collisions.py
+old_bank=$(mktemp)
+git show fa23b6e:fixtures/world_bank_v1.json > "$old_bank"
+python3 tools/world_bank_collisions.py --bank "$old_bank"
+rm "$old_bank"
+```
 
 ## Evaluate a meaning
 

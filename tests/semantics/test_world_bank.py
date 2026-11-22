@@ -80,6 +80,26 @@ class WorldBankTests(unittest.TestCase):
             self.check_hand(n, sw, True)
             self.check_hand(n, ow, n == 3)
 
+    def test_mixed_scope_strata(self):
+        probes = json.loads(BANK_FILE.with_name("world_bank_blind_probes_v1.json").read_bytes())
+        self.assertEqual(probes["bank_sha256"], BANK_SHA256)
+        by_id = {w["id"]: w for w in json.loads(BANK_FILE.read_bytes())["worlds"]}
+        for world, themes in [("S065", 132), ("S091", 204)]:
+            facts = by_id[world]["facts"]
+            for noun, sorts in self.bank.sorts.items():
+                if sorts == ["E"]:
+                    self.assertEqual(facts[noun], 12, (world, noun))
+            for pred in ("Cite", "Discuss", "Evaluate", "Review", "Past", "Quick"):
+                self.assertEqual(facts[pred], 3, (world, pred))
+            self.assertEqual((facts["Agent"], facts["Theme"]), (132, themes))
+        body = event("Discuss", "x", "(Theme e y)", "(Quick e)")
+        subject = every("x", paper("y", body))
+        obj = paper("y", every("x", body))
+        for name, values in [("S065", [True, False]), ("S091", [True, True])]:
+            bit = 1 << self.bank.ids.index(name)
+            self.assertEqual([bool(int(self.bank.signature(r)["matrix"], 16) & bit)
+                              for r in (subject, obj)], values)
+
     def test_polarity_event_attachment_and_aliases(self):
         alice, bob = event("Leave", "alice"), event("Leave", "bob")
         for n, a, b in [(4, False, False), (5, True, False), (6, False, True)]:

@@ -84,6 +84,21 @@ def sampled(attempt, predicates, catalog):
     return facts, content
 
 
+def scope_stratum(facts, index, verbs, nouns):
+    """Condition one seeded world on a diagonal or a complete two-slot relation."""
+    # Choose one of six unordered pairs, independent of any evaluation data.
+    pairs = [(x, y) for x in range(4) for y in range(x + 1, 4)]
+    slots = pairs[draw(0, "scope/slots") % len(pairs)]
+    # Give every restrictor the same two members in this stratum. This also
+    # handles identical restrictors and both orders of the mixed determiners.
+    members = (1 << slots[0]) | (1 << slots[1])
+    facts.update({noun: members for noun in nouns})
+    facts.update({verb: 3 for verb in verbs})
+    facts["Past"] = facts["Quick"] = 3
+    facts["Agent"] = (1 << slots[0]) | (1 << (4 + slots[1]))
+    facts["Theme"] = facts["Agent"] if index == 0 else members | (members << 4)
+
+
 def matches(facts, description):
     verb, agent, theme, quick = description
     for event in range(3):
@@ -111,16 +126,24 @@ def build():
                     for quick in (False, True):
                         catalog.append((frame["predicate"], agent, theme, quick))
     designs = [exhaustive(n) for n in range(64)] + [contrast(n) for n in range(16)]
+    verbs = sorted(f["predicate"] for f in ontology["frames"].values() if f["construction"] == "transitive")
+    strata = 0
     seen = {canonical(f) for f, _ in designs}
     # Contrast pairs can deliberately have the same extensional facts and different content.
     attempt = 0
     while len(designs) < 256:
         facts, content = sampled(attempt, ontology["predicates"], catalog)
         attempt += 1
+        condition = strata < 2 and not facts.get("Past") and not facts.get("Quick")
+        if condition:
+            scope_stratum(facts, strata, verbs, ontology["nouns"].values())
         key = canonical(facts)
         if key not in seen:
             seen.add(key)
             designs.append((facts, content))
+            strata += int(condition)
+    if strata != 2:
+        raise ValueError("two scope strata required")
     vectors = {d: format(sum(1 << w for w, (facts, _) in enumerate(designs) if matches(facts, d)), "064x")
                for d in catalog}
     worlds = []

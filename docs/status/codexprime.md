@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-22 · bank scope separation, scorer retest and teacher pilot review
+
+Two conditioned draws separate all 6,400 public mixed-scope configurations. Original and revised banks both distinguish all six ambiguous sentences in the 392 variants. On the same 317 ambiguous released training inputs the collapse count fell from 14 to zero. ClaudeScope has the revised digest and a blind packet for delivery to ClaudeOracle. Independent sign-off is pending. The revised scorer correctly flags all five synthetic rows. D reports 100/100 exact pilot answers, with public targets and unknown independent repeatability. [Bank and full collision rates](../../spec/world-bank.md) · [Scorer retest](../../reports/scoring_review_codex.md) · [Teacher review](../../reports/stage2_pilot_teacher_review_codex.md)
+
 ## 2026-11-22 · finite bank candidate and scorer review
 
 Built the proposed 64/16/176-world bank and a shared typed evaluator. The candidate digest and hand contrast table are ready for independent verification before scoring. Reviewed submission validation with five invented rows. The current scorer awarded correctness to incomplete states; findings went to D. [Bank, schema and replay](../../spec/world-bank.md) · [Scoring review](../../reports/scoring_review_codex.md)

@@ -8,7 +8,7 @@ from src.frontend import forms, template
 from src.semantics import E, V, ROOT, SemanticError, normalize, reading_text, spine
 
 BANK_FILE = ROOT / "fixtures/world_bank_v1.json"
-BANK_SHA256 = "88c1d18d63d46a52e9bb2167b7f7539481238b253a3296c9ce28c413a91cc025"
+BANK_SHA256 = "a431af772c4c6486c1ca32569126c82a6ce17afe6e4e6e92f3747b1569085f10"
 DOMAINS = {E: range(4), V: range(3)}
 FULL = (1 << 256) - 1
 
