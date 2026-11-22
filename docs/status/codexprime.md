@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-22 · recovered M02 companion
+
+Replayed 39/39 author checks byte-identically and reconciled all 39 with the original M02 suite. Eight new regression methods compare the seed parser, typed kernel, and countermodels to the recovered terms, including quantified object control and the finite versus tenseless negation distinction. The original normalizer and ontology remain the published baseline. [Crosswalk and comparison limits](../../reports/m02_author_checks.md) · [Provenance and replay](../../spec/normalization.md)
+
 ## 2026-11-22 · natural survey cross-review
 
 Reproduced the public 0/200 result. All 200 rows contain an unknown alphabetic word, and 180 also exceed the 12-token limit. Ten labels cover all observed tags on 17 or 28 sentences depending on the selection. Recommend option (a), retaining the planned separate 300-row evaluation. [Review and replay](../../reports/natural_survey_v1_review_codex.md)
