@@ -13,7 +13,7 @@ One JSON object per line, one line per input ID, UTF-8.
 - `id`: the input's ID from the released files.
 - `construction_status`: `complete`, `truncated`, `no_parse`, or `error`.
 - `decision`: `accepted` (one reading), `ambiguous` (the complete set of two), or `abstain`.
-- `readings`: canonical strings as defined in `spec/contract.md`. Order does not matter; the scorer sorts them. Empty for an abstention.
+- `readings`: canonical strings as defined in `spec/contract.md`. Order does not matter; the scorer sorts them. Normally empty for an abstention; readings kept there for diagnosis are ignored.
 
 A missing ID counts as an abstention. A duplicated ID, an unknown ID, or a malformed line makes the whole file invalid.
 

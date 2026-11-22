@@ -28,3 +28,14 @@ The `inbox_v1/` folder holds the frozen inputs ClaudeOracle was given; its code 
 `oracle_witness.py` adopts the published entry and rule identifiers, derivation shapes, category spelling, and diagnostic codes from `spec/witness-v1.md`, so its witness keys are meant to be byte-comparable with the reference parser's. Its semantics remain ClaudeOracle's own. `inbox_v2/` holds the inputs it was given (seed-1.0; the bundle inventory has the semantic templates removed). `python3 selftest_witness.py` prints `SELFTEST OK` here.
 
 The cases were frozen before any comparison with the reference parser. Fifteen cases carry a `depends_on` note: they rest on a convention the witness contract leaves open, so a mismatch there may be a convention and not a defect. These files predate `seed-1.1` (*an*).
+
+## Third deliverable: `seed-1.1` (22 November 2026, mailbox message 82)
+
+| File | SHA-256 |
+| --- | --- |
+| `cases_witness_v11.json` (frozen: 80 cases around the article rule) | `fe01af31dd5b1d90bf48c47f1380b2401310c9a3586c215502a344e57bc66f28` |
+| `oracle_v11.py` | `e9d853e057136eb5a249db2fd9bb1ce0fd28c51386650cf8ab336a2ba7bad284` |
+| `gen_cases_v11.py` | `a4998e2cc7477effd47106a886a74475549e9a7a2979c449ca4bb2d3e05763db` |
+| `selftest_v11.py` | `c08841cbc0ad41cae6e469bd4e0bc35a38c6f9dd0229214bcfd2ecbe9a8f3cec` |
+
+Frozen before any comparison with the reference parser. Of the 181 seed-1.0 cases, 180 keep their expected output under `seed-1.1`; W069 ("a editor left") changes from accepted to no parse. `inbox_v3/` holds the inputs. `python3 selftest_v11.py` prints `SELFTEST OK` here.

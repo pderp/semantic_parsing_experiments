@@ -1,0 +1,6147 @@
+{
+ "format": "claudeoracle-witness-cases-v1",
+ "bundle": "seed-witness-v1.1",
+ "inventory_sha256": "f415b76939d2efd892ece2e3100379a0db66bd411fc596e89f495c15569fceb4",
+ "ontology_sha256": "26ca290061728b6507a613cceca8e63f4a009d4ebf03333d6208cb116fc11be3",
+ "contract_sha256": "932500847357fd11f4e2142f81cc65fb99e4c79e9395caff71f7d56960a47984",
+ "witness_contract_sha256": "c91f67082696e89540534664839fcd0988a4a85cc16a632b862ca2e8f7f0c348",
+ "conventions": {
+  "base": "Same format as cases_witness_v1.json, over bundle seed-witness-v1.1 (inbox_v3).",
+  "grammar_spec": "'entries' lists published entry IDs (absent = all 179). 'clones' keep the source's recipe, ground category, meaning and, for det.a / det.an, its next_nouns list. 'rules', 'roots', 'max_tokens' default to the published values.",
+  "article_rule": "A det.a or det.an lexical edge anchors only if the immediately following token is in the inventory's next_nouns list for that entry. An unanchored article contributes no edge, no node and no budget use.",
+  "expected": "tokens, construction_status, decision, diagnostic {code[, token, index]}, readings, min_cost, ranked_readings, witnesses in rank order (cost, object_wide_uses, key, reading).",
+  "edge_count": "Packed bottom-up chart over all spans; node = (start, end, ground category); lexical edge = (start, end, entry ID); binary edge = (rule ID, left node, right node). Truncated iff edge_count > max_edges.",
+  "depends_on": "Conventions the published texts leave open; a mismatch on such a case may be a difference of convention rather than a defect."
+ },
+ "grammars": {
+  "full": {},
+  "articles": {
+   "entries": [
+    "det.a",
+    "det.an",
+    "noun.editor",
+    "noun.student",
+    "leave.iv.past.existential"
+   ]
+  },
+  "a-only": {
+   "entries": [
+    "det.a",
+    "noun.editor",
+    "noun.student",
+    "leave.iv.past.existential"
+   ]
+  },
+  "an-clone": {
+   "entries": [
+    "det.a",
+    "det.an",
+    "noun.editor",
+    "noun.student",
+    "leave.iv.past.existential"
+   ],
+   "clones": [
+    {
+     "id": "det.an.b",
+     "clone_of": "det.an"
+    }
+   ]
+  }
+ },
+ "cases": [
+  {
+   "id": "A001",
+   "grammar": "full",
+   "input": "An editor left.",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "leave.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "subject, vowel-initial noun"
+  },
+  {
+   "id": "A002",
+   "grammar": "full",
+   "input": "A student left.",
+   "expected": {
+    "tokens": [
+     "a",
+     "student",
+     "left"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))) (Student #0))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))) (Student #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.a",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.student",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "leave.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))) (Student #0))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "subject, other noun"
+  },
+  {
+   "id": "A003",
+   "grammar": "full",
+   "input": "AN   Editor\tleft .",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "leave.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "duplicate in case and spacing; rule applies after normalization"
+  },
+  {
+   "id": "A004",
+   "grammar": "full",
+   "input": "an editor cited a paper",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "cited",
+     "a",
+     "paper"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Cite #0) (And (Past #0) (Theme #0 #1)))))) (Paper #0)))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Cite #0) (And (Past #0) (Theme #0 #1)))))) (Paper #0)))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       5,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         5,
+         "(S[fin,simple,plain]\\NP[existential])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           3,
+           "cite.tv.past.existential.existential.subject-wide",
+           "tv.subject-wide"
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           5,
+           "NP[existential]",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "det.a",
+             "det"
+            ],
+            [
+             0,
+             4,
+             5,
+             "noun.paper",
+             "noun"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Cite #0) (And (Past #0) (Theme #0 #1)))))) (Paper #0)))))))"
+     }
+    ]
+   },
+   "edge_count": 26,
+   "depends_on": [],
+   "note": "subject an, object a; two existentials, one reading"
+  },
+  {
+   "id": "A005",
+   "grammar": "full",
+   "input": "a student cited an article",
+   "expected": {
+    "tokens": [
+     "a",
+     "student",
+     "cited",
+     "an",
+     "article"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 #2) (And (Cite #0) (And (Past #0) (Theme #0 #1))))))))) (Student #0))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 #2) (And (Cite #0) (And (Past #0) (Theme #0 #1))))))))) (Student #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       5,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.a",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.student",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         5,
+         "(S[fin,simple,plain]\\NP[existential])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           3,
+           "cite.tv.past.existential.existential.subject-wide",
+           "tv.subject-wide"
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           5,
+           "NP[existential]",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "det.an",
+             "det"
+            ],
+            [
+             0,
+             4,
+             5,
+             "noun.article",
+             "noun"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 #2) (And (Cite #0) (And (Past #0) (Theme #0 #1))))))))) (Student #0))))"
+     }
+    ]
+   },
+   "edge_count": 26,
+   "depends_on": [],
+   "note": "object, vowel-initial noun"
+  },
+  {
+   "id": "A006",
+   "grammar": "full",
+   "input": "an author discussed an abstract quickly",
+   "expected": {
+    "tokens": [
+     "an",
+     "author",
+     "discussed",
+     "an",
+     "abstract",
+     "quickly"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Author #0) (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #2) (And (Discuss #0) (And (Past #0) (And (Quick #0) (Theme #0 #1)))))))))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Author #0) (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #2) (And (Discuss #0) (And (Past #0) (And (Quick #0) (Theme #0 #1)))))))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       6,
+       "S[fin,simple,quick]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.author",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.ba",
+         2,
+         6,
+         "(S[fin,simple,quick]\\NP[existential])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           2,
+           5,
+           "(S[fin,simple,plain]\\NP[existential])",
+           "apply",
+           [
+            [
+             0,
+             2,
+             3,
+             "discuss.tv.past.existential.existential.subject-wide",
+             "tv.subject-wide"
+            ],
+            [
+             1,
+             "seed.fa",
+             3,
+             5,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               3,
+               4,
+               "det.an",
+               "det"
+              ],
+              [
+               0,
+               4,
+               5,
+               "noun.abstract",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ],
+          [
+           0,
+           5,
+           6,
+           "quickly.fin.existential",
+           "manner"
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Author #0) (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #2) (And (Discuss #0) (And (Past #0) (And (Quick #0) (Theme #0 #1)))))))))))))"
+     }
+    ]
+   },
+   "edge_count": 34,
+   "depends_on": [],
+   "note": "both positions vowel-initial"
+  },
+  {
+   "id": "A007",
+   "grammar": "full",
+   "input": "every reviewer evaluated an article",
+   "expected": {
+    "tokens": [
+     "every",
+     "reviewer",
+     "evaluated",
+     "an",
+     "article"
+    ],
+    "construction_status": "complete",
+    "decision": "ambiguous",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Article #0) (ForallE (lam E (Implies (Reviewer #0) (ExistsV (lam V (And (Agent #0 #1) (And (Evaluate #0) (And (Past #0) (Theme #0 #2))))))))))))",
+     "(ForallE (lam E (Implies (Reviewer #0) (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 #2) (And (Evaluate #0) (And (Past #0) (Theme #0 #1))))))))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(ForallE (lam E (Implies (Reviewer #0) (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 #2) (And (Evaluate #0) (And (Past #0) (Theme #0 #1))))))))))))",
+     "(ExistsE (lam E (And (Article #0) (ForallE (lam E (Implies (Reviewer #0) (ExistsV (lam V (And (Agent #0 #1) (And (Evaluate #0) (And (Past #0) (Theme #0 #2))))))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       5,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[universal]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.every",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.reviewer",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         5,
+         "(S[fin,simple,plain]\\NP[universal])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           3,
+           "evaluate.tv.past.universal.existential.subject-wide",
+           "tv.subject-wide"
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           5,
+           "NP[existential]",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "det.an",
+             "det"
+            ],
+            [
+             0,
+             4,
+             5,
+             "noun.article",
+             "noun"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ForallE (lam E (Implies (Reviewer #0) (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 #2) (And (Evaluate #0) (And (Past #0) (Theme #0 #1))))))))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       5,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[universal]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.every",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.reviewer",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         5,
+         "(S[fin,simple,plain]\\NP[universal])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           3,
+           "evaluate.tv.past.universal.existential.object-wide",
+           "tv.object-wide"
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           5,
+           "NP[existential]",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "det.an",
+             "det"
+            ],
+            [
+             0,
+             4,
+             5,
+             "noun.article",
+             "noun"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Article #0) (ForallE (lam E (Implies (Reviewer #0) (ExistsV (lam V (And (Agent #0 #1) (And (Evaluate #0) (And (Past #0) (Theme #0 #2))))))))))))"
+     }
+    ]
+   },
+   "edge_count": 26,
+   "depends_on": [],
+   "note": "mixed quantifiers: two readings"
+  },
+  {
+   "id": "A008",
+   "grammar": "full",
+   "input": "an analyst evaluated every proposal",
+   "expected": {
+    "tokens": [
+     "an",
+     "analyst",
+     "evaluated",
+     "every",
+     "proposal"
+    ],
+    "construction_status": "complete",
+    "decision": "ambiguous",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Analyst #0) (ForallE (lam E (Implies (Proposal #0) (ExistsV (lam V (And (Agent #0 #2) (And (Evaluate #0) (And (Past #0) (Theme #0 #1))))))))))))",
+     "(ForallE (lam E (Implies (Proposal #0) (ExistsE (lam E (And (Analyst #0) (ExistsV (lam V (And (Agent #0 #1) (And (Evaluate #0) (And (Past #0) (Theme #0 #2))))))))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Analyst #0) (ForallE (lam E (Implies (Proposal #0) (ExistsV (lam V (And (Agent #0 #2) (And (Evaluate #0) (And (Past #0) (Theme #0 #1))))))))))))",
+     "(ForallE (lam E (Implies (Proposal #0) (ExistsE (lam E (And (Analyst #0) (ExistsV (lam V (And (Agent #0 #1) (And (Evaluate #0) (And (Past #0) (Theme #0 #2))))))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       5,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.analyst",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         5,
+         "(S[fin,simple,plain]\\NP[existential])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           3,
+           "evaluate.tv.past.existential.universal.subject-wide",
+           "tv.subject-wide"
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           5,
+           "NP[universal]",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "det.every",
+             "det"
+            ],
+            [
+             0,
+             4,
+             5,
+             "noun.proposal",
+             "noun"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Analyst #0) (ForallE (lam E (Implies (Proposal #0) (ExistsV (lam V (And (Agent #0 #2) (And (Evaluate #0) (And (Past #0) (Theme #0 #1))))))))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       5,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.analyst",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         5,
+         "(S[fin,simple,plain]\\NP[existential])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           3,
+           "evaluate.tv.past.existential.universal.object-wide",
+           "tv.object-wide"
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           5,
+           "NP[universal]",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "det.every",
+             "det"
+            ],
+            [
+             0,
+             4,
+             5,
+             "noun.proposal",
+             "noun"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ForallE (lam E (Implies (Proposal #0) (ExistsE (lam E (And (Analyst #0) (ExistsV (lam V (And (Agent #0 #1) (And (Evaluate #0) (And (Past #0) (Theme #0 #2))))))))))))"
+     }
+    ]
+   },
+   "edge_count": 26,
+   "depends_on": [],
+   "note": "mixed quantifiers: two readings"
+  },
+  {
+   "id": "A009",
+   "grammar": "full",
+   "input": "every editor cited a paper",
+   "expected": {
+    "tokens": [
+     "every",
+     "editor",
+     "cited",
+     "a",
+     "paper"
+    ],
+    "construction_status": "complete",
+    "decision": "ambiguous",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ForallE (lam E (Implies (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Cite #0) (And (Past #0) (Theme #0 #2))))))))) (Paper #0))))",
+     "(ForallE (lam E (Implies (Editor #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Cite #0) (And (Past #0) (Theme #0 #1)))))) (Paper #0)))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(ForallE (lam E (Implies (Editor #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Cite #0) (And (Past #0) (Theme #0 #1)))))) (Paper #0)))))))",
+     "(ExistsE (lam E (And (ForallE (lam E (Implies (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Cite #0) (And (Past #0) (Theme #0 #2))))))))) (Paper #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       5,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[universal]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.every",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         5,
+         "(S[fin,simple,plain]\\NP[universal])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           3,
+           "cite.tv.past.universal.existential.subject-wide",
+           "tv.subject-wide"
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           5,
+           "NP[existential]",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "det.a",
+             "det"
+            ],
+            [
+             0,
+             4,
+             5,
+             "noun.paper",
+             "noun"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ForallE (lam E (Implies (Editor #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Cite #0) (And (Past #0) (Theme #0 #1)))))) (Paper #0)))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       5,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[universal]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.every",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         5,
+         "(S[fin,simple,plain]\\NP[universal])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           3,
+           "cite.tv.past.universal.existential.object-wide",
+           "tv.object-wide"
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           5,
+           "NP[existential]",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "det.a",
+             "det"
+            ],
+            [
+             0,
+             4,
+             5,
+             "noun.paper",
+             "noun"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ForallE (lam E (Implies (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Cite #0) (And (Past #0) (Theme #0 #2))))))))) (Paper #0))))"
+     }
+    ]
+   },
+   "edge_count": 26,
+   "depends_on": [],
+   "note": "unchanged 'a'; 'every' is unaffected by the noun's initial"
+  },
+  {
+   "id": "A010",
+   "grammar": "full",
+   "input": "an investigator did not arrive",
+   "expected": {
+    "tokens": [
+     "an",
+     "investigator",
+     "did",
+     "not",
+     "arrive"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Investigator #0) (Not (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0)))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Investigator #0) (Not (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0)))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       5,
+       "S[fin,negative]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.investigator",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         5,
+         "(S[fin,negative]\\NP[existential])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           4,
+           "did-not.simple.plain.existential",
+           "negation"
+          ],
+          [
+           0,
+           4,
+           5,
+           "arrive.iv.bare.unit",
+           "iv"
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Investigator #0) (Not (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0)))))))))"
+     }
+    ]
+   },
+   "edge_count": 17,
+   "depends_on": [],
+   "note": "subject of VP negation"
+  },
+  {
+   "id": "A011",
+   "grammar": "full",
+   "input": "dan did not cite an article",
+   "expected": {
+    "tokens": [
+     "dan",
+     "did",
+     "not",
+     "cite",
+     "an",
+     "article"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(Not (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 dan) (And (Cite #0) (And (Past #0) (Theme #0 #1))))))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(Not (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 dan) (And (Cite #0) (And (Past #0) (Theme #0 #1))))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       6,
+       "S[fin,negative]",
+       "apply",
+       [
+        [
+         0,
+         0,
+         1,
+         "name.dan",
+         "name"
+        ],
+        [
+         1,
+         "seed.fa",
+         1,
+         6,
+         "(S[fin,negative]\\NP[unit])",
+         "apply",
+         [
+          [
+           0,
+           1,
+           3,
+           "did-not.simple.plain.unit",
+           "negation"
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           6,
+           "(S[bare,simple,plain]\\NP[unit])",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "cite.tv.bare.unit.existential.subject-wide",
+             "tv.subject-wide"
+            ],
+            [
+             1,
+             "seed.fa",
+             4,
+             6,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "det.an",
+               "det"
+              ],
+              [
+               0,
+               5,
+               6,
+               "noun.article",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(Not (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 dan) (And (Cite #0) (And (Past #0) (Theme #0 #1))))))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       6,
+       "S[fin,negative]",
+       "apply",
+       [
+        [
+         0,
+         0,
+         1,
+         "name.dan",
+         "name"
+        ],
+        [
+         1,
+         "seed.fa",
+         1,
+         6,
+         "(S[fin,negative]\\NP[unit])",
+         "apply",
+         [
+          [
+           0,
+           1,
+           3,
+           "did-not.simple.plain.unit",
+           "negation"
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           6,
+           "(S[bare,simple,plain]\\NP[unit])",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "cite.tv.bare.unit.existential.object-wide",
+             "tv.object-wide"
+            ],
+            [
+             1,
+             "seed.fa",
+             4,
+             6,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "det.an",
+               "det"
+              ],
+              [
+               0,
+               5,
+               6,
+               "noun.article",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(Not (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 dan) (And (Cite #0) (And (Past #0) (Theme #0 #1))))))))))"
+     }
+    ]
+   },
+   "edge_count": 24,
+   "depends_on": [],
+   "note": "object under VP negation"
+  },
+  {
+   "id": "A012",
+   "grammar": "full",
+   "input": "an editor did not review a draft quickly",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "did",
+     "not",
+     "review",
+     "a",
+     "draft",
+     "quickly"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Editor #0) (Not (ExistsE (lam E (And (Draft #0) (ExistsV (lam V (And (Agent #0 #2) (And (Past #0) (And (Quick #0) (And (Review #0) (Theme #0 #1))))))))))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Editor #0) (Not (ExistsE (lam E (And (Draft #0) (ExistsV (lam V (And (Agent #0 #2) (And (Past #0) (And (Quick #0) (And (Review #0) (Theme #0 #1))))))))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       8,
+       "S[fin,negative]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         8,
+         "(S[fin,negative]\\NP[existential])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           4,
+           "did-not.simple.quick.existential",
+           "negation"
+          ],
+          [
+           1,
+           "seed.ba",
+           4,
+           8,
+           "(S[bare,simple,quick]\\NP[unit])",
+           "apply",
+           [
+            [
+             1,
+             "seed.fa",
+             4,
+             7,
+             "(S[bare,simple,plain]\\NP[unit])",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "review.tv.bare.unit.existential.subject-wide",
+               "tv.subject-wide"
+              ],
+              [
+               1,
+               "seed.fa",
+               5,
+               7,
+               "NP[existential]",
+               "apply",
+               [
+                [
+                 0,
+                 5,
+                 6,
+                 "det.a",
+                 "det"
+                ],
+                [
+                 0,
+                 6,
+                 7,
+                 "noun.draft",
+                 "noun"
+                ]
+               ]
+              ]
+             ]
+            ],
+            [
+             0,
+             7,
+             8,
+             "quickly.bare.unit",
+             "manner"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (Not (ExistsE (lam E (And (Draft #0) (ExistsV (lam V (And (Agent #0 #2) (And (Past #0) (And (Quick #0) (And (Review #0) (Theme #0 #1))))))))))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       8,
+       "S[fin,negative]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         8,
+         "(S[fin,negative]\\NP[existential])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           4,
+           "did-not.simple.quick.existential",
+           "negation"
+          ],
+          [
+           1,
+           "seed.ba",
+           4,
+           8,
+           "(S[bare,simple,quick]\\NP[unit])",
+           "apply",
+           [
+            [
+             1,
+             "seed.fa",
+             4,
+             7,
+             "(S[bare,simple,plain]\\NP[unit])",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "review.tv.bare.unit.existential.object-wide",
+               "tv.object-wide"
+              ],
+              [
+               1,
+               "seed.fa",
+               5,
+               7,
+               "NP[existential]",
+               "apply",
+               [
+                [
+                 0,
+                 5,
+                 6,
+                 "det.a",
+                 "det"
+                ],
+                [
+                 0,
+                 6,
+                 7,
+                 "noun.draft",
+                 "noun"
+                ]
+               ]
+              ]
+             ]
+            ],
+            [
+             0,
+             7,
+             8,
+             "quickly.bare.unit",
+             "manner"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (Not (ExistsE (lam E (And (Draft #0) (ExistsV (lam V (And (Agent #0 #2) (And (Past #0) (And (Quick #0) (And (Review #0) (Theme #0 #1))))))))))))))"
+     }
+    ]
+   },
+   "edge_count": 35,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A013",
+   "grammar": "full",
+   "input": "not every scholar discussed an abstract",
+   "expected": {
+    "tokens": [
+     "not",
+     "every",
+     "scholar",
+     "discussed",
+     "an",
+     "abstract"
+    ],
+    "construction_status": "complete",
+    "decision": "ambiguous",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(Not (ExistsE (lam E (And (Abstract #0) (ForallE (lam E (Implies (Scholar #0) (ExistsV (lam V (And (Agent #0 #1) (And (Discuss #0) (And (Past #0) (Theme #0 #2)))))))))))))",
+     "(Not (ForallE (lam E (Implies (Scholar #0) (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #2) (And (Discuss #0) (And (Past #0) (Theme #0 #1)))))))))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(Not (ForallE (lam E (Implies (Scholar #0) (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #2) (And (Discuss #0) (And (Past #0) (Theme #0 #1)))))))))))))",
+     "(Not (ExistsE (lam E (And (Abstract #0) (ForallE (lam E (Implies (Scholar #0) (ExistsV (lam V (And (Agent #0 #1) (And (Discuss #0) (And (Past #0) (Theme #0 #2)))))))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.fa",
+       0,
+       6,
+       "S[fin,not-every]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         3,
+         "(S[fin,not-every]/(S[fin,simple,plain]\\NP[universal]))",
+         "apply",
+         [
+          [
+           0,
+           0,
+           2,
+           "not-every.simple.plain",
+           "not-every"
+          ],
+          [
+           0,
+           2,
+           3,
+           "noun.scholar",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         3,
+         6,
+         "(S[fin,simple,plain]\\NP[universal])",
+         "apply",
+         [
+          [
+           0,
+           3,
+           4,
+           "discuss.tv.past.universal.existential.subject-wide",
+           "tv.subject-wide"
+          ],
+          [
+           1,
+           "seed.fa",
+           4,
+           6,
+           "NP[existential]",
+           "apply",
+           [
+            [
+             0,
+             4,
+             5,
+             "det.an",
+             "det"
+            ],
+            [
+             0,
+             5,
+             6,
+             "noun.abstract",
+             "noun"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(Not (ForallE (lam E (Implies (Scholar #0) (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #2) (And (Discuss #0) (And (Past #0) (Theme #0 #1)))))))))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.fa",
+       0,
+       6,
+       "S[fin,not-every]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         3,
+         "(S[fin,not-every]/(S[fin,simple,plain]\\NP[universal]))",
+         "apply",
+         [
+          [
+           0,
+           0,
+           2,
+           "not-every.simple.plain",
+           "not-every"
+          ],
+          [
+           0,
+           2,
+           3,
+           "noun.scholar",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         3,
+         6,
+         "(S[fin,simple,plain]\\NP[universal])",
+         "apply",
+         [
+          [
+           0,
+           3,
+           4,
+           "discuss.tv.past.universal.existential.object-wide",
+           "tv.object-wide"
+          ],
+          [
+           1,
+           "seed.fa",
+           4,
+           6,
+           "NP[existential]",
+           "apply",
+           [
+            [
+             0,
+             4,
+             5,
+             "det.an",
+             "det"
+            ],
+            [
+             0,
+             5,
+             6,
+             "noun.abstract",
+             "noun"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(Not (ExistsE (lam E (And (Abstract #0) (ForallE (lam E (Implies (Scholar #0) (ExistsV (lam V (And (Agent #0 #1) (And (Discuss #0) (And (Past #0) (Theme #0 #2)))))))))))))"
+     }
+    ]
+   },
+   "edge_count": 33,
+   "depends_on": [],
+   "note": "object under initial not-every"
+  },
+  {
+   "id": "A014",
+   "grammar": "full",
+   "input": "not every author reviewed a manuscript quickly",
+   "expected": {
+    "tokens": [
+     "not",
+     "every",
+     "author",
+     "reviewed",
+     "a",
+     "manuscript",
+     "quickly"
+    ],
+    "construction_status": "complete",
+    "decision": "ambiguous",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(Not (ExistsE (lam E (And (ForallE (lam E (Implies (Author #0) (ExistsV (lam V (And (Agent #0 #1) (And (Past #0) (And (Quick #0) (And (Review #0) (Theme #0 #2)))))))))) (Manuscript #0)))))",
+     "(Not (ForallE (lam E (Implies (Author #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Past #0) (And (Quick #0) (And (Review #0) (Theme #0 #1))))))) (Manuscript #0))))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(Not (ForallE (lam E (Implies (Author #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Past #0) (And (Quick #0) (And (Review #0) (Theme #0 #1))))))) (Manuscript #0))))))))",
+     "(Not (ExistsE (lam E (And (ForallE (lam E (Implies (Author #0) (ExistsV (lam V (And (Agent #0 #1) (And (Past #0) (And (Quick #0) (And (Review #0) (Theme #0 #2)))))))))) (Manuscript #0)))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.fa",
+       0,
+       7,
+       "S[fin,not-every]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         3,
+         "(S[fin,not-every]/(S[fin,simple,quick]\\NP[universal]))",
+         "apply",
+         [
+          [
+           0,
+           0,
+           2,
+           "not-every.simple.quick",
+           "not-every"
+          ],
+          [
+           0,
+           2,
+           3,
+           "noun.author",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.ba",
+         3,
+         7,
+         "(S[fin,simple,quick]\\NP[universal])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           3,
+           6,
+           "(S[fin,simple,plain]\\NP[universal])",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "review.tv.past.universal.existential.subject-wide",
+             "tv.subject-wide"
+            ],
+            [
+             1,
+             "seed.fa",
+             4,
+             6,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "det.a",
+               "det"
+              ],
+              [
+               0,
+               5,
+               6,
+               "noun.manuscript",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ],
+          [
+           0,
+           6,
+           7,
+           "quickly.fin.universal",
+           "manner"
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(Not (ForallE (lam E (Implies (Author #0) (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Past #0) (And (Quick #0) (And (Review #0) (Theme #0 #1))))))) (Manuscript #0))))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.fa",
+       0,
+       7,
+       "S[fin,not-every]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         3,
+         "(S[fin,not-every]/(S[fin,simple,quick]\\NP[universal]))",
+         "apply",
+         [
+          [
+           0,
+           0,
+           2,
+           "not-every.simple.quick",
+           "not-every"
+          ],
+          [
+           0,
+           2,
+           3,
+           "noun.author",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.ba",
+         3,
+         7,
+         "(S[fin,simple,quick]\\NP[universal])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           3,
+           6,
+           "(S[fin,simple,plain]\\NP[universal])",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "review.tv.past.universal.existential.object-wide",
+             "tv.object-wide"
+            ],
+            [
+             1,
+             "seed.fa",
+             4,
+             6,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "det.a",
+               "det"
+              ],
+              [
+               0,
+               5,
+               6,
+               "noun.manuscript",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ],
+          [
+           0,
+           6,
+           7,
+           "quickly.fin.universal",
+           "manner"
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(Not (ExistsE (lam E (And (ForallE (lam E (Implies (Author #0) (ExistsV (lam V (And (Agent #0 #1) (And (Past #0) (And (Quick #0) (And (Review #0) (Theme #0 #2)))))))))) (Manuscript #0)))))"
+     }
+    ]
+   },
+   "edge_count": 42,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A015",
+   "grammar": "full",
+   "input": "gia promised an author to leave",
+   "expected": {
+    "tokens": [
+     "gia",
+     "promised",
+     "an",
+     "author",
+     "to",
+     "leave"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Author #0) (ExistsV (lam V (And (Agent #0 gia) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 gia) (Leave #0)))))) (And (Past #0) (And (Promise #0) (Recipient #0 #1))))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Author #0) (ExistsV (lam V (And (Agent #0 gia) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 gia) (Leave #0)))))) (And (Past #0) (And (Promise #0) (Recipient #0 #1))))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       6,
+       "S[fin,control]",
+       "apply",
+       [
+        [
+         0,
+         0,
+         1,
+         "name.gia",
+         "name"
+        ],
+        [
+         1,
+         "seed.fa",
+         1,
+         6,
+         "(S[fin,control]\\NP[unit])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           1,
+           4,
+           "((S[fin,control]\\NP[unit])/(S[to]\\NP[unit]))",
+           "apply",
+           [
+            [
+             0,
+             1,
+             2,
+             "promise.sc.past.unit.existential",
+             "control"
+            ],
+            [
+             1,
+             "seed.fa",
+             2,
+             4,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               2,
+               3,
+               "det.an",
+               "det"
+              ],
+              [
+               0,
+               3,
+               4,
+               "noun.author",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ],
+          [
+           1,
+           "seed.fa",
+           4,
+           6,
+           "(S[to]\\NP[unit])",
+           "apply",
+           [
+            [
+             0,
+             4,
+             5,
+             "to.simple.plain",
+             "infinitive"
+            ],
+            [
+             0,
+             5,
+             6,
+             "leave.iv.bare.unit",
+             "iv"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Author #0) (ExistsV (lam V (And (Agent #0 gia) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 gia) (Leave #0)))))) (And (Past #0) (And (Promise #0) (Recipient #0 #1))))))))))"
+     }
+    ]
+   },
+   "edge_count": 24,
+   "depends_on": [],
+   "note": "recipient of subject control"
+  },
+  {
+   "id": "A016",
+   "grammar": "full",
+   "input": "an investigator persuaded a student to speak quickly",
+   "expected": {
+    "tokens": [
+     "an",
+     "investigator",
+     "persuaded",
+     "a",
+     "student",
+     "to",
+     "speak",
+     "quickly"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 #2) (And (Quick #0) (Speak #0))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))) (Student #0)))) (Investigator #0))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 #2) (And (Quick #0) (Speak #0))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))) (Student #0)))) (Investigator #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       8,
+       "S[fin,control]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.investigator",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         8,
+         "(S[fin,control]\\NP[existential])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           2,
+           5,
+           "((S[fin,control]\\NP[existential])/(S[to]\\NP[unit]))",
+           "apply",
+           [
+            [
+             0,
+             2,
+             3,
+             "persuade.oc.past.existential.existential",
+             "control"
+            ],
+            [
+             1,
+             "seed.fa",
+             3,
+             5,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               3,
+               4,
+               "det.a",
+               "det"
+              ],
+              [
+               0,
+               4,
+               5,
+               "noun.student",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ],
+          [
+           1,
+           "seed.fa",
+           5,
+           8,
+           "(S[to]\\NP[unit])",
+           "apply",
+           [
+            [
+             0,
+             5,
+             6,
+             "to.simple.quick",
+             "infinitive"
+            ],
+            [
+             1,
+             "seed.ba",
+             6,
+             8,
+             "(S[bare,simple,quick]\\NP[unit])",
+             "apply",
+             [
+              [
+               0,
+               6,
+               7,
+               "speak.iv.bare.unit",
+               "iv"
+              ],
+              [
+               0,
+               7,
+               8,
+               "quickly.bare.unit",
+               "manner"
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsV (lam V (And (Agent #0 #2) (And (Quick #0) (Speak #0))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))) (Student #0)))) (Investigator #0))))"
+     }
+    ]
+   },
+   "edge_count": 36,
+   "depends_on": [],
+   "note": "subject and recipient of object control"
+  },
+  {
+   "id": "A017",
+   "grammar": "full",
+   "input": "hugo persuaded eva to review an article",
+   "expected": {
+    "tokens": [
+     "hugo",
+     "persuaded",
+     "eva",
+     "to",
+     "review",
+     "an",
+     "article"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsV (lam V (And (Agent #0 hugo) (And (Content #0 (Box (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 eva) (And (Review #0) (Theme #0 #1)))))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 eva)))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(ExistsV (lam V (And (Agent #0 hugo) (And (Content #0 (Box (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 eva) (And (Review #0) (Theme #0 #1)))))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 eva)))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       7,
+       "S[fin,control]",
+       "apply",
+       [
+        [
+         0,
+         0,
+         1,
+         "name.hugo",
+         "name"
+        ],
+        [
+         1,
+         "seed.fa",
+         1,
+         7,
+         "(S[fin,control]\\NP[unit])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           1,
+           3,
+           "((S[fin,control]\\NP[unit])/(S[to]\\NP[unit]))",
+           "apply",
+           [
+            [
+             0,
+             1,
+             2,
+             "persuade.oc.past.unit.unit",
+             "control"
+            ],
+            [
+             0,
+             2,
+             3,
+             "name.eva",
+             "name"
+            ]
+           ]
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           7,
+           "(S[to]\\NP[unit])",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "to.simple.plain",
+             "infinitive"
+            ],
+            [
+             1,
+             "seed.fa",
+             4,
+             7,
+             "(S[bare,simple,plain]\\NP[unit])",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "review.tv.bare.unit.existential.subject-wide",
+               "tv.subject-wide"
+              ],
+              [
+               1,
+               "seed.fa",
+               5,
+               7,
+               "NP[existential]",
+               "apply",
+               [
+                [
+                 0,
+                 5,
+                 6,
+                 "det.an",
+                 "det"
+                ],
+                [
+                 0,
+                 6,
+                 7,
+                 "noun.article",
+                 "noun"
+                ]
+               ]
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 hugo) (And (Content #0 (Box (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 eva) (And (Review #0) (Theme #0 #1)))))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 eva)))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       7,
+       "S[fin,control]",
+       "apply",
+       [
+        [
+         0,
+         0,
+         1,
+         "name.hugo",
+         "name"
+        ],
+        [
+         1,
+         "seed.fa",
+         1,
+         7,
+         "(S[fin,control]\\NP[unit])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           1,
+           3,
+           "((S[fin,control]\\NP[unit])/(S[to]\\NP[unit]))",
+           "apply",
+           [
+            [
+             0,
+             1,
+             2,
+             "persuade.oc.past.unit.unit",
+             "control"
+            ],
+            [
+             0,
+             2,
+             3,
+             "name.eva",
+             "name"
+            ]
+           ]
+          ],
+          [
+           1,
+           "seed.fa",
+           3,
+           7,
+           "(S[to]\\NP[unit])",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "to.simple.plain",
+             "infinitive"
+            ],
+            [
+             1,
+             "seed.fa",
+             4,
+             7,
+             "(S[bare,simple,plain]\\NP[unit])",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "review.tv.bare.unit.existential.object-wide",
+               "tv.object-wide"
+              ],
+              [
+               1,
+               "seed.fa",
+               5,
+               7,
+               "NP[existential]",
+               "apply",
+               [
+                [
+                 0,
+                 5,
+                 6,
+                 "det.an",
+                 "det"
+                ],
+                [
+                 0,
+                 6,
+                 7,
+                 "noun.article",
+                 "noun"
+                ]
+               ]
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsV (lam V (And (Agent #0 hugo) (And (Content #0 (Box (ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 eva) (And (Review #0) (Theme #0 #1)))))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 eva)))))))"
+     }
+    ]
+   },
+   "edge_count": 32,
+   "depends_on": [],
+   "note": "embedded object"
+  },
+  {
+   "id": "A018",
+   "grammar": "full",
+   "input": "an editor promised an analyst to cite an abstract quickly",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "promised",
+     "an",
+     "analyst",
+     "to",
+     "cite",
+     "an",
+     "abstract",
+     "quickly"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsE (lam E (And (Analyst #0) (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #4) (And (Cite #0) (And (Quick #0) (Theme #0 #1))))))))))) (And (Past #0) (And (Promise #0) (Recipient #0 #1)))))))))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsE (lam E (And (Analyst #0) (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #4) (And (Cite #0) (And (Quick #0) (Theme #0 #1))))))))))) (And (Past #0) (And (Promise #0) (Recipient #0 #1)))))))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       10,
+       "S[fin,control]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         10,
+         "(S[fin,control]\\NP[existential])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           2,
+           5,
+           "((S[fin,control]\\NP[existential])/(S[to]\\NP[unit]))",
+           "apply",
+           [
+            [
+             0,
+             2,
+             3,
+             "promise.sc.past.existential.existential",
+             "control"
+            ],
+            [
+             1,
+             "seed.fa",
+             3,
+             5,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               3,
+               4,
+               "det.an",
+               "det"
+              ],
+              [
+               0,
+               4,
+               5,
+               "noun.analyst",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ],
+          [
+           1,
+           "seed.fa",
+           5,
+           10,
+           "(S[to]\\NP[unit])",
+           "apply",
+           [
+            [
+             0,
+             5,
+             6,
+             "to.simple.quick",
+             "infinitive"
+            ],
+            [
+             1,
+             "seed.ba",
+             6,
+             10,
+             "(S[bare,simple,quick]\\NP[unit])",
+             "apply",
+             [
+              [
+               1,
+               "seed.fa",
+               6,
+               9,
+               "(S[bare,simple,plain]\\NP[unit])",
+               "apply",
+               [
+                [
+                 0,
+                 6,
+                 7,
+                 "cite.tv.bare.unit.existential.subject-wide",
+                 "tv.subject-wide"
+                ],
+                [
+                 1,
+                 "seed.fa",
+                 7,
+                 9,
+                 "NP[existential]",
+                 "apply",
+                 [
+                  [
+                   0,
+                   7,
+                   8,
+                   "det.an",
+                   "det"
+                  ],
+                  [
+                   0,
+                   8,
+                   9,
+                   "noun.abstract",
+                   "noun"
+                  ]
+                 ]
+                ]
+               ]
+              ],
+              [
+               0,
+               9,
+               10,
+               "quickly.bare.unit",
+               "manner"
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (ExistsE (lam E (And (Analyst #0) (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #4) (And (Cite #0) (And (Quick #0) (Theme #0 #1))))))))))) (And (Past #0) (And (Promise #0) (Recipient #0 #1)))))))))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       10,
+       "S[fin,control]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         10,
+         "(S[fin,control]\\NP[existential])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           2,
+           5,
+           "((S[fin,control]\\NP[existential])/(S[to]\\NP[unit]))",
+           "apply",
+           [
+            [
+             0,
+             2,
+             3,
+             "promise.sc.past.existential.existential",
+             "control"
+            ],
+            [
+             1,
+             "seed.fa",
+             3,
+             5,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               3,
+               4,
+               "det.an",
+               "det"
+              ],
+              [
+               0,
+               4,
+               5,
+               "noun.analyst",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ],
+          [
+           1,
+           "seed.fa",
+           5,
+           10,
+           "(S[to]\\NP[unit])",
+           "apply",
+           [
+            [
+             0,
+             5,
+             6,
+             "to.simple.quick",
+             "infinitive"
+            ],
+            [
+             1,
+             "seed.ba",
+             6,
+             10,
+             "(S[bare,simple,quick]\\NP[unit])",
+             "apply",
+             [
+              [
+               1,
+               "seed.fa",
+               6,
+               9,
+               "(S[bare,simple,plain]\\NP[unit])",
+               "apply",
+               [
+                [
+                 0,
+                 6,
+                 7,
+                 "cite.tv.bare.unit.existential.object-wide",
+                 "tv.object-wide"
+                ],
+                [
+                 1,
+                 "seed.fa",
+                 7,
+                 9,
+                 "NP[existential]",
+                 "apply",
+                 [
+                  [
+                   0,
+                   7,
+                   8,
+                   "det.an",
+                   "det"
+                  ],
+                  [
+                   0,
+                   8,
+                   9,
+                   "noun.abstract",
+                   "noun"
+                  ]
+                 ]
+                ]
+               ]
+              ],
+              [
+               0,
+               9,
+               10,
+               "quickly.bare.unit",
+               "manner"
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (ExistsE (lam E (And (Analyst #0) (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #4) (And (Cite #0) (And (Quick #0) (Theme #0 #1))))))))))) (And (Past #0) (And (Promise #0) (Recipient #0 #1)))))))))))))"
+     }
+    ]
+   },
+   "edge_count": 45,
+   "depends_on": [],
+   "note": "subject, recipient and embedded object"
+  },
+  {
+   "id": "A019",
+   "grammar": "full",
+   "input": "every professor did not persuade an investigator to evaluate an abstract quickly",
+   "expected": {
+    "tokens": [
+     "every",
+     "professor",
+     "did",
+     "not",
+     "persuade",
+     "an",
+     "investigator",
+     "to",
+     "evaluate",
+     "an",
+     "abstract",
+     "quickly"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ForallE (lam E (Implies (Professor #0) (Not (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #3) (And (Evaluate #0) (And (Quick #0) (Theme #0 #1))))))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))) (Investigator #0))))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(ForallE (lam E (Implies (Professor #0) (Not (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #3) (And (Evaluate #0) (And (Quick #0) (Theme #0 #1))))))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))) (Investigator #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       12,
+       "S[fin,negative]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[universal]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.every",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.professor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         12,
+         "(S[fin,negative]\\NP[universal])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           4,
+           "did-not.control.universal",
+           "negation"
+          ],
+          [
+           1,
+           "seed.fa",
+           4,
+           12,
+           "(S[bare,control]\\NP[unit])",
+           "apply",
+           [
+            [
+             1,
+             "seed.fa",
+             4,
+             7,
+             "((S[bare,control]\\NP[unit])/(S[to]\\NP[unit]))",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "persuade.oc.bare.unit.existential",
+               "control"
+              ],
+              [
+               1,
+               "seed.fa",
+               5,
+               7,
+               "NP[existential]",
+               "apply",
+               [
+                [
+                 0,
+                 5,
+                 6,
+                 "det.an",
+                 "det"
+                ],
+                [
+                 0,
+                 6,
+                 7,
+                 "noun.investigator",
+                 "noun"
+                ]
+               ]
+              ]
+             ]
+            ],
+            [
+             1,
+             "seed.fa",
+             7,
+             12,
+             "(S[to]\\NP[unit])",
+             "apply",
+             [
+              [
+               0,
+               7,
+               8,
+               "to.simple.quick",
+               "infinitive"
+              ],
+              [
+               1,
+               "seed.ba",
+               8,
+               12,
+               "(S[bare,simple,quick]\\NP[unit])",
+               "apply",
+               [
+                [
+                 1,
+                 "seed.fa",
+                 8,
+                 11,
+                 "(S[bare,simple,plain]\\NP[unit])",
+                 "apply",
+                 [
+                  [
+                   0,
+                   8,
+                   9,
+                   "evaluate.tv.bare.unit.existential.subject-wide",
+                   "tv.subject-wide"
+                  ],
+                  [
+                   1,
+                   "seed.fa",
+                   9,
+                   11,
+                   "NP[existential]",
+                   "apply",
+                   [
+                    [
+                     0,
+                     9,
+                     10,
+                     "det.an",
+                     "det"
+                    ],
+                    [
+                     0,
+                     10,
+                     11,
+                     "noun.abstract",
+                     "noun"
+                    ]
+                   ]
+                  ]
+                 ]
+                ],
+                [
+                 0,
+                 11,
+                 12,
+                 "quickly.bare.unit",
+                 "manner"
+                ]
+               ]
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ForallE (lam E (Implies (Professor #0) (Not (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #3) (And (Evaluate #0) (And (Quick #0) (Theme #0 #1))))))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))) (Investigator #0))))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       12,
+       "S[fin,negative]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[universal]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.every",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.professor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         2,
+         12,
+         "(S[fin,negative]\\NP[universal])",
+         "apply",
+         [
+          [
+           0,
+           2,
+           4,
+           "did-not.control.universal",
+           "negation"
+          ],
+          [
+           1,
+           "seed.fa",
+           4,
+           12,
+           "(S[bare,control]\\NP[unit])",
+           "apply",
+           [
+            [
+             1,
+             "seed.fa",
+             4,
+             7,
+             "((S[bare,control]\\NP[unit])/(S[to]\\NP[unit]))",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "persuade.oc.bare.unit.existential",
+               "control"
+              ],
+              [
+               1,
+               "seed.fa",
+               5,
+               7,
+               "NP[existential]",
+               "apply",
+               [
+                [
+                 0,
+                 5,
+                 6,
+                 "det.an",
+                 "det"
+                ],
+                [
+                 0,
+                 6,
+                 7,
+                 "noun.investigator",
+                 "noun"
+                ]
+               ]
+              ]
+             ]
+            ],
+            [
+             1,
+             "seed.fa",
+             7,
+             12,
+             "(S[to]\\NP[unit])",
+             "apply",
+             [
+              [
+               0,
+               7,
+               8,
+               "to.simple.quick",
+               "infinitive"
+              ],
+              [
+               1,
+               "seed.ba",
+               8,
+               12,
+               "(S[bare,simple,quick]\\NP[unit])",
+               "apply",
+               [
+                [
+                 1,
+                 "seed.fa",
+                 8,
+                 11,
+                 "(S[bare,simple,plain]\\NP[unit])",
+                 "apply",
+                 [
+                  [
+                   0,
+                   8,
+                   9,
+                   "evaluate.tv.bare.unit.existential.object-wide",
+                   "tv.object-wide"
+                  ],
+                  [
+                   1,
+                   "seed.fa",
+                   9,
+                   11,
+                   "NP[existential]",
+                   "apply",
+                   [
+                    [
+                     0,
+                     9,
+                     10,
+                     "det.an",
+                     "det"
+                    ],
+                    [
+                     0,
+                     10,
+                     11,
+                     "noun.abstract",
+                     "noun"
+                    ]
+                   ]
+                  ]
+                 ]
+                ],
+                [
+                 0,
+                 11,
+                 12,
+                 "quickly.bare.unit",
+                 "manner"
+                ]
+               ]
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(ForallE (lam E (Implies (Professor #0) (Not (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #3) (And (Evaluate #0) (And (Quick #0) (Theme #0 #1))))))))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))) (Investigator #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 48,
+   "depends_on": [],
+   "note": "12 tokens"
+  },
+  {
+   "id": "A020",
+   "grammar": "full",
+   "input": "not every editor persuaded an author to discuss a thesis",
+   "expected": {
+    "tokens": [
+     "not",
+     "every",
+     "editor",
+     "persuaded",
+     "an",
+     "author",
+     "to",
+     "discuss",
+     "a",
+     "thesis"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(Not (ForallE (lam E (Implies (Editor #0) (ExistsE (lam E (And (Author #0) (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #3) (And (Discuss #0) (Theme #0 #1))))) (Thesis #0)))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))))))))))"
+    ],
+    "min_cost": 10,
+    "ranked_readings": [
+     "(Not (ForallE (lam E (Implies (Editor #0) (ExistsE (lam E (And (Author #0) (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #3) (And (Discuss #0) (Theme #0 #1))))) (Thesis #0)))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 10,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.fa",
+       0,
+       10,
+       "S[fin,not-every]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         3,
+         "(S[fin,not-every]/(S[fin,control]\\NP[universal]))",
+         "apply",
+         [
+          [
+           0,
+           0,
+           2,
+           "not-every.control",
+           "not-every"
+          ],
+          [
+           0,
+           2,
+           3,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         3,
+         10,
+         "(S[fin,control]\\NP[universal])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           3,
+           6,
+           "((S[fin,control]\\NP[universal])/(S[to]\\NP[unit]))",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "persuade.oc.past.universal.existential",
+             "control"
+            ],
+            [
+             1,
+             "seed.fa",
+             4,
+             6,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "det.an",
+               "det"
+              ],
+              [
+               0,
+               5,
+               6,
+               "noun.author",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ],
+          [
+           1,
+           "seed.fa",
+           6,
+           10,
+           "(S[to]\\NP[unit])",
+           "apply",
+           [
+            [
+             0,
+             6,
+             7,
+             "to.simple.plain",
+             "infinitive"
+            ],
+            [
+             1,
+             "seed.fa",
+             7,
+             10,
+             "(S[bare,simple,plain]\\NP[unit])",
+             "apply",
+             [
+              [
+               0,
+               7,
+               8,
+               "discuss.tv.bare.unit.existential.subject-wide",
+               "tv.subject-wide"
+              ],
+              [
+               1,
+               "seed.fa",
+               8,
+               10,
+               "NP[existential]",
+               "apply",
+               [
+                [
+                 0,
+                 8,
+                 9,
+                 "det.a",
+                 "det"
+                ],
+                [
+                 0,
+                 9,
+                 10,
+                 "noun.thesis",
+                 "noun"
+                ]
+               ]
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(Not (ForallE (lam E (Implies (Editor #0) (ExistsE (lam E (And (Author #0) (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #3) (And (Discuss #0) (Theme #0 #1))))) (Thesis #0)))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))))))))))"
+     },
+     {
+      "cost": 10,
+      "object_wide_uses": 1,
+      "key": [
+       1,
+       "seed.fa",
+       0,
+       10,
+       "S[fin,not-every]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         3,
+         "(S[fin,not-every]/(S[fin,control]\\NP[universal]))",
+         "apply",
+         [
+          [
+           0,
+           0,
+           2,
+           "not-every.control",
+           "not-every"
+          ],
+          [
+           0,
+           2,
+           3,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         1,
+         "seed.fa",
+         3,
+         10,
+         "(S[fin,control]\\NP[universal])",
+         "apply",
+         [
+          [
+           1,
+           "seed.fa",
+           3,
+           6,
+           "((S[fin,control]\\NP[universal])/(S[to]\\NP[unit]))",
+           "apply",
+           [
+            [
+             0,
+             3,
+             4,
+             "persuade.oc.past.universal.existential",
+             "control"
+            ],
+            [
+             1,
+             "seed.fa",
+             4,
+             6,
+             "NP[existential]",
+             "apply",
+             [
+              [
+               0,
+               4,
+               5,
+               "det.an",
+               "det"
+              ],
+              [
+               0,
+               5,
+               6,
+               "noun.author",
+               "noun"
+              ]
+             ]
+            ]
+           ]
+          ],
+          [
+           1,
+           "seed.fa",
+           6,
+           10,
+           "(S[to]\\NP[unit])",
+           "apply",
+           [
+            [
+             0,
+             6,
+             7,
+             "to.simple.plain",
+             "infinitive"
+            ],
+            [
+             1,
+             "seed.fa",
+             7,
+             10,
+             "(S[bare,simple,plain]\\NP[unit])",
+             "apply",
+             [
+              [
+               0,
+               7,
+               8,
+               "discuss.tv.bare.unit.existential.object-wide",
+               "tv.object-wide"
+              ],
+              [
+               1,
+               "seed.fa",
+               8,
+               10,
+               "NP[existential]",
+               "apply",
+               [
+                [
+                 0,
+                 8,
+                 9,
+                 "det.a",
+                 "det"
+                ],
+                [
+                 0,
+                 9,
+                 10,
+                 "noun.thesis",
+                 "noun"
+                ]
+               ]
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ],
+      "reading": "(Not (ForallE (lam E (Implies (Editor #0) (ExistsE (lam E (And (Author #0) (ExistsV (lam V (And (Agent #0 #2) (And (Content #0 (Box (ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #3) (And (Discuss #0) (Theme #0 #1))))) (Thesis #0)))))) (And (Past #0) (And (Persuade #0) (Recipient #0 #1))))))))))))))"
+     }
+    ]
+   },
+   "edge_count": 42,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A021",
+   "grammar": "full",
+   "input": "an abstract arrived",
+   "expected": {
+    "tokens": [
+     "an",
+     "abstract",
+     "arrived"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.abstract",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "arrive.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Abstract #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "each vowel-initial noun"
+  },
+  {
+   "id": "A022",
+   "grammar": "full",
+   "input": "an analyst arrived",
+   "expected": {
+    "tokens": [
+     "an",
+     "analyst",
+     "arrived"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Analyst #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Analyst #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.analyst",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "arrive.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Analyst #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "each vowel-initial noun"
+  },
+  {
+   "id": "A023",
+   "grammar": "full",
+   "input": "an article arrived",
+   "expected": {
+    "tokens": [
+     "an",
+     "article",
+     "arrived"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.article",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "arrive.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Article #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "each vowel-initial noun"
+  },
+  {
+   "id": "A024",
+   "grammar": "full",
+   "input": "an author arrived",
+   "expected": {
+    "tokens": [
+     "an",
+     "author",
+     "arrived"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Author #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Author #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.author",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "arrive.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Author #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "each vowel-initial noun"
+  },
+  {
+   "id": "A025",
+   "grammar": "full",
+   "input": "an editor arrived",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "arrived"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "arrive.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "each vowel-initial noun"
+  },
+  {
+   "id": "A026",
+   "grammar": "full",
+   "input": "an investigator arrived",
+   "expected": {
+    "tokens": [
+     "an",
+     "investigator",
+     "arrived"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Investigator #0))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Investigator #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.investigator",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "arrive.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Investigator #0))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "each vowel-initial noun"
+  },
+  {
+   "id": "A027",
+   "grammar": "full",
+   "input": "a paper arrived",
+   "expected": {
+    "tokens": [
+     "a",
+     "paper",
+     "arrived"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Paper #0))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Paper #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.a",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.paper",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "arrive.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Paper #0))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A028",
+   "grammar": "full",
+   "input": "a researcher arrived",
+   "expected": {
+    "tokens": [
+     "a",
+     "researcher",
+     "arrived"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Researcher #0))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Researcher #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.a",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.researcher",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "arrive.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Researcher #0))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A029",
+   "grammar": "full",
+   "input": "a scholar arrived",
+   "expected": {
+    "tokens": [
+     "a",
+     "scholar",
+     "arrived"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Scholar #0))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Scholar #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.a",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.scholar",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "arrive.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Scholar #0))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A030",
+   "grammar": "full",
+   "input": "a thesis arrived",
+   "expected": {
+    "tokens": [
+     "a",
+     "thesis",
+     "arrived"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Thesis #0))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Thesis #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.a",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.thesis",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "arrive.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Arrive #0) (Past #0))))) (Thesis #0))))"
+     }
+    ]
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A031",
+   "grammar": "full",
+   "input": "a editor left",
+   "expected": {
+    "tokens": [
+     "a",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article, subject"
+  },
+  {
+   "id": "A032",
+   "grammar": "full",
+   "input": "an student left",
+   "expected": {
+    "tokens": [
+     "an",
+     "student",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article, subject"
+  },
+  {
+   "id": "A033",
+   "grammar": "full",
+   "input": "A EDITOR left.",
+   "expected": {
+    "tokens": [
+     "a",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article in upper case"
+  },
+  {
+   "id": "A034",
+   "grammar": "full",
+   "input": "an editor cited an paper",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "cited",
+     "an",
+     "paper"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 20,
+   "depends_on": [],
+   "note": "wrong article, object"
+  },
+  {
+   "id": "A035",
+   "grammar": "full",
+   "input": "a student cited a article",
+   "expected": {
+    "tokens": [
+     "a",
+     "student",
+     "cited",
+     "a",
+     "article"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 20,
+   "depends_on": [],
+   "note": "wrong article, object"
+  },
+  {
+   "id": "A036",
+   "grammar": "full",
+   "input": "every reviewer evaluated a article",
+   "expected": {
+    "tokens": [
+     "every",
+     "reviewer",
+     "evaluated",
+     "a",
+     "article"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 20,
+   "depends_on": [],
+   "note": "wrong article, object; would be ambiguous otherwise"
+  },
+  {
+   "id": "A037",
+   "grammar": "full",
+   "input": "a investigator did not arrive",
+   "expected": {
+    "tokens": [
+     "a",
+     "investigator",
+     "did",
+     "not",
+     "arrive"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 14,
+   "depends_on": [],
+   "note": "wrong article, subject of VP negation"
+  },
+  {
+   "id": "A038",
+   "grammar": "full",
+   "input": "dan did not cite a article",
+   "expected": {
+    "tokens": [
+     "dan",
+     "did",
+     "not",
+     "cite",
+     "a",
+     "article"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 17,
+   "depends_on": [],
+   "note": "wrong article, object under VP negation"
+  },
+  {
+   "id": "A039",
+   "grammar": "full",
+   "input": "not every scholar discussed a abstract",
+   "expected": {
+    "tokens": [
+     "not",
+     "every",
+     "scholar",
+     "discussed",
+     "a",
+     "abstract"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 26,
+   "depends_on": [],
+   "note": "wrong article under initial not-every"
+  },
+  {
+   "id": "A040",
+   "grammar": "full",
+   "input": "gia promised a author to leave",
+   "expected": {
+    "tokens": [
+     "gia",
+     "promised",
+     "a",
+     "author",
+     "to",
+     "leave"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 15,
+   "depends_on": [],
+   "note": "wrong article, recipient"
+  },
+  {
+   "id": "A041",
+   "grammar": "full",
+   "input": "hugo persuaded eva to review a article",
+   "expected": {
+    "tokens": [
+     "hugo",
+     "persuaded",
+     "eva",
+     "to",
+     "review",
+     "a",
+     "article"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 23,
+   "depends_on": [],
+   "note": "wrong article, embedded object"
+  },
+  {
+   "id": "A042",
+   "grammar": "full",
+   "input": "an editor promised an analyst to cite a abstract quickly",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "promised",
+     "an",
+     "analyst",
+     "to",
+     "cite",
+     "a",
+     "abstract",
+     "quickly"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 31,
+   "depends_on": [],
+   "note": "one wrong article among three NPs"
+  },
+  {
+   "id": "A043",
+   "grammar": "full",
+   "input": "a editor promised an analyst to cite an abstract quickly",
+   "expected": {
+    "tokens": [
+     "a",
+     "editor",
+     "promised",
+     "an",
+     "analyst",
+     "to",
+     "cite",
+     "an",
+     "abstract",
+     "quickly"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 41,
+   "depends_on": [],
+   "note": "one wrong article among three NPs"
+  },
+  {
+   "id": "A044",
+   "grammar": "full",
+   "input": "a abstract arrived",
+   "expected": {
+    "tokens": [
+     "a",
+     "abstract",
+     "arrived"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article before each vowel-initial noun"
+  },
+  {
+   "id": "A045",
+   "grammar": "full",
+   "input": "a analyst arrived",
+   "expected": {
+    "tokens": [
+     "a",
+     "analyst",
+     "arrived"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article before each vowel-initial noun"
+  },
+  {
+   "id": "A046",
+   "grammar": "full",
+   "input": "a article arrived",
+   "expected": {
+    "tokens": [
+     "a",
+     "article",
+     "arrived"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article before each vowel-initial noun"
+  },
+  {
+   "id": "A047",
+   "grammar": "full",
+   "input": "a author arrived",
+   "expected": {
+    "tokens": [
+     "a",
+     "author",
+     "arrived"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article before each vowel-initial noun"
+  },
+  {
+   "id": "A048",
+   "grammar": "full",
+   "input": "a editor arrived",
+   "expected": {
+    "tokens": [
+     "a",
+     "editor",
+     "arrived"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article before each vowel-initial noun"
+  },
+  {
+   "id": "A049",
+   "grammar": "full",
+   "input": "a investigator arrived",
+   "expected": {
+    "tokens": [
+     "a",
+     "investigator",
+     "arrived"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article before each vowel-initial noun"
+  },
+  {
+   "id": "A050",
+   "grammar": "full",
+   "input": "an paper arrived",
+   "expected": {
+    "tokens": [
+     "an",
+     "paper",
+     "arrived"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article"
+  },
+  {
+   "id": "A051",
+   "grammar": "full",
+   "input": "an researcher arrived",
+   "expected": {
+    "tokens": [
+     "an",
+     "researcher",
+     "arrived"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article"
+  },
+  {
+   "id": "A052",
+   "grammar": "full",
+   "input": "an scholar arrived",
+   "expected": {
+    "tokens": [
+     "an",
+     "scholar",
+     "arrived"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article"
+  },
+  {
+   "id": "A053",
+   "grammar": "full",
+   "input": "an thesis arrived",
+   "expected": {
+    "tokens": [
+     "an",
+     "thesis",
+     "arrived"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "wrong article"
+  },
+  {
+   "id": "A054",
+   "grammar": "full",
+   "input": "an alice left",
+   "expected": {
+    "tokens": [
+     "an",
+     "alice",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 5,
+   "depends_on": [],
+   "note": "article before a name"
+  },
+  {
+   "id": "A055",
+   "grammar": "full",
+   "input": "an every editor left",
+   "expected": {
+    "tokens": [
+     "an",
+     "every",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A056",
+   "grammar": "full",
+   "input": "an an editor left",
+   "expected": {
+    "tokens": [
+     "an",
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A057",
+   "grammar": "full",
+   "input": "a an editor left",
+   "expected": {
+    "tokens": [
+     "a",
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A058",
+   "grammar": "full",
+   "input": "every an editor left",
+   "expected": {
+    "tokens": [
+     "every",
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 8,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A059",
+   "grammar": "full",
+   "input": "an editor left an",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "left",
+     "an"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "article with nothing after it"
+  },
+  {
+   "id": "A060",
+   "grammar": "full",
+   "input": "an",
+   "expected": {
+    "tokens": [
+     "an"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 0,
+   "depends_on": [],
+   "note": "article alone"
+  },
+  {
+   "id": "A061",
+   "grammar": "full",
+   "input": "editor an left",
+   "expected": {
+    "tokens": [
+     "editor",
+     "an",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A062",
+   "grammar": "full",
+   "input": "not an editor left",
+   "expected": {
+    "tokens": [
+     "not",
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": "initial not takes only every"
+  },
+  {
+   "id": "A063",
+   "grammar": "full",
+   "input": "an apple left",
+   "expected": {
+    "tokens": [
+     "an",
+     "apple",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "unknown_token",
+     "token": "apple",
+     "index": 1
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "depends_on": [],
+   "note": "unknown noun: lexical failure precedes the article rule"
+  },
+  {
+   "id": "A064",
+   "grammar": "full",
+   "input": "an edit0r left",
+   "expected": {
+    "tokens": [
+     "an",
+     "edit0r",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "invalid_token",
+     "token": "edit0r",
+     "index": 1
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "depends_on": [],
+   "note": "invalid token precedes the article rule"
+  },
+  {
+   "id": "A065",
+   "grammar": "full",
+   "input": "an quickly left",
+   "expected": {
+    "tokens": [
+     "an",
+     "quickly",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 7,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A066",
+   "grammar": "articles",
+   "input": "an editor left",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "leave.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 5,
+   "depends_on": [],
+   "note": "tiny grammar"
+  },
+  {
+   "id": "A067",
+   "grammar": "articles",
+   "input": "a editor left",
+   "expected": {
+    "tokens": [
+     "a",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 2,
+   "depends_on": [],
+   "note": "tiny grammar, wrong article"
+  },
+  {
+   "id": "A068",
+   "grammar": "articles",
+   "input": "a student left",
+   "expected": {
+    "tokens": [
+     "a",
+     "student",
+     "left"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))) (Student #0))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))) (Student #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.a",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.student",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "leave.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))) (Student #0))))"
+     }
+    ]
+   },
+   "edge_count": 5,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A069",
+   "grammar": "articles",
+   "input": "an student left",
+   "expected": {
+    "tokens": [
+     "an",
+     "student",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 2,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A070",
+   "grammar": "articles",
+   "input": "an editor left",
+   "max_edges": 5,
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "leave.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 5,
+   "depends_on": [
+    "edge identity and count as defined in conventions.edge_count"
+   ],
+   "note": "budget exactly at my edge count"
+  },
+  {
+   "id": "A071",
+   "grammar": "articles",
+   "input": "an editor left",
+   "max_edges": 4,
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "truncated",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "edge_budget"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 5,
+   "depends_on": [
+    "edge identity and count as defined in conventions.edge_count"
+   ],
+   "note": ""
+  },
+  {
+   "id": "A072",
+   "grammar": "articles",
+   "input": "a editor left",
+   "max_edges": 2,
+   "expected": {
+    "tokens": [
+     "a",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 2,
+   "depends_on": [
+    "edge identity and count as defined in conventions.edge_count"
+   ],
+   "note": "the wrong article anchors no edge: only noun and verb count"
+  },
+  {
+   "id": "A073",
+   "grammar": "articles",
+   "input": "a editor left",
+   "max_edges": 1,
+   "expected": {
+    "tokens": [
+     "a",
+     "editor",
+     "left"
+    ],
+    "construction_status": "truncated",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "edge_budget"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 2,
+   "depends_on": [
+    "edge identity and count as defined in conventions.edge_count"
+   ],
+   "note": ""
+  },
+  {
+   "id": "A074",
+   "grammar": "articles",
+   "input": "a editor left",
+   "max_edges": 0,
+   "expected": {
+    "tokens": [
+     "a",
+     "editor",
+     "left"
+    ],
+    "construction_status": "truncated",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "edge_budget"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 2,
+   "depends_on": [],
+   "note": "budget is hit before no_root is known"
+  },
+  {
+   "id": "A075",
+   "grammar": "full",
+   "input": "a editor left",
+   "max_edges": 1000000,
+   "expected": {
+    "tokens": [
+     "a",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 4,
+   "depends_on": [],
+   "note": "budget not reached: no_root"
+  },
+  {
+   "id": "A076",
+   "grammar": "a-only",
+   "input": "a student left",
+   "expected": {
+    "tokens": [
+     "a",
+     "student",
+     "left"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))) (Student #0))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))) (Student #0))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.a",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.student",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "leave.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))) (Student #0))))"
+     }
+    ]
+   },
+   "edge_count": 5,
+   "depends_on": [],
+   "note": ""
+  },
+  {
+   "id": "A077",
+   "grammar": "a-only",
+   "input": "a editor left",
+   "expected": {
+    "tokens": [
+     "a",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 2,
+   "depends_on": [],
+   "note": "no det.an entry, and det.a may not precede editor"
+  },
+  {
+   "id": "A078",
+   "grammar": "a-only",
+   "input": "an editor left",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "unknown_token",
+     "token": "an",
+     "index": 0
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "depends_on": [
+    "vocabulary = tokens of the grammar's own entries (not the whole ontology)"
+   ],
+   "note": "'an' is not a token of this grammar"
+  },
+  {
+   "id": "A079",
+   "grammar": "an-clone",
+   "input": "an editor left",
+   "expected": {
+    "tokens": [
+     "an",
+     "editor",
+     "left"
+    ],
+    "construction_status": "complete",
+    "decision": "accepted",
+    "diagnostic": {
+     "code": ""
+    },
+    "readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+    ],
+    "min_cost": 0,
+    "ranked_readings": [
+     "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+    ],
+    "witnesses": [
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "leave.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+     },
+     {
+      "cost": 0,
+      "object_wide_uses": 0,
+      "key": [
+       1,
+       "seed.ba",
+       0,
+       3,
+       "S[fin,simple,plain]",
+       "apply",
+       [
+        [
+         1,
+         "seed.fa",
+         0,
+         2,
+         "NP[existential]",
+         "apply",
+         [
+          [
+           0,
+           0,
+           1,
+           "det.an.b",
+           "det"
+          ],
+          [
+           0,
+           1,
+           2,
+           "noun.editor",
+           "noun"
+          ]
+         ]
+        ],
+        [
+         0,
+         2,
+         3,
+         "leave.iv.past.existential",
+         "iv"
+        ]
+       ]
+      ],
+      "reading": "(ExistsE (lam E (And (Editor #0) (ExistsV (lam V (And (Agent #0 #1) (And (Leave #0) (Past #0))))))))"
+     }
+    ]
+   },
+   "edge_count": 6,
+   "depends_on": [
+    "a clone of det.a or det.an inherits its source's next_nouns list"
+   ],
+   "note": "two article entries: two witnesses, one reading"
+  },
+  {
+   "id": "A080",
+   "grammar": "an-clone",
+   "input": "an student left",
+   "expected": {
+    "tokens": [
+     "an",
+     "student",
+     "left"
+    ],
+    "construction_status": "no_parse",
+    "decision": "abstain",
+    "diagnostic": {
+     "code": "no_root"
+    },
+    "readings": [],
+    "min_cost": null,
+    "ranked_readings": [],
+    "witnesses": []
+   },
+   "edge_count": 2,
+   "depends_on": [
+    "a clone of det.a or det.an inherits its source's next_nouns list"
+   ],
+   "note": "the clone is bound by the same list"
+  }
+ ]
+}

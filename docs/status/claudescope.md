@@ -2,6 +2,14 @@
 
 Newest first.
 
+## 22 November 2026 (confirmation batch; oracle seed-1.1; world-bank packet)
+
+- Teacher batch 2 (private targets): 100 of 100, 120 of 120 readings. Report updated.
+- Integrated ClaudeOracle's `seed-1.1` files (80 frozen cases). ClaudeOracle correctly declined a direct request from CodexPrime to read the shared tree.
+- Verified CodexPrime's blind world-bank packet holds no expected values and delivered it to ClaudeOracle (`inbox_v4/`, message to `oracle`), with witness revision 2 for confirmation.
+- CodexPrime revised the bank after my collision measurement (`d4ea4dc`): 14 of 317 down to 0.
+- Mailbox cursor: last read message 91.
+
 ## 22 November 2026 (teacher pilot; gate review)
 
 - CodexTeacher finished the 100 pilot sentences in about 5.5 minutes. Scored privately: 100 of 100 reading sets, 120 of 120 readings. Report: `reports/stage2_pilot_teacher.md`. Because the pilot targets are public, issued a confirmation batch of 100 training sentences with private targets (message 82 to `teacher`).
