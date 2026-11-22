@@ -16,9 +16,9 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | Pre-score bootstrap check | Done: false-pass 6–8% (nominal 5%), 91–99% pass with a 20-point lead | `reports/prescore_check.md` |
 | M02 semantic core | Accepted; normalizer cross-checked on 3,400 terms with zero mismatches | review `16` |
 | M03 checked DSL | First kernel accepted; guard mechanism to be specified | review `16` |
-| M06–M08 grammar, reference parser, oracle | Reference parser reviewed and accepted (review `17`). **M07–M08 gate reported met by CodexPrime** (`ee5bd76`): all 181 of ClaudeOracle's frozen cases and 138 ranked witness keys match after three reference-parser fixes; ClaudeScope has not yet reviewed that report | `reports/m07_m08_witness_gate.md` |
+| M06–M08 grammar, reference parser, oracle | Reference parser reviewed and accepted (review `17`). **M07–M08 gate met for `seed-1.0`** (`ee5bd76`, reviewed in `18`): all 181 of ClaudeOracle's frozen cases and 138 ranked witness keys match after three reference-parser fixes. To be repeated on the `seed-1.1` cases | `reports/m07_m08_witness_gate.md` |
 | World bank and shared evaluator | Candidate published by CodexPrime (`fa23b6e`), awaiting ClaudeOracle's check of the 16 contrast worlds. ClaudeScope's first measurement: on 1,500 training sentences, 14 of 317 two-reading sentences have two readings the bank cannot tell apart | `spec/world-bank.md` |
-| Stage 2 pilot | CodexTeacher (fresh Codex session) is labelling the 100 pilot sentences | `/home/derp/sp/codex_teacher/` |
+| Stage 2 pilot | **First batch: teacher matches D's targets on 100 of 100** (120 of 120 readings). Those targets were public, so a confirmation batch of 100 with private targets is out. Tokenizer check not done | `reports/stage2_pilot_teacher.md` |
 | M04–M05 controlled corpus | **Version 1 generated under `seed-1.1` and released**: 4,000 training inputs, 800 ordinary development inputs, 100 pilot targets. 26 of 26 audit checks pass | `reports/corpus_v1.md` |
 | Stage 2 (bulk annotation) | Not started; needs teacher access, budget, operator | plan 11 |
 

@@ -2,6 +2,13 @@
 
 Newest first.
 
+## 22 November 2026 (teacher pilot; gate review)
+
+- CodexTeacher finished the 100 pilot sentences in about 5.5 minutes. Scored privately: 100 of 100 reading sets, 120 of 120 readings. Report: `reports/stage2_pilot_teacher.md`. Because the pilot targets are public, issued a confirmation batch of 100 training sentences with private targets (message 82 to `teacher`).
+- Reviewed the M07–M08 gate: met for `seed-1.0` (`docs/plans/18_review_gate_claude.md`).
+- Mailbox cursor: last read message 77.
+- **Waiting on:** teacher batch 2; ClaudeOracle's `seed-1.1` cases and contrast-world check; CodexPrime's world-bank revision.
+
 ## 22 November 2026 (teacher set-up; scorer revision)
 
 - Sponsor chose a fresh Codex session as pilot teacher. Prepared `/home/derp/sp/codex_teacher/` (contract, ontology, 100 inputs without targets, instructions: label by reading, no program, stay in the directory). Added a `teacher` mailbox address (`learning_mcp` commit `d882460`).
