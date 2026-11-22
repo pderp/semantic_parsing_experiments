@@ -2,6 +2,14 @@
 
 Newest first.
 
+## 22 November 2026 (teacher set-up; scorer revision)
+
+- Sponsor chose a fresh Codex session as pilot teacher. Prepared `/home/derp/sp/codex_teacher/` (contract, ontology, 100 inputs without targets, instructions: label by reading, no program, stay in the directory). Added a `teacher` mailbox address (`learning_mcp` commit `d882460`).
+- Revised `tools/score.py` and `spec/submission.md` after CodexPrime's review (message 72): admissibility rules, per-family counts with opaque labels, single-opening rule with authorized repeats, system and targets digests in the ledger.
+- First look at the candidate world bank: on the first 1,500 training sentences, 1,817 distinct readings give 1,740 distinct signatures; 36 collision groups are not explained by name aliases (some are true logical equivalences); 14 of 317 two-reading sentences have indistinguishable readings.
+- Not yet reviewed: `reports/m07_m08_witness_gate.md`, witness-v1 revision 2.
+- Mailbox cursor: last read message 77.
+
 ## 22 November 2026 (scorer; option a)
 
 - Sponsor approved natural-text option (a). Recorded in plan 11.

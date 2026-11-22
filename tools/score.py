@@ -48,13 +48,28 @@ def load_submission(path, known):
     return out
 
 
+def admissible(answer):
+    """A row is admissible when its status, decision and number of distinct readings fit together."""
+    n = len(answer["readings"])
+    if len(set(answer["readings"])) != n:
+        return False
+    if answer["decision"] == "abstain":
+        return True                      # any status; readings kept for diagnosis are ignored
+    if answer["construction_status"] != "complete":
+        return False
+    return n == (1 if answer["decision"] == "accepted" else 2)
+
+
 def judge(target, answer):
-    """Return (accepted, correct) for one input."""
-    if answer is None or answer["decision"] == "abstain":
-        return False, False
-    got = sorted(set(answer["readings"]), key=lambda s: s.encode("utf-8"))
-    correct = got == target["readings"] and answer["decision"] == ("accepted" if len(got) == 1 else "ambiguous")
-    return answer["decision"] == "accepted", correct
+    """Return (accepted, correct, inadmissible) for one input."""
+    if answer is None:
+        return False, False, False
+    if not admissible(answer):
+        return False, False, True        # counted, never credited
+    if answer["decision"] == "abstain":
+        return False, False, False
+    got = sorted(answer["readings"], key=lambda s: s.encode("utf-8"))
+    return answer["decision"] == "accepted", got == target["readings"], False
 
 
 def main():
@@ -66,6 +81,8 @@ def main():
     ap.add_argument("--ledger")
     ap.add_argument("--reason")
     ap.add_argument("--rows")
+    ap.add_argument("--system-digest", help="digest of the frozen system that produced the submission")
+    ap.add_argument("--repeat-authorized", help="reason a panel already in the ledger may be opened again")
     a = ap.parse_args()
     free = {s for s in a.splits.split(",") if s}
     opened = {s for s in a.open.split(",") if s}
@@ -73,28 +90,39 @@ def main():
         sys.exit(f"--splits accepts only {sorted(FREE)}; reserved panels need --open")
     if opened - RESERVED:
         sys.exit(f"--open accepts only {sorted(RESERVED)}")
-    if opened and not (a.ledger and a.reason):
-        sys.exit("opening a reserved panel needs --ledger and --reason")
+    if opened and not (a.ledger and a.reason and a.system_digest):
+        sys.exit("opening a reserved panel needs --ledger, --reason and --system-digest")
     targets = [json.loads(l) for l in open(a.targets, encoding="utf-8")]
     by_id = {t["id"]: t for t in targets}
     sub = load_submission(a.submission, by_id)
     digest = hashlib.sha256(open(a.submission, "rb").read()).hexdigest()
+    targets_digest = hashlib.sha256(open(a.targets, "rb").read()).hexdigest()
     if opened:
+        try:
+            earlier = [json.loads(l) for l in open(a.ledger, encoding="utf-8")]
+        except FileNotFoundError:
+            earlier = []
+        again = sorted(p for p in opened if any(p in e["opened"] for e in earlier))
+        if again and not a.repeat_authorized:
+            sys.exit(f"already opened once: {again}. A further look needs --repeat-authorized with the reason.")
         with open(a.ledger, "a", encoding="utf-8") as f:
             f.write(json.dumps({"utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "opened": sorted(opened),
-                                "submission_sha256": digest, "reason": a.reason}) + "\n")
+                                "submission_sha256": digest, "system_digest": a.system_digest,
+                                "targets_sha256": targets_digest, "reason": a.reason,
+                                "repeat_authorized": a.repeat_authorized}) + "\n")
     rows_out = []
     print(f"submission sha256 {digest}")
-    print("panel                  inputs  yield(set-aware)   accepted/all   accepted/single   accepted accuracy")
+    print("panel                  inputs  yield(set-aware)   accepted/all   accepted/single   accepted accuracy   inadmissible rows")
     for p in sorted(free | opened):
         ts = [t for t in targets if panel(t) == p]
         n = len(ts)
-        acc = cor = acc_single = acc_cor = 0
+        acc = cor = acc_single = acc_cor = bad = 0
         single = sum(len(t["readings"]) == 1 for t in ts)
         fam = defaultdict(lambda: [0, 0])
         cells = Counter()
         for t in ts:
-            accepted, correct = judge(t, sub.get(t["id"]))
+            accepted, correct, inadmissible = judge(t, sub.get(t["id"]))
+            bad += inadmissible
             acc += accepted
             cor += correct
             acc_cor += accepted and correct
@@ -104,13 +132,17 @@ def main():
             f[1] += correct
             cells[(t["cell"], correct)] += 1
             if p in FREE:
-                rows_out.append({"id": t["id"], "accepted": accepted, "correct": correct})
+                rows_out.append({"id": t["id"], "accepted": accepted, "correct": correct, "inadmissible": inadmissible})
         pct = lambda x, y: f"{x}/{y} ({x / y:.1%})" if y else "n/a"
-        print(f"{p:22s} {n:6d}  {pct(cor, n):18s} {pct(acc, n):14s} {pct(acc_single, single):17s} {pct(acc_cor, acc)}")
+        print(f"{p:22s} {n:6d}  {pct(cor, n):18s} {pct(acc, n):14s} {pct(acc_single, single):17s} {pct(acc_cor, acc):19s} {bad}")
         if p.endswith("transfer"):
             full = sum(1 for k, (m, c) in fam.items() if c == m)
             none = sum(1 for k, (m, c) in fam.items() if c == 0)
             print(f"    families: {len(fam)}; all rows correct in {full}, none correct in {none}, mixed in {len(fam) - full - none}")
+            # Opaque labels: stable for one targets file, and they do not reveal the family.
+            label = lambda k: hashlib.sha256((targets_digest + json.dumps(k)).encode()).hexdigest()[:8]
+            print("    per family (label correct/rows): " + " ".join(
+                f"{label(k)} {c}/{m}" for k, (m, c) in sorted(fam.items(), key=lambda kv: label(kv[0]))))
             for cell in ("transfer_single", "transfer_ambiguous"):
                 c, w = cells[(cell, True)], cells[(cell, False)]
                 print(f"    {cell}: {c}/{c + w} correct")
