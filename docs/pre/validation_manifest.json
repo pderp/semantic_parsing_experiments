@@ -1,0 +1,90 @@
+{
+  "title": "Distilling Semantic Parsing into a CCG Rule System",
+  "version": "1.1",
+  "document_date": "2026-11-18",
+  "pdf_pages": 63,
+  "main_sections": 14,
+  "appendices": 4,
+  "coding_agent_milestones": 16,
+  "bibliography_entries": 22,
+  "pdf_bookmarks": 117,
+  "revision_focus": "Comparative execution of the same checked rule system on MORK/MM2, PeTTa, and CeTTa.",
+  "execution_candidates": [
+    "direct MORK/MM2",
+    "PeTTa with native Prolog execution/store",
+    "CeTTa with native C execution/store and explicit PeTTa language contract"
+  ],
+  "benchmark_tracks": [
+    "shared logical lowering with matched computational partition",
+    "qualified native optimization"
+  ],
+  "runtime_benchmarks_executed": false,
+  "reference_source_snapshots": [
+    {
+      "repository": "https://github.com/trueagi-io/PeTTa",
+      "commit": "ee5cacb6a6ecdd554a1c773aaf47e9a0f8a5af0f",
+      "purpose": "Documentation/source review; not runtime qualification"
+    },
+    {
+      "repository": "https://github.com/zariuq/CeTTa",
+      "commit": "a9b3a81186529fd99649e437809bdb6f58fce2fd",
+      "purpose": "Documentation/source review; not runtime qualification"
+    }
+  ],
+  "verification": {
+    "latex_build": {
+      "engine": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+      "passes": 3,
+      "exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "unresolved_references": false,
+      "overfull_boxes": 0,
+      "underfull_boxes": 0,
+      "all_fonts_embedded": true
+    },
+    "visual_review": "All 63 pages reviewed; affected pages re-rendered and checked after final layout corrections.",
+    "semantic_checks": {
+      "status": "pass",
+      "checks_passed": 39,
+      "python": "3.12.14",
+      "checker_unchanged_from_v1_0": true,
+      "result_file": "semantic_checks_result.json"
+    },
+    "scope": "Design revision and unchanged semantic micro-model; production adapters, conformance runs, and comparative runtime performance remain proposed implementation work."
+  },
+  "files": [
+    {
+      "name": "ccg_semantic_parser_design.pdf",
+      "bytes": 575223,
+      "sha256": "f94cd589059cff3ecd83b409bc1c8e0eba187863d8c55b5faa5c4eba3f19029b"
+    },
+    {
+      "name": "ccg_semantic_parser_design.tex",
+      "bytes": 189916,
+      "sha256": "cc906170890cb2fa7b18432b7aa935a8d1f38b715d70d6a9e1765b4467229063"
+    },
+    {
+      "name": "semantic_reference_checks.py",
+      "bytes": 22484,
+      "sha256": "4d734fd311b157ada2e805b1330685617c7c117ec697550983ff5d64ce31f196"
+    },
+    {
+      "name": "semantic_checks_result.json",
+      "bytes": 2542,
+      "sha256": "885180a670d259170fff2e6e009bd16cddee3f63828f2a4e10b7cecfc5f737a7"
+    },
+    {
+      "name": "README.txt",
+      "bytes": 4274,
+      "sha256": "8395d50a030301e7a9b19c43a9b5fdc66cd9a1e4955d8a0b6404f66b7a790d94"
+    },
+    {
+      "name": "CHANGELOG.txt",
+      "bytes": 2021,
+      "sha256": "c77d6ceab07b712edbed7a5a39ef396b3a157d1973496fd1adb74b382e112639"
+    }
+  ]
+}
