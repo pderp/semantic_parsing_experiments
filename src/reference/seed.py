@@ -1,7 +1,7 @@
 """Expand public seed recipes into finite, type-checked lexical alternatives."""
 from collections import defaultdict
 from dataclasses import dataclass
-from functools import lru_cache
+from functools import cached_property, lru_cache
 import hashlib
 import json
 from types import MappingProxyType
@@ -46,27 +46,53 @@ class SeedBundle:
     next_nouns: object
     vocabulary: frozenset
     ontology_sha256: str
-    sha256: str
+    version: str
+    roots: frozenset
+    max_tokens: int
 
     def inventory(self):
-        return inventory(self.grammar, self.recipes, self.ontology_sha256, self.next_nouns)
+        grammar = self.grammar
+        result = {
+            "version": self.version, "ontology_sha256": self.ontology_sha256,
+            "depth": grammar.depth, "max_tokens": self.max_tokens, "roots": sorted(self.roots),
+            "rules": {key: [kind, "apply"] for key, (kind, _) in grammar.binary.items()},
+            "entries": {key: {"tokens": entry.surface, "category": category_text(entry.category),
+                              "recipe": self.recipes[key], "cost": entry.cost, "meaning": canonical(entry.meaning)}
+                        for key, entry in sorted(grammar.entries.items())},
+        }
+        if self.version != "seed-witness-v1":
+            result["next_nouns"] = dict(self.next_nouns)
+        return result
+
+    @cached_property
+    def sha256(self):
+        serialized = json.dumps(self.inventory(), sort_keys=True, separators=(",", ":"))
+        return hashlib.sha256(serialized.encode("ascii")).hexdigest()
+
+    @cached_property
+    def largest_absolute_cost(self):
+        return max((abs(entry.cost) for entry in self.grammar.entries.values()), default=0)
 
 
-def inventory(grammar, recipes, ontology_hash, next_nouns):
-    return {
-        "version": VERSION, "ontology_sha256": ontology_hash, "depth": grammar.depth, "max_tokens": MAX_TOKENS,
-        "next_nouns": dict(next_nouns),
-        "roots": sorted(ROOTS), "rules": {key: [kind, "apply"] for key, (kind, _) in grammar.binary.items()},
-        "entries": {key: {"tokens": entry.surface, "category": category_text(entry.category),
-                          "recipe": recipes[key], "cost": entry.cost, "meaning": canonical(entry.meaning)}
-                    for key, entry in sorted(grammar.entries.items())},
-    }
+def make_bundle(grammar, recipes, followers, ontology_hash, version, roots, max_tokens):
+    index = defaultdict(list)
+    for key, entry in sorted(grammar.entries.items()):
+        index[entry.surface].append(key)
+    return SeedBundle(grammar, MappingProxyType(recipes),
+                      MappingProxyType({surface: tuple(keys) for surface, keys in index.items()}),
+                      MappingProxyType(followers), frozenset(token for surface in index for token in surface),
+                      ontology_hash, version, frozenset(roots), max_tokens)
 
 
 @lru_cache(maxsize=1)
 def load_seed():
-    ontology_bytes = (ROOT / "spec/ontology.yaml").read_bytes()
+    return compile_seed((ROOT / "spec/ontology.yaml").read_bytes())
+
+
+def compile_seed(ontology_bytes):
+    """Compile the published ontology version with the reference's checked recipes."""
     ontology = json.loads(ontology_bytes)
+    version = {"seed-1.0": "seed-witness-v1", "seed-1.1": VERSION}[ontology["version"]]
     templates = {}
     for location, declaration in forms((ROOT / "grammar/seed_recipes.metta").read_text(), "seed_recipes.metta"):
         match declaration:
@@ -85,13 +111,14 @@ def load_seed():
 
     for word in ontology["names"]:
         emit(f"name.{word}", word, np("unit"), "name", symbol=word)
-    article = ontology["existential_surface"]
+    article = ontology.get("existential_surface")
     followers = {f"det.{word}": [] for word, kind in ontology["determiners"].items() if kind == "existential"}
     for word, predicate in ontology["nouns"].items():
         emit(f"noun.{word}", word, "N", "noun", symbol=predicate)
-        form = article["before_vowel"] if word[0] in article["vowel_initial_letters"] else article["otherwise"]
-        followers[f"det.{form}"].append(word)
-    next_nouns = MappingProxyType({key: tuple(sorted(words)) for key, words in followers.items()})
+        if article is not None:
+            form = article["before_vowel"] if word[0] in article["vowel_initial_letters"] else article["otherwise"]
+            followers[f"det.{form}"].append(word)
+    next_nouns = {key: tuple(sorted(words)) for key, words in followers.items() if words}
     for word, kind in ontology["determiners"].items():
         quant, join = ("ForallE", "Implies") if kind == "universal" else ("ExistsE", "And")
         emit(f"det.{word}", word, ("/", np(kind), "N"), "det", quant=quant, join=join)
@@ -137,12 +164,5 @@ def load_seed():
              "not-every")
 
     grammar = check("\n".join(declarations), "expanded-seed.metta")
-    index = defaultdict(list)
-    for key, entry in sorted(grammar.entries.items()):
-        index[entry.surface].append(key)
-    ontology_hash = hashlib.sha256(ontology_bytes).hexdigest()
-    serialized = json.dumps(inventory(grammar, recipes, ontology_hash, next_nouns), sort_keys=True, separators=(",", ":"))
-    return SeedBundle(grammar, MappingProxyType(recipes),
-                      MappingProxyType({surface: tuple(keys) for surface, keys in index.items()}), next_nouns,
-                      frozenset(token for surface in index for token in surface), ontology_hash,
-                      hashlib.sha256(serialized.encode("ascii")).hexdigest())
+    return make_bundle(grammar, recipes, next_nouns, hashlib.sha256(ontology_bytes).hexdigest(),
+                       version, ROOTS, MAX_TOKENS)

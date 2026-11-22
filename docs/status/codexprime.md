@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-22 · M07–M08 frozen witness gate
+
+All 181 pairs across 32 grammars match, including 138 ranked structural keys and all 15 cases flagged for convention dependence. The first run exposed three discrepancies caused by global root and token bounds. Added restricted bundle support, clarified all 15 follow-up conventions and checked chart-wide signed overflow. [Gate and complete discrepancy record](../../reports/m07_m08_witness_gate.md) · [Witness contract](../../spec/witness-v1.md)
+
 ## 2026-11-22 · recovered M02 companion
 
 Replayed 39/39 author checks byte-identically and reconciled all 39 with the original M02 suite. Eight new regression methods compare the seed parser, typed kernel, and countermodels to the recovered terms, including quantified object control and the finite versus tenseless negation distinction. The original normalizer and ontology remain the published baseline. [Crosswalk and comparison limits](../../reports/m02_author_checks.md) · [Provenance and replay](../../spec/normalization.md)

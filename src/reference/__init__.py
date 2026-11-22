@@ -8,7 +8,7 @@ import string
 
 from src.frontend import binary_category
 from src.semantics import NORMALIZER_VERSION, SemanticError, app, canonical, close, reading_text
-from .seed import MAX_TOKENS, ROOTS, VERSION, category_text, load_seed
+from .seed import category_text, load_seed
 
 WHITESPACE = " \t\n\r\f\v"
 LOWER = str.maketrans(string.ascii_uppercase, string.ascii_lowercase)
@@ -76,9 +76,32 @@ class PackedForest:
                                 if cat is not None:
                                     self.insert(Node(start, end, cat), Edge(rule_id, (left, right)))
 
+    def check_costs(self, length):
+        # Every lexical edge consumes at least one token. Most bundles can be
+        # certified by this bound without an additional pass over the chart.
+        if self.bundle.largest_absolute_cost * length < 2**63:
+            return
+        # Every child span is strictly shorter. Extrema suffice to check every
+        # alternative, including sums on edges that cannot reach a finite root.
+        bounds = {}
+        for node in sorted(self.edges, key=lambda n: n.end - n.start):
+            minima, maxima = [], []
+            for edge in self.edges[node]:
+                if edge.children:
+                    left, right = (bounds[child] for child in edge.children)
+                    low, high = left[0] + right[0], left[1] + right[1]
+                else:
+                    low = high = self.bundle.grammar.entries[edge.source].cost
+                if low < -(2**63) or high >= 2**63:
+                    raise OverflowError("cost_overflow")
+                minima.append(low)
+                maxima.append(high)
+            bounds[node] = min(minima), max(maxima)
+
     def witnesses(self, length):
         bundle = self.bundle
         grammar = bundle.grammar
+        self.check_costs(length)
 
         @lru_cache(maxsize=None)
         def expand(node):
@@ -94,8 +117,6 @@ class PackedForest:
                 for left, right in product(*(expand(child) for child in edge.children)):
                     fn, arg = (left, right) if kind == "FA" else (right, left)
                     total = left[0] + right[0]
-                    if not -(2**63) <= total < 2**63:
-                        raise OverflowError("cost_overflow")
                     key = (1, edge.source, node.start, node.end, category_text(node.category),
                            "apply", (left[2], right[2]))
                     choices.append((total, left[1] + right[1], key, app(fn[3], arg[3])))
@@ -103,7 +124,7 @@ class PackedForest:
 
         witnesses = []
         for cat, root in self.spans[0, length].items():
-            if cat in ROOTS:
+            if cat in bundle.roots:
                 witnesses.extend(expand(root))
         return sorted(witnesses, key=lambda witness: witness[:3])
 
@@ -112,7 +133,7 @@ def parse(sentence, *, max_edges=None, bundle=None):
     """Return exact reading sets and ranked witnesses for the full input."""
     bundle = load_seed() if bundle is None else bundle
     result = {"input": sentence if isinstance(sentence, str) else None, "tokens": [],
-              "bundle_version": VERSION, "bundle_sha256": bundle.sha256,
+              "bundle_version": bundle.version, "bundle_sha256": bundle.sha256,
               "ontology_sha256": bundle.ontology_sha256, "normalizer": NORMALIZER_VERSION,
               "readings": [], "ranked_readings": [], "witnesses": [], "min_cost": None, "nodes": 0, "edges": 0}
 
@@ -132,7 +153,7 @@ def parse(sentence, *, max_edges=None, bundle=None):
             result.update(token_index=index, token=token)
             code = "unknown_token" if spelling_ok else "invalid_token"
             return finish("no_parse", "abstain", code)
-    if len(tokens) > MAX_TOKENS:
+    if len(tokens) > bundle.max_tokens:
         return finish("no_parse", "abstain", "no_root")
     forest = PackedForest(bundle, max_edges)
     try:
