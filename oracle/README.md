@@ -39,3 +39,7 @@ The cases were frozen before any comparison with the reference parser. Fifteen c
 | `selftest_v11.py` | `c08841cbc0ad41cae6e469bd4e0bc35a38c6f9dd0229214bcfd2ecbe9a8f3cec` |
 
 Frozen before any comparison with the reference parser. Of the 181 seed-1.0 cases, 180 keep their expected output under `seed-1.1`; W069 ("a editor left") changes from accepted to no parse. `inbox_v3/` holds the inputs. `python3 selftest_v11.py` prints `SELFTEST OK` here.
+
+## Fourth deliverable: world-bank check (22 November 2026, mailbox messages 96 and 100)
+
+`answers_worldbank_v1.json` (sealed before any expected value was seen), `world_eval.py`, `world_review.py`; inputs in `inbox_v4/`. Result and design review: `reports/world_bank_check_v1.md`.

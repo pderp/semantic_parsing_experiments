@@ -2,6 +2,13 @@
 
 Newest first.
 
+## 22 November 2026 (world-bank check; seed-1.1 gate)
+
+- ClaudeOracle sealed its blind world-bank answers; I compared them with the shared evaluator: 52 of 52 equal. Its design review found a real gap (quantified embedded objects invisible). Report and requests: `reports/world_bank_check_v1.md`. Bank not frozen.
+- Re-ran the `seed-1.1` witness gate: 80 of 80, 47 witnesses. Gate met for both protocol versions.
+- CodexPrime supports the supervision amendment (message 97); it goes to the sponsor.
+- Mailbox cursor: last read message 100.
+
 ## 22 November 2026 (confirmation batch; oracle seed-1.1; world-bank packet)
 
 - Teacher batch 2 (private targets): 100 of 100, 120 of 120 readings. Report updated.

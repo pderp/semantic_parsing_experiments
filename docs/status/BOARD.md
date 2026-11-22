@@ -16,8 +16,8 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | Pre-score bootstrap check | Done: false-pass 6–8% (nominal 5%), 91–99% pass with a 20-point lead | `reports/prescore_check.md` |
 | M02 semantic core | Accepted; normalizer cross-checked on 3,400 terms with zero mismatches | review `16` |
 | M03 checked DSL | First kernel accepted; guard mechanism to be specified | review `16` |
-| M06–M08 grammar, reference parser, oracle | Reference parser reviewed and accepted (review `17`). **M07–M08 gate met for `seed-1.0`** (`ee5bd76`, reviewed in `18`): all 181 of ClaudeOracle's frozen cases and 138 ranked witness keys match after three reference-parser fixes. To be repeated on the `seed-1.1` cases | `reports/m07_m08_witness_gate.md` |
-| World bank and shared evaluator | Candidate revised by CodexPrime (`d4ea4dc`) after ClaudeScope's measurement: indistinguishable scope pairs fell from 14 to 0 of 317 on training sentences and from 323 to 0 of 6,400 on a full grid. Blind packet delivered to ClaudeOracle for an independent check; not yet frozen | `spec/world-bank.md` |
+| M06–M08 grammar, reference parser, oracle | Reference parser reviewed and accepted (review `17`). **M07–M08 gate met for `seed-1.0` and `seed-1.1`**: 181 of 181 and 80 of 80 of ClaudeOracle's frozen cases match, with all ranked witness keys (`ee5bd76`, `99db4ca`; ClaudeScope re-ran both) | `reports/m07_m08_witness_gate.md` |
+| World bank and shared evaluator | Evaluator confirmed: ClaudeOracle's sealed blind answers match on 52 of 52 values. **Not frozen:** ClaudeOracle found the bank cannot see control sentences with a quantified embedded object. Revision requested from CodexPrime | `reports/world_bank_check_v1.md` |
 | Stage 2 pilot | **Teacher matches D's targets on 200 of 200 sentences** (240 of 240 readings) across two batches; the second batch's targets were never public. Tokenizer check not done | `reports/stage2_pilot_teacher.md` |
 | M04–M05 controlled corpus | **Version 1 generated under `seed-1.1` and released**: 4,000 training inputs, 800 ordinary development inputs, 100 pilot targets. 26 of 26 audit checks pass | `reports/corpus_v1.md` |
 | Stage 2 (bulk annotation) | Not started; needs teacher access, budget, operator | plan 11 |
@@ -42,8 +42,9 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | 26 | CodexPrime | World bank and shared finite-model evaluator for `seed-1.1` (plan 05: 256 worlds), after the M07–M08 gate | Sent 22 Nov |
 | 23 | **Sponsor** | Natural-text option | **(a) approved**: controlled pilot is the deliverable; natural text reported as a measured gap |
 | 20 | ClaudeOracle | Frozen cases | **Done**: 181 cases (`seed-1.0`) and 80 cases (`seed-1.1`), in `oracle/`. Now: blind world-bank check and confirmation of witness revision 2 (`inbox_v4/`) |
-| 27 | CodexPrime | Repeat the witness gate on the 80 `seed-1.1` cases; reply on training the neural model on D's targets | Sent 22 Nov |
-| 28 | **Sponsor** | Decide whether bulk teacher annotation is still wanted, given 200 of 200 agreement (see `reports/stage2_pilot_teacher.md`) | Open |
+| 27 | CodexPrime | `seed-1.1` gate; view on supervision | **Done** (`99db4ca`): 80 of 80. Supports training the neural baseline on D's targets, keeping the teacher pilot as a separate fidelity measurement |
+| 29 | CodexPrime | Revise the world bank per `reports/world_bank_check_v1.md`; new blind probes | Sent 22 Nov |
+| 28 | **Sponsor** | Approve or decline the supervision amendment: train the neural baseline on D's 4,000 training reading sets and drop bulk teacher annotation (both planners recommend it) | Open |
 | 16 | **Sponsor** | Stage 2 teacher | Pilot teacher chosen: a fresh Codex session ("CodexTeacher"), instructed by ClaudeScope. Teacher and budget for any bulk run still to be decided after the pilot |
 
 ## Sponsor decisions

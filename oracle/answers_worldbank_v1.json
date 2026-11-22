@@ -1,0 +1,332 @@
+{
+ "format": "claudeoracle-worldbank-answers-v1",
+ "seed": "seed-1.1",
+ "bank_sha256": "a431af772c4c6486c1ca32569126c82a6ce17afe6e4e6e92f3747b1569085f10",
+ "probes_sha256": "fb7c14f063ff80f78a385252d1b2063455e167ff79cc3550f707fc2af1713e71",
+ "ontology_sha256": "26ca290061728b6507a613cceca8e63f4a009d4ebf03333d6208cb116fc11be3",
+ "vector_encoding": "64 lower-case hex digits of the 256-bit integer, world 0 = least significant bit",
+ "answers": [
+  {
+   "id": "Q01",
+   "values": [
+    {
+     "world": "H00",
+     "value": true
+    },
+    {
+     "world": "H01",
+     "value": false
+    }
+   ]
+  },
+  {
+   "id": "Q02",
+   "values": [
+    {
+     "world": "H00",
+     "value": false
+    },
+    {
+     "world": "H01",
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "Q03",
+   "values": [
+    {
+     "world": "H02",
+     "value": true
+    },
+    {
+     "world": "H03",
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "Q04",
+   "values": [
+    {
+     "world": "H02",
+     "value": false
+    },
+    {
+     "world": "H03",
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "Q05",
+   "values": [
+    {
+     "world": "H04",
+     "value": false
+    },
+    {
+     "world": "H05",
+     "value": true
+    },
+    {
+     "world": "H06",
+     "value": false
+    },
+    {
+     "world": "H07",
+     "value": true
+    },
+    {
+     "world": "H08",
+     "value": true
+    },
+    {
+     "world": "H09",
+     "value": false
+    }
+   ]
+  },
+  {
+   "id": "Q06",
+   "values": [
+    {
+     "world": "H04",
+     "value": false
+    },
+    {
+     "world": "H05",
+     "value": false
+    },
+    {
+     "world": "H06",
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "Q07",
+   "values": [
+    {
+     "world": "H04",
+     "value": true
+    },
+    {
+     "world": "H05",
+     "value": false
+    },
+    {
+     "world": "H06",
+     "value": true
+    },
+    {
+     "world": "H09",
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "Q08",
+   "values": [
+    {
+     "world": "H04",
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "Q09",
+   "values": [
+    {
+     "world": "H05",
+     "value": false
+    }
+   ]
+  },
+  {
+   "id": "Q10",
+   "values": [
+    {
+     "world": "H05",
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "Q11",
+   "values": [
+    {
+     "world": "H07",
+     "value": true
+    },
+    {
+     "world": "H08",
+     "value": false
+    }
+   ]
+  },
+  {
+   "id": "Q12",
+   "values": [
+    {
+     "world": "H09",
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "Q13",
+   "values": [
+    {
+     "world": "H10",
+     "value": true
+    },
+    {
+     "world": "H12",
+     "value": false
+    }
+   ]
+  },
+  {
+   "id": "Q14",
+   "values": [
+    {
+     "world": "H10",
+     "value": false
+    },
+    {
+     "world": "H12",
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "Q15",
+   "values": [
+    {
+     "world": "H10",
+     "value": false
+    }
+   ]
+  },
+  {
+   "id": "Q16",
+   "values": [
+    {
+     "world": "H11",
+     "value": true
+    },
+    {
+     "world": "H13",
+     "value": false
+    }
+   ]
+  },
+  {
+   "id": "Q17",
+   "values": [
+    {
+     "world": "H11",
+     "value": false
+    },
+    {
+     "world": "H13",
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "Q18",
+   "values": [
+    {
+     "world": "H10",
+     "value": false
+    },
+    {
+     "world": "H11",
+     "value": false
+    },
+    {
+     "world": "H12",
+     "value": false
+    },
+    {
+     "world": "H13",
+     "value": false
+    }
+   ]
+  },
+  {
+   "id": "Q19",
+   "values": [
+    {
+     "world": "H14",
+     "value": true
+    }
+   ],
+   "boxed_bare_leaving_by_controller_slot": [
+    {
+     "slot": 0,
+     "vector": "62b7b3bd71a71c2c56df44c755f8bbeac9b31b238dfa03a00000000000000000"
+    },
+    {
+     "slot": 1,
+     "vector": "46beefbd72b73db0eef3c2fd11dddeeac3993d379dfb00400000000000000000"
+    },
+    {
+     "slot": 2,
+     "vector": "2a2bd2ff33173d1cfafccef645fdfaa6c3b33daf8ff300000000000000000000"
+    },
+    {
+     "slot": 3,
+     "vector": "f88cbdbb32b739bcb0ce6af81578bceec9ba39271b7f00000000000000000000"
+    }
+   ]
+  },
+  {
+   "id": "Q20",
+   "values": [
+    {
+     "world": "H14",
+     "value": false
+    }
+   ]
+  },
+  {
+   "id": "Q21",
+   "values": [
+    {
+     "world": "H15",
+     "value": true
+    }
+   ],
+   "boxed_bare_leaving_by_controller_slot": [
+    {
+     "slot": 0,
+     "vector": "62b7b3bd71a71c2c56df44c755f8bbeac9b31b238dfa03a00000000000000000"
+    },
+    {
+     "slot": 1,
+     "vector": "46beefbd72b73db0eef3c2fd11dddeeac3993d379dfb00400000000000000000"
+    },
+    {
+     "slot": 2,
+     "vector": "2a2bd2ff33173d1cfafccef645fdfaa6c3b33daf8ff300000000000000000000"
+    },
+    {
+     "slot": 3,
+     "vector": "f88cbdbb32b739bcb0ce6af81578bceec9ba39271b7f00000000000000000000"
+    }
+   ]
+  },
+  {
+   "id": "Q22",
+   "values": [
+    {
+     "world": "H15",
+     "value": false
+    }
+   ]
+  }
+ ]
+}
