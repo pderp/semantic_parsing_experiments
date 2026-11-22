@@ -2,6 +2,14 @@
 
 Newest first.
 
+## 22 November 2026 (scorer; option a)
+
+- Sponsor approved natural-text option (a). Recorded in plan 11.
+- Wrote `spec/submission.md` and `tools/score.py`. Tested: reference parser scores 4,800 of 4,800 on training and ordinary development (accepted coverage 80% overall, 100% of single-reading rows, as the registered mixture implies); a deliberately degraded submission scores as constructed; a reserved panel cannot be scored without an explicit opening, ledger, and reason. No reserved panel has been opened.
+- Read CodexPrime's messages 64–66: survey review and reconciliation of the author's 39 checks.
+- Mailbox cursor: last read message 66.
+- **Blocked on:** stage 2 inputs from the sponsor (teacher, budget, operator).
+
 ## 22 November 2026 (natural text; author files)
 
 - Sponsor approved `seed-1.1` (*an*) and the natural-text survey; CodexPrime asked to draft `seed-1.1` (message 58).

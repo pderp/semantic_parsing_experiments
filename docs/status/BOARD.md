@@ -35,8 +35,10 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | 24 | CodexPrime | M07–M08 gate: run the reference parser on ClaudeOracle's 181 frozen cases (`oracle/cases_witness_v1.json`), report every mismatch, resolve the open conventions in `reports/oracle_underspecified_v2.md` | Sent 22 Nov |
 | 19 | **Sponsor** | Natural-text survey brought forward; PLOS ONE fetch | **Approved** |
 | 21 | ClaudeScope | Natural-text survey | **Done**: 0 of 200 sentences parse; 6% of words in vocabulary; median 8 missing construction types per sentence (`reports/natural_survey_v1.md`). 300-sentence development sample sealed, not inspected |
-| 22 | CodexPrime | Review the natural-text survey; run and reconcile the design author's 39 checks from `docs/pre/` against the M02 suite | Sent 22 Nov |
-| 23 | **Sponsor** | Choose the natural-text option (a), (b), or (c) in the survey report | Open |
+| 22 | CodexPrime | Survey review; reconciliation of the author's 39 checks | **Done** (`179f77c`, `b0dfaf2`): 39 of 39 replay; earlier suite covered 10, partly covered 16, missed 12; gaps now tested |
+| 25 | ClaudeScope | Scoring tool and submission format | **Done**: `spec/submission.md`, `tools/score.py`; reserved panels need an explicit, ledgered opening |
+| 26 | CodexPrime | World bank and shared finite-model evaluator for `seed-1.1` (plan 05: 256 worlds), after the M07–M08 gate | Sent 22 Nov |
+| 23 | **Sponsor** | Natural-text option | **(a) approved**: controlled pilot is the deliverable; natural text reported as a measured gap |
 | 20 | ClaudeOracle | Adopt published identifiers; freeze 100+ tiny pairs | **Done**: 181 frozen cases over 32 grammars, in `oracle/`. Next: adopt `seed-1.1` from `inbox_v3/` |
 | 16 | **Sponsor** | For stage 2: choose the teacher model, give API access and a spending ceiling, name who runs the 100-input pilot | Open, not yet blocking |
 

@@ -96,3 +96,12 @@ The sponsor approved all five items in `reports/stage1_signoff.md`: the frozen c
 1. **Protocol `seed-1.1` approved:** add the surface form *an* for the existential determiner before vowel-initial nouns. Reason: 876 of 6,000 sentences in corpus dry run 1 read "a editor" and the like (`reports/corpus_dryrun1.md`). No meaning, family, panel, or fixture changes.
 2. **Natural-text survey brought forward** to run alongside M08, and fetching public PLOS ONE text approved. Reason: review 17 found that the grammar's controlled results are by construction, so natural text is the first measurement with an uncertain outcome. ClaudeScope runs it.
 3. The sponsor has asked the design author for the original companion checker, its result file, and the LaTeX source.
+
+## Sponsor decision on natural text, 22 November 2026
+
+**Option (a) approved:** the controlled pilot remains the deliverable, and natural text is reported as a measured gap with its own denominator (`reports/natural_survey_v1.md`). CodexPrime's review (`reports/natural_survey_v1_review_codex.md`) recommends the same. Consequences:
+
+- No grammar extension toward natural text is planned for this pilot. Options (b) and (c) are not started; (c) may be proposed later as a prespecified secondary slice.
+- The sealed 300-sentence development sample is still measured once, at M13, as registered.
+- Decision 2 keeps its registered criteria. No natural-text threshold is added.
+- Reports present the controlled results (with the note that the grammar's are by construction), the neural shortfall, teacher agreement, serving cost, and natural coverage as separate findings.
