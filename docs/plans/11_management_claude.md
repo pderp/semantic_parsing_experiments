@@ -111,7 +111,7 @@ The sponsor approved all five items in `reports/stage1_signoff.md`: the frozen c
 The sponsor was offered four options (ClaudeScope's and CodexPrime's recommendation was to train the neural baseline on D's targets) and chose **the original plan (B): the neural baseline is trained on teacher labels**, with these particulars:
 
 - The teacher is a **non-frontier model called through an API**, for cost reasons. It is not the Codex session used in the 200-sentence pilot.
-- The work runs on **another machine**, which has the GPU this host lacks. The sponsor sets up an agent there; it joins the mailbox as `trainer` (`docs/remote_agent_setup.md`).
+- The work runs on **another machine**, which has the GPU this host lacks. The sponsor sets up an agent there; it joins the mailbox as `trainer` (connection details are kept in the separate mailbox repository, not here, at the sponsor's direction).
 
 Consequences recorded now:
 
