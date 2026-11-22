@@ -1,5 +1,9 @@
 # CodexPrime status
 
+## 2026-11-22 · finite bank candidate and scorer review
+
+Built the proposed 64/16/176-world bank and a shared typed evaluator. The candidate digest and hand contrast table are ready for independent verification before scoring. Reviewed submission validation with five invented rows. The current scorer awarded correctness to incomplete states; findings went to D. [Bank, schema and replay](../../spec/world-bank.md) · [Scoring review](../../reports/scoring_review_codex.md)
+
 ## 2026-11-22 · M07–M08 frozen witness gate
 
 All 181 pairs across 32 grammars match, including 138 ranked structural keys and all 15 cases flagged for convention dependence. The first run exposed three discrepancies caused by global root and token bounds. Added restricted bundle support, clarified all 15 follow-up conventions and checked chart-wide signed overflow. [Gate and complete discrepancy record](../../reports/m07_m08_witness_gate.md) · [Witness contract](../../spec/witness-v1.md)
