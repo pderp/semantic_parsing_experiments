@@ -2,7 +2,7 @@
 
 Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_claude.md). Per-agent logs are beside this file.
 
-**Last updated:** 22 November 2026.
+**Last updated:** 24 November 2026.
 
 ## Where the project is
 
@@ -16,8 +16,8 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | Pre-score bootstrap check | Done: false-pass 6–8% (nominal 5%), 91–99% pass with a 20-point lead | `reports/prescore_check.md` |
 | M02 semantic core | Accepted; normalizer cross-checked on 3,400 terms with zero mismatches | review `16` |
 | M03 checked DSL | First kernel accepted; guard mechanism to be specified | review `16` |
-| M06–M08 grammar, reference parser, oracle | Reference parser reviewed and accepted (review `17`). **M07–M08 gate met for `seed-1.0` and `seed-1.1`**: 181 of 181 and 80 of 80 of ClaudeOracle's frozen cases match, with all ranked witness keys (`ee5bd76`, `99db4ca`; ClaudeScope re-ran both) | `reports/m07_m08_witness_gate.md` |
-| World bank and shared evaluator | Evaluator confirmed: ClaudeOracle's sealed blind answers match on 52 of 52 values. **Not frozen:** ClaudeOracle found the bank cannot see control sentences with a quantified embedded object. Revision requested from CodexPrime | `reports/world_bank_check_v1.md` |
+| M06–M08 grammar, reference parser, oracle | Reference parser reviewed and accepted (review `17`). **M07–M08 gate met**: 181 of 181 (`seed-1.0`), 80 of 80 (`seed-1.1`) and 111 of 111 (revision 2 supplement, no mismatch on first replay) of ClaudeOracle's frozen cases match, with all ranked witness keys (`ee5bd76`, `99db4ca`, `6150dd2`; ClaudeScope re-ran all three) | `reports/m07_m08_witness_gate.md` |
+| World bank and shared evaluator | Version 2 (`8624810`) answers ClaudeOracle's finding: CodexPrime reports control collisions on training readings down from 219 to 22 of 1,491, the rest name aliases. **Not frozen:** awaiting ClaudeOracle's sealed answers and verdict on v2 | `reports/world_bank_control_v2.md` |
 | Stage 2 pilot | **Teacher matches D's targets on 200 of 200 sentences** (240 of 240 readings) across two batches; the second batch's targets were never public. Tokenizer check not done | `reports/stage2_pilot_teacher.md` |
 | M04–M05 controlled corpus | **Version 1 generated under `seed-1.1` and released**: 4,000 training inputs, 800 ordinary development inputs, 100 pilot targets. 26 of 26 audit checks pass | `reports/corpus_v1.md` |
 | Stage 2 (bulk annotation) | Not started; needs teacher access, budget, operator | plan 11 |
@@ -45,8 +45,8 @@ Maintained by ClaudeScope. Lanes and rules: [plan 11](../plans/11_management_cla
 | 27 | CodexPrime | `seed-1.1` gate; view on supervision | **Done** (`99db4ca`): 80 of 80. Supports training the neural baseline on D's targets, keeping the teacher pilot as a separate fidelity measurement |
 | 29 | CodexPrime | Revise the world bank per `reports/world_bank_check_v1.md`; new blind probes | Sent 22 Nov |
 | 28 | **Sponsor** | Supervision | **Decided: original plan.** Neural baseline trained on teacher labels from a non-frontier API model, on a remote GPU machine (plan 11) |
-| 30 | **Sponsor** | Set up the one remote agent and its mailbox link (guide in the mailbox repository); name the API model | Open |
-| 31 | ClaudeScope | Lane C brief for the remote agent; repeat the 100-sentence pilot with the chosen teacher | Waiting on 30 |
+| 30 | **Sponsor** | Remote agent and mailbox link | **Done**: ClaudeTrainer sent "trainer online" on 24 November. Still to do with it: the OpenRouter key and its credit limit |
+| 31 | ClaudeTrainer | Lane C first assignment: environment report, key set-up with the sponsor, shortlist of low-cost models, teacher script with cache and replay | Sent 24 Nov |
 | 16 | **Sponsor** | Stage 2 teacher | Pilot teacher chosen: a fresh Codex session ("CodexTeacher"), instructed by ClaudeScope. Teacher and budget for any bulk run still to be decided after the pilot |
 
 ## Sponsor decisions

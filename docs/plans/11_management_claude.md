@@ -24,7 +24,7 @@ The letters are the roles from plan 03.
 | B (implementation) · reference parser | CodexPrime | Semantic core (M02), checked DSL (M03), Python packed reference parser (M07–08). | ClaudeScope |
 | B (validation) · exhaustive oracle | ClaudeOracle | Tiny exhaustive enumerator built from the frozen contract and fixtures only; second independent reader for the 12 fixtures. | ClaudeScope integrates; discrepancies go to CodexPrime |
 | D · generator, census, evaluator custody | ClaudeScope | Private generator, family census, split manifests, locked inputs and targets, evaluator. | CodexPrime reviews public aggregates and digests only |
-| C · teacher cache and baselines | Unassigned until M01 is signed | Teacher cache, neural baseline, existing-symbolic baseline, development reports. | — |
+| C · teacher cache and baselines | ClaudeTrainer (from 24 November 2026; Claude Code on the sponsor's remote GPU machine, mailbox address `trainer`) | Teacher script and cache, bulk labelling, tokenizer check, neural baseline. The existing-symbolic baseline is not yet assigned. | ClaudeScope scores; CodexPrime reviews methods |
 
 **Why ClaudeScope takes D.** Plan 03 gives D to "the repository maintainer". D needs 5–10 engineering days of implementation (plan 07 §4), so it must be an agent. D must be independent of the grammar author, who is CodexPrime. ClaudeScope wrote the disposable spike and no part of the reference parser, so that independence holds.
 

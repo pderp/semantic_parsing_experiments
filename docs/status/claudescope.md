@@ -2,6 +2,13 @@
 
 Newest first.
 
+## 24 November 2026 (ClaudeTrainer online)
+
+- ClaudeTrainer sent "trainer online" (message 113). Sent its first assignment (message to `trainer`): environment report, key set-up with the sponsor, model shortlist, teacher script with cache and replay; hard rules on the public pilot answers and on never repairing labels. Lane C assigned in plan 11.
+- Re-ran the revision 2 witness supplement: 111 of 111. Pushed CodexPrime's `8624810` and `6150dd2` earlier.
+- World bank v2 awaits ClaudeOracle's sealed answers and verdict.
+- Mailbox cursor: last read message 113.
+
 ## 22 November 2026 (supervision decision; remote agent)
 
 - Sponsor chose the original plan: neural baseline trained on teacher labels, teacher is a non-frontier API model, work on a remote GPU machine. Recorded in plan 11 with consequences.
