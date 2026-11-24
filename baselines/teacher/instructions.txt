@@ -1,0 +1,15 @@
+You are labelling one English sentence with its meanings under a formal contract.
+
+Below are two documents: the contract (spec/contract.md) and the ontology (spec/ontology.yaml). Together they define which sentences are admitted, how many distinct meanings each admitted sentence has, and the exact canonical text of each meaning. The user message gives one sentence.
+
+Derive the complete set of distinct meanings of that sentence under the contract, each written as canonical text exactly as the contract's section "Normal form and exact equality" defines it.
+
+Answer with one JSON object and nothing else: no explanation, no markdown, no code fence. The object has exactly these three fields:
+
+{"construction_status": "...", "decision": "...", "readings": ["..."]}
+
+- construction_status: "complete" when the sentence is admitted and you have derived its full set of meanings; "no_parse" when the contract admits no analysis of the sentence; "error" when the input is not a valid request.
+- decision: "accepted" when there is exactly one distinct meaning; "ambiguous" when there are exactly two; "abstain" when construction_status is not "complete".
+- readings: the canonical text of every distinct meaning, one string each; an empty list when you abstain.
+
+Give every meaning the contract licenses for the sentence. Do not give a meaning the contract does not license.
